@@ -13,90 +13,82 @@
 	<title></title>
 </head>
 <body>
+	<!--navigation bar start-->
+	<!--main navigation bar start-->
 	<nav class="navbar navbar-default navbar-fixed-top non-margin-nav">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<a class="navbar-brand" href="#">Award Certificates</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><a href="#">Templates</a></li>
-				<li class="active"><a href="#">Certificates</a></li>
+				<li><a href="#">Print Certificates</a></li>
+				<li><a href="#">Manage Templates</a></li>
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Email to Students<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="#">Schedule Emails</a></li>
 						<li><a href="#">Create Emails</a></li>
 						<li><a href="#">Draft Emails</a></li>
 						<li><a href="#">Send Emails</a></li>
 					</ul>
 				</li>
-				<li><a href="#">Event Package</a></li>
+				<li><a href="#">Manage Event Package</a></li>
 			</ul>
 		</div>
 	</nav>
+	<!--main navigation bar end-->
+	<!--sub navigation bar start-->
 	<div class="sub-nav">
 		<ul class="list-inline sub-nav-bar">
-		  <li class="active"><a href="#">Print Certificates »</a></li>
-		  <li><a href="#">Choose Template »</a></li>
+			<!--subnavigation content is here-->
+		  <li class="active"><a href="#"></a></li>
 		</ul> 
 		<ul class="list-inline sub-nav-right">
-			<li>
-	          <a href="#"><span class="glyphicon glyphicon-eye-open"></span></a>
-	        </li>
-<!-- 	       <li>
-	          <a href="#"><span class="glyphicon glyphicon-floppy-disk"></span></a>
-	        </li> -->
-	        <li>
-	          <a href="#"><span class="glyphicon glyphicon-question-sign"></span></a>
-	        </li>
+			<!--small icon is placed here-->
 		</ul>
 		<hr class="hori-divider">
 	</div>
-
+	<!--sub navigation bar end-->
+	<!--navigation bar end-->
+	
+	<!--middle part start-->
 	<div class="container-fluid dash-board">
 		<div class="row">
+			<!--sidebar start-->
 			<div class="col-sm-3 col-md-3">
 				<div class="sidebar bg-light d-sm-block">
 					<div class="sidebar-form">
 						<form class="side-form-content">
-<!-- 						<div class="checkbox">
-								<label><input type="checkbox" name="" value="">Ruoyi Wang</label>
-							</div>
-							<div class="checkbox">
-								<label><input type="checkbox" name="" value="">Sankar Narayanan</label>
-							</div> -->
+							<!--content like small templates or students names are here-->
 						</form>		
 						<div class="sidebar-action">
 							<div class="buttons">
-<!-- 							<button type="button" class="btn btn-primary btn-block">Select All</button>
-								<button type="button" class="btn btn-primary btn-block">Select Checked-in</button>
-								<button type="button" class="btn btn-primary btn-block">Clear All</button> -->
+								<!--buttons in sidebar-->
 							</div>	
 						</div>			
 					</div>
 				</div>
 			</div>
+			<!--sidebar end-->
+			<!--main content start-->
 			<main class="col-sm-9 col-md-9 d-none ml-sm-auto main-content">
-				<form enctype="multipart/form-data">
-				    <input name="file" type="file" />
-					<br><br><br>
-				    <input id="pdf-upload" type="button" value="Upload" />
-				</form>
-				<progrcsess></progrcsess>
-<!-- 				<p>
-				property when you want to have better control of the layout. The default value is visibleYou can use the overflow property when you want to have better control of the layout. The default value is visibleYou can use the overflow property when you want to have better control of the layout. The default value is visibleYou can use the overflow property when you want to have better control of the layout. The default value is visibleYou can use the overflow property when you want to have better control of the layout. The default value is visibleYou can use the overflow property when you want to have better control of the layout. The default value is visibleYou can use the overflow property when you want to have better control of the layout. The default value is visibleYou can use the overflow property when you want to have better control of the layout. The default value is visibleYou can use the overflow property when you want to have better control of the layout. The default value is visible
-				</p> -->
+				<!--Main content such as template/email content is here-->
 			</main>
+			<!--main content end-->
+
 		</div>
 	</div>
+	<!--middle part end-->
+
+	<!--footer start-->
 	<div class="footer footer-fixed">
-		<div class="footer-buttons-left">
-			<button type="button" class="btn btn-default">❮ Back</button>
-		</div>
 		<div class="footer-buttons-right">		
-			<button type="button" class="btn btn-success">Next ❯</button>
+			<!--buttons like next/email to print shop-->
 		</div>
-		
+		<div class="footer-buttons-left">
+			<!--buttons like "back"-->
+		</div>
+	<!--footer end-->
+
 	</div>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
