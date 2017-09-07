@@ -39,10 +39,23 @@ $( document ).ready(function() {
         console.log($(this).attr("id"));
     });
 
-    //click checkbox in the middle part
+    //check if there is a checked checkbox
     $(".side-form-content").on('click', 'input', function() {
             if(this.checked) {
                 $("#next").removeClass("disabled");
+            } else {
+                var ck = false;
+                $(".side-form-content input").each(function() {
+                    if(this.checked) {
+                        ck = true;
+                    }
+                    if(ck) {
+                        $("#next").removeClass("disabled");
+                    } else {
+                        $("#next").addClass("disabled");
+                    }
+                })
+                
             }
     });
 
@@ -66,7 +79,7 @@ $( document ).ready(function() {
     function ptCerTemp() {
         $(".sub-nav-left").append(subHome, subTem);      
         $(".sub-nav-right").append(subPrev);  
-        $(".side-form-content").append(smImg);
+        $(".side-form-content").append(smImg, smImg);
         //TODO: show pdf on left side of middle part
         $(".footer-buttons-right").append(butNext);
         $("#next").addClass("disabled");
