@@ -16,7 +16,7 @@ body {
 	z-index: 1000;
 }
 
-.sub-nav-bar {
+.sub-nav-left {
 	margin-left: 20px;
 }
 
@@ -65,7 +65,7 @@ body {
     width: 25%;
 }
 
-.buttons {
+.sidebar-buttons {
 	
 }
 .main-content {
