@@ -99,6 +99,10 @@ body {
 	padding-right: 20px;
 }
 
+.footer-buttons-right button {
+	margin-left: 20px;
+}
+
 @media screen and (min-width: 576px) {
 	.ml-sm-auto {
 	    margin-left: auto!important;
