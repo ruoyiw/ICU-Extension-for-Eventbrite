@@ -20,7 +20,8 @@ var btnDwld = "<button id='dwld' type='button' class='btn btn-success'>Download 
 var btnEmPrShp = "<button id='emprshp' type='button' class='btn btn-success'>Email Print Shop ❯</button>";
 var btnBck = "<button id='bck' type='button' class='btn btn-default'>❮ Back</button>";
 
-var smImg = "<div class='checkbox'><label class='sid-ck'><input type='checkbox' name='' value=''><img src='images/certi1.png' width='80%' class='img-responsive'></label></div>";
+var smImg="<div class='radio'><label><input type='radio' name='optradio'><img src='images/certi1.png' width='80%' class='img-responsive'></label></div>"
+
 
 $( document ).ready(function() {
 
