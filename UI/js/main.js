@@ -2,9 +2,10 @@
 var rootURL = "Please type down root url here";
 
 //Web elements
-var subHome = "<li><a href='#'>Home »</a></li>";
-var subSlcTem = "<li><a href='#'>Select Template »</a></li>"; 
-var subSlcStds = "<li><a href='#'>Select Students »</a></li>";
+var subHome = "<li>Home »</li>";
+var subSlcTem = "<li>Select Template »</li>"; 
+var subSlcStds = "<li>Select Students »</li>";
+var subDwnld = "<li>Download  </li>";
 var subPrev = "<li><a href='#''><span class='glyphicon glyphicon-eye-open' title='Preview'></span></a></li>"
 
 var stdName1 ="<div class='checkbox'><label><input type='checkbox' name='' value=''>Sankar Narayanan</label></div>"
@@ -82,13 +83,18 @@ $( document ).ready(function() {
         var isDisabled = $("#next").hasClass("disabled");
         //console.log(isDisabled);
         if(!isDisabled) {
-            var subnav = $(".sub-nav-left li").last().text();
-            subnav = subnav.slice(0, -2);
-            switch(subnav) {
-                case 'Select Template':
-                    slcStds();
-                    break;
-            }            
+        	$(".sub-nav-left li").each(function() {
+
+        		if($(this).hasClass("active-blue")) {
+
+		            var subnav = $(this).text().slice(0, -2);
+		            switch(subnav) {
+		                case 'Select Template':
+		                    slcStds();
+		                    break;
+		            }      			
+        		}
+        	})         
         }
 
     });
@@ -108,28 +114,16 @@ $( document ).ready(function() {
         }
     });
 
-    //Click "sub-nav"
-    /*
-    TODO: GET PREVIOUS DATA IN JQUERY
-    */
-    $(".sub-nav-left").on('click', 'li', function() {
-        var subnav = $(this).text();
-        subnav = subnav.slice(0, -2);
-        //alert(subnav);
-        switch(subnav) {
-            case 'Select Template':
-                slcTemp();
-                break;
-            case 'Select Students':
-                slcStds();
-                break;
-        }       
-    });
 
     function slcTemp() {
         //Reusable: Empty all elements in sub navigation bar, middle part and footer
         emptyAll();
         ptCerTemp();
+    }
+
+    function manageTem() {
+    	emptyAll();
+
     }
 
     function emptyAll() {
@@ -148,7 +142,8 @@ $( document ).ready(function() {
     TO DO: GET TEMPLATES FROM SERVER
     */
     function ptCerTemp() {
-        $(".sub-nav-left").append(subHome, subSlcTem);      
+        $(".sub-nav-left").append(subHome, subSlcTem, subSlcStds, subDwnld);     
+        $(".sub-nav-left").find("li").eq(1).addClass("active-blue");
         $(".sub-nav-right").append(subPrev);  
         $(".side-form-content").append(smImg, smImg);
         //TODO: show pdf on left side of middle part
@@ -160,8 +155,9 @@ $( document ).ready(function() {
     TO DO: GET STUDENTS NAMES FROM SERVER
     */ 
     function slcStds() {
-        $(".sub-nav-left").append(subSlcStds);
-        
+    	$(".sub-nav-left").find("li").eq(1).removeClass("active-blue");
+        $(".sub-nav-left").find("li").eq(2).addClass("active-blue");
+
         $(".side-form-content").empty();
         $(".side-form-content").append(stdName1,stdName2);
         $(".side-form-content").after(sdbraction);

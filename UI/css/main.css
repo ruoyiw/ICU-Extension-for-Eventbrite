@@ -20,6 +20,14 @@ body {
 	margin-left: 20px;
 }
 
+.active-blue {
+	color: #428bca;
+}
+
+.non-active-blue {
+	color: #5bc0de;
+}
+
 .sub-nav-right {
 	margin-top: -33px;
 	margin-right: 20px;
