@@ -6,14 +6,17 @@ var subHome = "<li>Home »</li>";
 var subSlcTem = "<li>Select Template »</li>"; 
 var subSlcStds = "<li>Select Students »</li>";
 var subDwnld = "<li>Download  </li>";
+var subMngTem = "<li>Manage Templates  </li>";
 var subPrev = "<li><a href='#''><span class='glyphicon glyphicon-eye-open' title='Preview'></span></a></li>"
 
 var stdName1 ="<div class='checkbox'><label><input type='checkbox' name='' value=''>Sankar Narayanan</label></div>"
 var stdName2 ="<div class='checkbox'><label><input checked type='checkbox' name='' value=''>Ruoyi Wang</label></div>"
-var sdbraction = "<div class='sidebar-action'><div class='sidebar-buttons'></div></div>"
+var sideActTop = "<div class='sidebar-action'><div class='sidebar-buttons' id='sideActTop'></div></div>"
+var sideActBottom = "<div class='sidebar-action'><div class='sidebar-buttons' id='sideActBottom'></div></div>"
 var btnSlcChkIn = "<button type='button' id='ckin' class='btn btn-primary btn-block'>Select Checked-in</button>"
 var btnSlcAll = "<button type='button' id='slcall' class='btn btn-primary btn-block'>Select Checked-in</button>"
 var btnClrAll = "<button type='button' id='clrall' class='btn btn-primary btn-block'>Select Checked-in</button>"
+var btnNewTem = "<button type='button' id='clrall' class='btn btn-primary btn-block'>New Template</button>"
 
 var btnNext = "<button id='next' type='button' class='btn btn-success'>Next ❯</button>";
 var btnCancle = "<button id='cancle' type='button' class='btn btn-default'>Cancle ❯</button>";
@@ -121,11 +124,6 @@ $( document ).ready(function() {
         ptCerTemp();
     }
 
-    function manageTem() {
-    	emptyAll();
-
-    }
-
     function emptyAll() {
         //Sub-nav
         $(".sub-nav-left").empty();
@@ -151,6 +149,18 @@ $( document ).ready(function() {
         $("#next").addClass("disabled");
     }
 
+    function manageTem() {
+    	emptyAll();
+    	$(".sub-nav-left").append(subHome, subMngTem);
+    	$(".sub-nav-left").find("li").eq(1).addClass("active-blue");
+    	$(".sub-nav-right").append(subPrev);  
+        $(".side-form-content").append(smImg, smImg);
+        //TODO: show pdf on left side of middle part
+        $(".side-form-content").after(sideActTop);
+        $("#sideActTop").append(btnNewTem);
+
+    }
+
     /*
     TO DO: GET STUDENTS NAMES FROM SERVER
     */ 
@@ -160,8 +170,8 @@ $( document ).ready(function() {
 
         $(".side-form-content").empty();
         $(".side-form-content").append(stdName1,stdName2);
-        $(".side-form-content").after(sdbraction);
-        $(".sidebar-buttons").append(btnSlcChkIn, btnSlcAll, btnClrAll);
+        $(".side-form-content").after(sideActBottom);
+        $("#sideActBottom").append(btnSlcChkIn, btnSlcAll, btnClrAll);
 
         $("#next").remove();
         $(".footer-buttons-right").append( btnDwld, btnEmPrShp);
