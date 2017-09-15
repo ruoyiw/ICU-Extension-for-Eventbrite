@@ -1,24 +1,36 @@
 //The root URL for the RESTful services
 var rootURL = "Please type down root url here";
 
+new_element=document.createElement("script");
+new_element.setAttribute("type","text/javascript");
+new_element.setAttribute("src","js/email.js");
+document.body.appendChild(new_element);
+
 //Web elements
 var subHome = "<li><a href='#'>Home »</a></li>";
 var subSlcTem = "<li><a href='#'>Select Template »</a></li>"; 
 var subSlcStds = "<li><a href='#'>Select Students »</a></li>";
+
 var subPrev = "<li><a href='#''><span class='glyphicon glyphicon-eye-open' title='Preview'></span></a></li>"
 
+
 var stdName1 ="<div class='checkbox'><label><input type='checkbox' name='' value=''>Sankar Narayanan</label></div>"
-var stdName2 ="<div class='checkbox'><label><input checked type='checkbox' name='' value=''>Ruoyi Wang</label></div>"
+var stdName2 ="<div class='checkbox'><label><input type='checkbox' name='' value=''>Ruoyi Wang</label></div>"
+
+
 var sdbraction = "<div class='sidebar-action'><div class='sidebar-buttons'></div></div>"
 var btnSlcChkIn = "<button type='button' id='ckin' class='btn btn-primary btn-block'>Select Checked-in</button>"
-var btnSlcAll = "<button type='button' id='slcall' class='btn btn-primary btn-block'>Select Checked-in</button>"
-var btnClrAll = "<button type='button' id='clrall' class='btn btn-primary btn-block'>Select Checked-in</button>"
+var btnSlcAll = "<button type='button' id='slcall' class='btn btn-primary btn-block'>Select All</button>"
+var btnClrAll = "<button type='button' id='clrall' class='btn btn-primary btn-block'>Clear All</button>"
 
 var btnNext = "<button id='next' type='button' class='btn btn-success'>Next ❯</button>";
-var btnCancle = "<button id='cancle' type='button' class='btn btn-default'>Cancle ❯</button>";
+var btnCancel = "<button id='cancle' type='button' class='btn btn-default'>Cancel ❯</button>";
 var btnDwld = "<button id='dwld' type='button' class='btn btn-success'>Download ❯</button>";
 var btnEmPrShp = "<button id='emprshp' type='button' class='btn btn-success'>Email Print Shop ❯</button>";
 var btnBck = "<button id='bck' type='button' class='btn btn-default'>❮ Back</button>";
+
+
+
 
 var smImg = "<div class='checkbox'><label class='sid-ck'><input type='checkbox' name='' value=''><img src='images/certi1.png' width='80%' class='img-responsive'></label></div>";
 
@@ -52,6 +64,8 @@ $( document ).ready(function() {
 
         console.log($(this).attr("id"));
     });
+
+
 
     //check if there is a checked checkbox
     $(".side-form-content").on('click', 'input', function() {
@@ -104,6 +118,9 @@ $( document ).ready(function() {
             case 'Select Template':
                 slcTemp();
                 break;
+            case 'Home':
+                emptyAll();
+                break;
         }
     });
 
@@ -141,6 +158,7 @@ $( document ).ready(function() {
         //Footer
         $(".footer-buttons-right").empty();
         $(".footer-buttons-left").empty();
+        $(".main-content").empty();
     }
 
     /*
@@ -154,6 +172,7 @@ $( document ).ready(function() {
         $(".footer-buttons-right").append(btnNext);
         $("#next").addClass("disabled");
     }
+
 
     /*
     TO DO: GET STUDENTS NAMES FROM SERVER
@@ -169,6 +188,15 @@ $( document ).ready(function() {
         $("#next").remove();
         $(".footer-buttons-right").append( btnDwld, btnEmPrShp);
         $(".footer-buttons-left").append(btnBck);
+    }
+
+
+
+    function createEmail() {
+        //Reusable: Empty all elements in sub navigation bar, middle part and footer
+        emptyAll();
+        slcRecipients();
+        newEmail();
     }
 
 });

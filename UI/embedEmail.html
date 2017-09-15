@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Email Form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="email-editor/dist/ui/trumbowyg.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="email-editor/dist/trumbowyg.min.js"></script>
+</head>
+<body>
+
+<div id="mainform">
+    <form class="form-horizontal" action="/action_page.php">
+        <div class="form-group">
+            <label class="control-label col-sm-1">From:</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="emailFrom" placeholder="Sender" name="email">
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-1">To:</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="emailTo" placeholder="Recipients" name="email">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-1">cc:</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="ccTo" placeholder="Recipients" name="email">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-1">Subject:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="subject" placeholder="Subject" name="text">
+            </div>
+        </div>
+
+        <div id="editor"></div>
+
+    </form>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#editor').trumbowyg();
+    });
+</script>
+
+</body>
+
+
+
+
+
+</html>

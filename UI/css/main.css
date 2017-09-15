@@ -71,6 +71,9 @@ body {
 .main-content {
 	padding: 120px 30px 90px 30px;
 }
+#emailForm {
+    padding: 20px 30px 20px 30px;
+}
 
 .footer {
 	border-top: 1px solid #eee;
