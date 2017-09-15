@@ -16,6 +16,7 @@ function slcRecipients() {
 }
 
 function newEmail() {
+    $(".main-content").load("embedEmail.html");
     $(".main-content").append(subHome, subNewEmail);
 
 }
