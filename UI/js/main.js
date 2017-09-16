@@ -154,7 +154,7 @@ $( document ).ready(function() {
         $(".sub-nav-right").empty();
         //Middle part
         $(".side-form-content").empty();
-        $(".sidebar-action").remove();    
+        $(".sidebar-action").remove();
         //Footer
         $(".footer-buttons-right").empty();
         $(".footer-buttons-left").empty();
@@ -165,6 +165,7 @@ $( document ).ready(function() {
     TO DO: GET TEMPLATES FROM SERVER
     */
     function ptCerTemp() {
+        $(".main-content").load("embedapi.html");
         $(".sub-nav-left").append(subHome, subSlcTem);      
         $(".sub-nav-right").append(subPrev);  
         $(".side-form-content").append(smImg, smImg);

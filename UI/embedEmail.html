@@ -45,6 +45,9 @@
 
         <div id="editor"></div>
 
+        <button id="start_uploads">Upload</button>
+
+
     </form>
 </div>
 
@@ -52,7 +55,14 @@
     $(document).ready(function () {
         $('#editor').trumbowyg();
     });
+
+    $('#start_uploads').click(function () {
+        $('.file_upload_start button').click();
+        return false;
+    });
 </script>
+
+
 
 </body>
 
