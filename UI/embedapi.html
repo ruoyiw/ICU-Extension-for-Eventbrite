@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<script type="text/javascript" src="src/embedapi.js"></script>
+<script type="text/javascript" src="svg-editor/src/embedapi.js"></script>
 <script type="text/javascript">
     var SAMPLE_SVG_STRING = '<svg width="580" height="400" xmlns="http://www.w3.org/2000/svg">\n' +
         ' <!-- Created with SVG Editor - http://github.com/mzalive/SVG Editor/ -->\n' +
@@ -52,7 +52,7 @@ var SAMPLE_SVG_STRING1 = "<svg width='580' height='400' xmlns='http://www.w3.org
 
 
     function loadSvg() {
-        svgCanvas.setSvgString(SAMPLE_SVG_STRING1)(function (d, e) {
+        svgCanvas.setSvgString(SAMPLE_SVG_STRING)(function (d, e) {
             alert(d, e)
         });
     }
@@ -68,15 +68,14 @@ var SAMPLE_SVG_STRING1 = "<svg width='580' height='400' xmlns='http://www.w3.org
 
     function checkSvgs() {
         var saveJson = jsonEscape(jsonTem);
-        console.log(JSON.parse(saveJson));
-
+        for(i in saveJson.templates) {
             alert("lol");
-            $(".svg-list").append(jsonTem.templates[0].content);
-
+            $(".svg-list").append(jsonTem.templates[i].content);
+        }
     }
 </script>
 <div class="svg-list"></div>
-<iframe src="index.html" width="900px" height="600px" id="svgEditor" onload="init_embed()"></iframe>
+<iframe src="svg-editor/index.html" width="900px" height="600px" id="svgEditor" onload="init_embed()"></iframe>
 <br/>
 <button onclick="loadSvg();">Load example</button>
 <button onclick="saveSvg();">Save data</button>

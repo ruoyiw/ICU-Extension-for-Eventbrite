@@ -109,11 +109,32 @@ $( document ).ready(function() {
     */
     function ptCerTemp() {
         $(".main-content").append(svgEditor);
- 
-        $(".side-form-content").append(smTem3, smTem3);
+        console.log(json_obj);
+
+        for(i in json_obj) {
+            $(".side-form-content").
+                append("<div class='radio'><label><input type='radio' name='optradio'>"+json_obj[i].content)+"</label></div>";
+        };
+
+        //loadSvg();
+
+        $(".side-form-content").find("input").first().attr(
+            "checked","checked"
+        );
+
+
+
+        $(".side-form-content svg").each(function() {
+            $(this).attr({
+                "viewBox": "0 0 580 400",
+                "preserveAspectRatio": "xMidYMid meet",
+                "width": "80%",
+                "height": "80%"});
+        });
+
+        //$(".side-form-content").append(json_obj[1].content);
         //TODO: show pdf on left side of middle part
         $(".footer-buttons-right").append(btnNext);
-        $("#next").addClass("disabled");
     }
 
 
