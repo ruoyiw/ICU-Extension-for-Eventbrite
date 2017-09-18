@@ -206,7 +206,7 @@ $( document ).ready(function() {
     // Variable to store your files
     var files;
     var attachments;
-    var firstFile = 1;
+    var fileNum = 0;
 
     // Add events
     $('#file').on('change', prepareUpload);
@@ -245,13 +245,15 @@ $( document ).ready(function() {
                 success_jsonpCallback(data);
                 // Success so call function to process the form
                 //submitForm(event, data);
-                if (firstFile == 1) {
+                if (fileNum == 0) {
                     attachments = data.filename;
-                    firstFile = firstFile + 1;
+                    fileNum++;
                 } else {
                     attachments = attachments + ";" + data.filename;
+                    fileNum++;
                 }
                 console.log(attachments);
+                alert(fileNum + " attachments: " + attachments)
 
             },
             error: function(jqXHR, textStatus, errorThrown)
@@ -265,31 +267,28 @@ $( document ).ready(function() {
 
 
 
-    $("#sendEmail").click(function() {
+    $("#sendEmail").click(function(event) {
 
         // stop the regular form submission
         event.preventDefault();
 
         $.post( "http://frank.mzalive.org/service/icu-service/webapi/mail/sendMail",
-            { FROM: $('#emailFrom').val(),
-              TO_LIST: $('#emailTo').val(),
-              CC_LIST: $('#ccTo').val(),
-              BCC_LIST: $('#bccTo').val(),
-              SUBJECT: $('#subject').val(),
-              CONTENT: $('#editor').html(),
-              ATTACHMENT_LIST: attachments
-            })
-        success: function(data, textStatus, jqXHR)
-        {
+        { FROM: $('#emailFrom').val(),
+          TO_LIST: $('#emailTo').val(),
+          CC_LIST: $('#ccTo').val(),
+          BCC_LIST: $('#bccTo').val(),
+          SUBJECT: $('#subject').val(),
+          CONTENT: $('#editor').html(),
+          ATTACHMENT_LIST: attachments,
+        }) .done(function(data, textStatus, jqXHR) {
             success_jsonpCallback(data);
-
-        },
-        error: function(jqXHR, textStatus, errorThrown)
-        {
-            // Handle errors here
+            $("#emailForm").trigger("reset");
+            $("#editor").empty();
+            alert("Send successfully");
+        })
+            .fail(function(jqXHR, textStatus, errorThrown) {
             error_jsonpCallback(event);
-            // STOP LOADING SPINNER
-        }
+        })
     });
 
     function success_jsonpCallback(d) {
@@ -301,7 +300,6 @@ $( document ).ready(function() {
         console.log("error");
         console.log(e);
     }
-
 
 
 
