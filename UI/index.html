@@ -14,6 +14,15 @@
 	<title></title>
 </head>
 <body>
+	
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="svg-editor/src/embedapi.js"></script>
+	<script type="text/javascript" src="js/template.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+
 	<!--navigation bar start-->
 	<!--main navigation bar start-->
 	<nav class="navbar navbar-default navbar-fixed-top non-margin-nav">
@@ -76,6 +85,7 @@
 			<!--main content start-->
 			<main class="col-sm-9 col-md-9 d-none ml-sm-auto main-content">
 				<!--Main content such as template/email content is here-->
+				<iframe src='svg-editor/index.html' width='900px' height='600px' id='svgEditor' onload='init_embed();'></iframe>
 			</main>
 			<!--main content end-->
 
@@ -94,13 +104,7 @@
 	<!--footer end-->
 
 	</div>
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script type="text/javascript" src="js/bootstrap.js"></script>
-	<script type="text/javascript" src="svg-editor/src/embedapi.js"></script>
-	<script type="text/javascript" src="js/template.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+
 
 </body>
 </html>

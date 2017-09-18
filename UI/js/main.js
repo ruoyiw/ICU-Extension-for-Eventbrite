@@ -31,7 +31,7 @@ var btnBck = "<button id='bck' type='button' class='btn btn-default'>❮ Back</b
 
 
 $( document ).ready(function() {
-
+    $(".main-content").hide();
     //click sub-nav
     $(".nav li").click(function() {
         $(".nav li").removeClass("active");
@@ -97,7 +97,7 @@ $( document ).ready(function() {
         //Middle part
         $(".side-form-content").empty();
         $(".sidebar-action").remove();
-        $(".main-content").empty();        
+        //$(".main-content").hide();        
         //Footer
         $(".footer-buttons-right").empty();
         $(".footer-buttons-left").empty();
@@ -108,19 +108,22 @@ $( document ).ready(function() {
     TO DO: GET TEMPLATES FROM SERVER
     */
     function ptCerTemp() {
-        $(".main-content").append(svgEditor);
+        
         console.log(json_obj);
 
         for(i in json_obj) {
             $(".side-form-content").
-                append("<div class='radio'><label><input type='radio' name='optradio'>"+json_obj[i].content)+"</label></div>";
+                append("<div class='radio'><label><input type='radio' name='optradio'>"+json_obj[i].content+"</label></div>");
         };
-
-        //loadSvg();
-
         $(".side-form-content").find("input").first().attr(
             "checked","checked"
         );
+        //TODO: figure out the issue there
+        //$(".main-content").append(svgEditor);
+        $(".main-content").show();
+        loadSvg();
+
+
 
 
 
