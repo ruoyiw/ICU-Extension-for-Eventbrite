@@ -31,7 +31,9 @@ var btnBck = "<button id='bck' type='button' class='btn btn-default'>❮ Back</b
 
 
 $( document ).ready(function() {
-    $(".main-content").hide();
+    //Hide svg Canvas
+    $("#svgEditor").hide();
+
     //click sub-nav
     $(".nav li").click(function() {
         $(".nav li").removeClass("active");
@@ -62,12 +64,11 @@ $( document ).ready(function() {
         console.log($(this).attr("id"));
     });
 
-
-
-    //check if there is a checked checkbox
-    $(".side-form-content").on('click', 'input', function() {
+    function checkBox() {
+            console.log("click");
             if(this.checked) {
                 $("#next").removeClass("disabled");
+
             } else {
                 var ck = false;
                 $(".side-form-content input").each(function() {
@@ -81,65 +82,36 @@ $( document ).ready(function() {
                     $("#next").addClass("disabled");
                 }                
             }
+    }
+
+    //check if there is a checked checkbox
+    $(".side-form-content").on('click', 'input', function() {
+        checkBox();
+        if($(this).attr("type")==="radio") {
+            var svg_name = $(this).attr("class");
+            loadSvg(svg_name);
+        }
+
     });
 
-
-
-
-    function slcTemp() {
-        //Reusable: Empty all elements in sub navigation bar, middle part and footer
-        console.log("slcTemp")
-        emptyAll();
-        ptCerTemp();
-    }
 
     function emptyAll() {
         //Middle part
         $(".side-form-content").empty();
         $(".sidebar-action").remove();
-        //$(".main-content").hide();        
+        $("#svgEditor").hide();        
         //Footer
         $(".footer-buttons-right").empty();
         $(".footer-buttons-left").empty();
 
     }
 
-    /*
-    TO DO: GET TEMPLATES FROM SERVER
-    */
-    function ptCerTemp() {
-        
-        console.log(json_obj);
-
-        for(i in json_obj) {
-            $(".side-form-content").
-                append("<div class='radio'><label><input type='radio' name='optradio'>"+json_obj[i].content+"</label></div>");
-        };
-        $(".side-form-content").find("input").first().attr(
-            "checked","checked"
-        );
-        //TODO: figure out the issue there
-        //$(".main-content").append(svgEditor);
-        $(".main-content").show();
-        loadSvg();
-
-
-
-
-
-        $(".side-form-content svg").each(function() {
-            $(this).attr({
-                "viewBox": "0 0 580 400",
-                "preserveAspectRatio": "xMidYMid meet",
-                "width": "80%",
-                "height": "80%"});
-        });
-
-        //$(".side-form-content").append(json_obj[1].content);
-        //TODO: show pdf on left side of middle part
-        $(".footer-buttons-right").append(btnNext);
+    function slcTemp() {
+        //Reusable: Empty all elements in sub navigation bar, middle part and footer
+        console.log("slcTemp")
+        emptyAll();
+        showTem();
     }
-
 
 
 

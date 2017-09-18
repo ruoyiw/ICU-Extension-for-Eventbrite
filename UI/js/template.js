@@ -1,6 +1,4 @@
-
-
-
+//Singleton Pattern
 var svgCanvas_singleton = (function () {
     var instance;
  
@@ -34,18 +32,25 @@ var SAMPLE_SVG_STRING = '<svg width="580" height="400" xmlns="http://www.w3.org/
     ' </g>\n' +
     '</svg>'
 
-//TO DO: In the future, jsonTem will be the json Object fetched through ajax
+//TO DO: In the future, obj will be the json Object fetched through ajax
 var json_obj = [{"name": "item_1", "content": SAMPLE_SVG_STRING}, {"name": "item_2", "content": SAMPLE_SVG_STRING}];
 
 function init_embed() {
       svgCanvas_singleton.getInstance();
 }
 
-function loadSvg() {
-    svgCanvas_singleton.getInstance().setSvgString(SAMPLE_SVG_STRING)(function (d, e) {
-        alert(d, e)
-    });
-}
+function loadSvg(name) {
+        var svg_content = null;
+        for(i in json_obj) {
+            if(json_obj[i].name === name) {
+                svg_content = json_obj[i].content;
+                break;
+            }
+        }
 
+        svgCanvas_singleton.getInstance().setSvgString(svg_content)(function (d, e) {
+            console.log("load successfully: "+d, e);
+        });
+}
 
 //var svgEditor = "<iframe src='svg-editor/index.html' width='900px' height='600px' id='svgEditor' onload='init_embed();'></iframe>";
