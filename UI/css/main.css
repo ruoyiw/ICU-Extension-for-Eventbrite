@@ -3,6 +3,10 @@ body {
 	font-size: 16px;
 }
 
+.svg-entity {
+	padding-bottom: 20px;
+}
+
 .non-margin-nav {
 	margin-bottom: 0!important;
 }

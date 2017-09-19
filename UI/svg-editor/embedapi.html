@@ -22,9 +22,11 @@
         ' </g>\n' +
         '</svg>'
 
+    var SAMPLE_SVG_STRING2 = "<svg width="580" height="400" xmlns="http://www.w3…"1.5" stroke="#000" fill="#d65c5c"/>↵ </g>↵</svg>"
+
     var svgCanvas = null;
 
-    var json_obj = [{"name": "item_1", "content": SAMPLE_SVG_STRING}, {"name": "item_2", "content": SAMPLE_SVG_STRING}];
+    var json_obj = [{"name": "item_1", "content": SAMPLE_SVG_STRING}, {"name": "item_2", "content": SAMPLE_SVG_STRING2}];
 
     function init_embed() {
           svgCanvas = new SvgEditorEmbedded(window.frames['svgEditor']);
@@ -53,9 +55,9 @@
                 alert('error ' + e);
             }
             else {
-                json_obj.push({"name": $("#name").val(), "content": d});
-                console.log(json_obj);
-                //console.log('The exported SVG string:\n\n' + d);                
+                //json_obj.push({"name": $("#name").val(), "content": d});
+                //console.log(json_obj);
+                console.log('The exported SVG string:\n\n' + d);                
             }
 
         });

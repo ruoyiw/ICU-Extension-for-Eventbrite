@@ -16,6 +16,9 @@ var sdbraction = "<div class='sidebar-action'><div class='sidebar-buttons'></div
 var btnSlcChkIn = "<button type='button' id='ckin' class='btn btn-primary btn-block'>Select Checked-in</button>"
 var btnSlcAll = "<button type='button' id='slcall' class='btn btn-primary btn-block'>Select All</button>"
 var btnClrAll = "<button type='button' id='clrall' class='btn btn-primary btn-block'>Clear All</button>"
+var btnNewTem = "<button type='button' id='newtem' class='btn btn-primary btn-block'>New Template</button>"
+var btnDelTem = "<button type='button' id='deltem' class='btn btn-primary btn-block'>Delete Template</button>"
+
 
 
 
@@ -24,7 +27,8 @@ var btnCancel = "<button id='cancle' type='button' class='btn btn-default'>Cance
 var btnDwld = "<button id='dwld' type='button' class='btn btn-success'>Download ❯</button>";
 var btnEmPrShp = "<button id='emprshp' type='button' class='btn btn-success'>Email Print Shop ❯</button>";
 var btnBck = "<button id='bck' type='button' class='btn btn-default'>❮ Back</button>";
-
+var btnSaveAs = "<button type='button' id='saveas' class='btn btn-success'>Save As</button>"
+var btnSaveTem = "<button type='button' id='savetem' class='btn btn-success'>Save</button>"
 
 
 
@@ -41,7 +45,6 @@ $( document ).ready(function() {
 
         switch($(this).attr("id")) {
             case "certi":
-                console.log("print");
                 slcTemp();
                 break;
             case "manage-tem":
@@ -94,11 +97,18 @@ $( document ).ready(function() {
 
     });
 
+    $(".sidebar-buttons").on('click', 'button', function() {
+        console.log($(this).attr("id"));
+        switch($(this).attr("id")) {
+            case "newtem":
+                loadSvg();
+        }
+    });
 
     function emptyAll() {
         //Middle part
         $(".side-form-content").empty();
-        $(".sidebar-action").remove();
+        $(".sidebar-action").hide();
         $("#svgEditor").hide();        
         //Footer
         $(".footer-buttons-right").empty();
@@ -106,11 +116,15 @@ $( document ).ready(function() {
 
     }
 
-    function slcTemp() {
+    function manageTem() {
         //Reusable: Empty all elements in sub navigation bar, middle part and footer
         console.log("slcTemp")
         emptyAll();
         showTem();
+        addActionBar();
+        //load the first svg in editor
+        loadSvg(json_obj[0].name);
+        addFooterBtn();
     }
 
 
