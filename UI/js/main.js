@@ -15,9 +15,9 @@ var subSlcStds = "<li><a href='#'>Select Students »</a></li>";
 var subPrev = "<li><a href='#''><span class='glyphicon glyphicon-eye-open' title='Preview'></span></a></li>"
 
 
-var stdName1 ="<div class='checkbox'><label><input type='checkbox' name='' value=''>Sankar Narayanan</label></div>"
+var stdName1 ="<div class='checkbox'><label><input id='name1' type='checkbox' name='' value=''>Sankar Narayanan</label></div>"
 var emailAddr1 = "1073653692@qq.com"
-var stdName2 ="<div class='checkbox'><label><input type='checkbox' name='' value=''>Ruoyi Wang</label></div>"
+var stdName2 ="<div class='checkbox'><label><input id='name2' type='checkbox' name='' value=''>Ruoyi Wang</label></div>"
 var emailAddr2 = "ruoyiw@student.unimelb.edu.au"
 
 var sdbraction = "<div class='sidebar-action'><div class='sidebar-buttons'></div></div>"
@@ -279,9 +279,11 @@ $( document ).ready(function() {
           BCC_LIST: $('#bccTo').val(),
           SUBJECT: $('#subject').val(),
           CONTENT: $('#editor').html(),
-          ATTACHMENT_LIST: attachments,
+          ATTACHMENT_LIST: attachments
         }) .done(function(data, textStatus, jqXHR) {
             success_jsonpCallback(data);
+            console.log($('#emailTo').val());
+            console.log($('#ccTo').val());
             $("#emailForm").trigger("reset");
             $("#editor").empty();
             alert("Send successfully");

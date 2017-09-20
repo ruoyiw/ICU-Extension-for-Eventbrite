@@ -1,7 +1,7 @@
 var subNewEmail = "<li><a href='#'>New Email »</a></li>";
 var btnSave = "<button id='sendSave' type='submit' class='btn btn-success' name='submit'>Save </button>";
 var btnSend = "<button id='sendEmail' type='submit' class='btn btn-success' name='submit'>Send </button>";
-
+var emailNum = 0;
 
 
 
@@ -19,11 +19,36 @@ function slcRecipients() {
 function newEmail() {
     $(".main-content").load("embedEmail.html");
     $(".main-content").append(subHome, subNewEmail);
-    $(".checkbox").checkbox(function(){
-        $("#emailTo").text("1");
-    });
 
 }
+
+$("#name1").click( function() {
+    if($('#name1').is(':checked') && emailNum == 0) {
+        $('#emailTo').val(emailAddr1);
+        emailNum++;
+    } else if ($('#name1').is(':checked') && emailNum > 0) {
+        $('#emailTo').val($('#emailTo').val() + ";" + emailAddr1);
+        emailNum++;
+    } else {
+        $('#emailTo').val("");
+        emailNum--;
+    }
+});
+
+$("#name2").click( function() {
+    if($('#name2').is(':checked') && emailNum == 0) {
+        $('#emailTo').val(emailAddr2);
+        emailNum++;
+    } else if ($('#name2').is(':checked') && emailNum > 0) {
+        $('#emailTo').val($('#emailTo').val() + ";" + emailAddr2);
+        emailNum++;
+    } else {
+        $('#emailTo').val("");
+        emailNum--;
+    }
+});
+
+
 
 
 
