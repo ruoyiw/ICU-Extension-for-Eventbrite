@@ -16,9 +16,10 @@ var sdbraction = "<div class='sidebar-action'><div class='sidebar-buttons'></div
 var btnSlcChkIn = "<button type='button' id='ckin' class='btn btn-primary btn-block'>Select Checked-in</button>"
 var btnSlcAll = "<button type='button' id='slcall' class='btn btn-primary btn-block'>Select All</button>"
 var btnClrAll = "<button type='button' id='clrall' class='btn btn-primary btn-block'>Clear All</button>"
-var btnNewTem = "<button type='button' id='newtem' class='btn btn-primary btn-block'>New Template</button>"
+//var btnNewTem = "<button type='button' id='newtem' class='btn btn-primary btn-block'>New Template</button>"
 var btnDelTem = "<button type='button' id='deltem' class='btn btn-primary btn-block'>Delete Template</button>"
-
+var btnSaveAs = "<button type='button' id='saveas' class='btn btn-primary btn-block' data-toggle='modal' data-target='#save-as'>Save As a New Template</button>"
+var btnSaveTem = "<button type='button' id='savetem' class='btn btn-primary btn-block'>Save Template</button>"
 
 
 
@@ -27,8 +28,7 @@ var btnCancel = "<button id='cancle' type='button' class='btn btn-default'>Cance
 var btnDwld = "<button id='dwld' type='button' class='btn btn-success'>Download ❯</button>";
 var btnEmPrShp = "<button id='emprshp' type='button' class='btn btn-success'>Email Print Shop ❯</button>";
 var btnBck = "<button id='bck' type='button' class='btn btn-default'>❮ Back</button>";
-var btnSaveAs = "<button type='button' id='saveas' class='btn btn-success'>Save As</button>"
-var btnSaveTem = "<button type='button' id='savetem' class='btn btn-success'>Save</button>"
+
 
 
 
@@ -87,22 +87,34 @@ $( document ).ready(function() {
             }
     }
 
-    //check if there is a checked checkbox
+    //select 
     $(".side-form-content").on('click', 'input', function() {
         checkBox();
+
+        //Don't move this if statement out of this on() function
         if($(this).attr("type")==="radio") {
-            var svg_name = $(this).attr("class");
+            var svg_name = $(this).attr("id");
             loadSvg(svg_name);
         }
-
     });
 
-    $(".sidebar-buttons").on('click', 'button', function() {
+    //clcik the right footer buttons
+    $(".footer-buttons-right").on('click', 'button', function() {
         console.log($(this).attr("id"));
         switch($(this).attr("id")) {
-            case "newtem":
-                loadSvg();
+            case "saveas":
+                addNewTem();
+                break;
+            case "savetem":
+                modifyTem();
+                break;
         }
+    });
+
+
+    //Add the new template after click "save as"
+    $(".modal-footer").on("click", "button", function() {
+        addNewTem($("#svg-name").val());
     });
 
     function emptyAll() {
@@ -116,11 +128,11 @@ $( document ).ready(function() {
 
     }
 
-    function manageTem() {
+    function slcTemp() {
         //Reusable: Empty all elements in sub navigation bar, middle part and footer
         console.log("slcTemp")
         emptyAll();
-        showTem();
+        showTemFir();
         addActionBar();
         //load the first svg in editor
         loadSvg(json_obj[0].name);

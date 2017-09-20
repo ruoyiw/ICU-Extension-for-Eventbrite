@@ -33,7 +33,7 @@
 			</div>
 			<ul class="nav navbar-nav">
 				<li id="certi"><a href="#">Certificates</a></li>
-				<li id="manage-tem"><a href="#">Manage Templates</a></li>
+				<!-- <li id="manage-tem"><a href="#">Manage Templates</a></li> -->
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Email to Students<span class="caret"></span></a>
 					<ul class="dropdown-menu">
@@ -87,6 +87,25 @@
 			<main class="col-sm-9 col-md-9 d-none ml-sm-auto main-content">
 				<!--Main content such as template/email content is here-->
 				<iframe src='svg-editor/index.html' width='900px' height='600px' id='svgEditor' onload='init_embed();'></iframe>
+				  <!-- Modal -->
+				  <div class="modal fade" id="save-as" role="dialog">
+				    <div class="modal-dialog modal-sm">
+				      <div class="modal-content">
+				        <div class="modal-header">
+				          <button type="button" class="close" data-dismiss="modal">&times;</button>
+				          <h4 class="modal-title">Template Name</h4>
+				        </div>
+				        <div class="modal-body">
+				          <div class="form-group">
+							  <input type="text" class="form-control input-sm" id="svg-name" placeholder="please input your template name">
+						  </div>
+				        </div>
+				        <div class="modal-footer">
+				          <button type="button" id="save-complete" class="btn btn-default" data-dismiss="modal">Save as a new Template</button>
+				        </div>
+				      </div>
+				    </div>
+				  </div>
 			</main>
 
 			<!--main content end-->
