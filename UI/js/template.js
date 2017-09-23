@@ -31,6 +31,7 @@ var SAMPLE_SVG_STRING = '<svg width="580" height="400" xmlns="http://www.w3.org/
     '  <path id="svg_1" d="m186.5825,162.04691l79.06753,0l24.43247,-73.71964l24.43249,73.71964l79.06751,0l-63.96685,45.56072l24.43374,73.71964l-63.96688,-45.56197l-63.96687,45.56197l24.43374,-73.71964l-63.96688,-45.56072z" stroke-width="1.5" stroke="#000" fill="#ff0000"/>\n' +
     ' </g>\n' +
     '</svg>'
+    
 var SAMPLE_SVG_STRING1 = '<svg width="580" height="400" xmlns="http://www.w3.org/2000/svg">\n'+
  '<!-- Created with SVG Editor - http://github.com/mzalive/SVG Editor/ -->\n'+
  '<g>\n'+
@@ -51,7 +52,7 @@ var SAMPLE_SVG_STRING1 = '<svg width="580" height="400" xmlns="http://www.w3.org
  '</g>\n'+
 '</svg>'
 //TO DO: In the future, obj will be the json Object fetched through ajax-*9+9
-var json_obj = [{"name": "item_1", "content": SAMPLE_SVG_STRING}, 
+var tem_list = [{"name": "item_1", "content": SAMPLE_SVG_STRING}, 
                 {"name": "item_2", "content": SAMPLE_SVG_STRING1},];
 
 function init_embed() {
@@ -60,9 +61,9 @@ function init_embed() {
 
 	function loadSvg(name) {
 	    var svg_content = null;
-	    for(i in json_obj) {
-	        if(json_obj[i].name === name) {
-	            svg_content = json_obj[i].content;
+	    for(i in tem_list) {
+	        if(tem_list[i].name === name) {
+	            svg_content = tem_list[i].content;
 	            break;
 	        }
 	    }
@@ -73,25 +74,27 @@ function init_embed() {
 
 	}
 
+    function renderATem(i) {
+        $(".side-form-content").find("input").eq(i).attr("id", tem_list[i].name);
+
+        $(".side-form-content").find("svg").eq(i).attr({
+            "viewBox": "0 0 580 400",
+            "preserveAspectRatio": "xMidYMid meet",
+            "width": "80%",
+            "height": "80%"});       
+    }
+
 	function addTemToBar(i) {
         $(".side-form-content").
-            append("<div class='radio svg-entity'><label><p class='svg-name'>"+ json_obj[i].name +"</p><input type='radio' name='optradio'>"+json_obj[i].content+"</label></div>");
-            
-        $(".side-form-content").find("input").eq(i).attr("id", json_obj[i].name);
-
-		$(".side-form-content").find("svg").eq(i).attr({
-		    "viewBox": "0 0 580 400",
-		    "preserveAspectRatio": "xMidYMid meet",
-		    "width": "80%",
-		    "height": "80%"});
-
+            append("<div class='radio svg-entity'><label><p class='svg-name'>"+ tem_list[i].name +"</p><input type='radio' name='optradio'>"+tem_list[i].content+"</label></div>");
+        renderATem(i);
 	}
 
 
 	function renderTemList() {
-		console.log(json_obj);
+		console.log(tem_list);
         //render svg lists in left bar
-        for(i in json_obj) {
+        for(i in tem_list) {
         	addTemToBar(i);
         };
 	}
@@ -111,7 +114,7 @@ function init_embed() {
     }
 
     function addFooterBtn() {
-        $(".footer-buttons-right").append(btnDwld, btnEmPrShp);
+        $(".footer-buttons-right").append(btnDwld, btnEmPrShp, btnEmStd);
     }
 
     function addActionBar() {
@@ -129,15 +132,31 @@ function init_embed() {
 	        else {
 	            //console.log("get svg content successfully"+d);
 	            console.log('The exported SVG string:\n\n' + d);    
-	            json_obj.push({"name": svg_name, "content": d});    
+	            tem_list.push({"name": svg_name, "content": d});    
 
 	            //render new template on left bar
-	            addTemToBar(json_obj.length-1);       
+	            addTemToBar(tem_list.length-1);       
 	        }
+	    }); 
+    }
 
-	    });
 
-        
+
+
+    function modifyTem(index) {
+        svgCanvas_singleton.getInstance().getSvgString()(function handleSvgData(d, e) {
+            if (e) {
+                console.log('error ' + e);
+            }
+            else {
+                //console.log('The exported SVG string:\n\n' + d);    
+                tem_list[index].content = d;  
+                $(".side-form-content").find(".svg-entity").eq(index).empty();
+                $(".side-form-content").find(".svg-entity").eq(index).append("<label><p class='svg-name'>"+ tem_list[index].name +"</p><input type='radio' name='optradio'>"+tem_list[index].content+"</label>");
+                renderATem(index);
+            }
+        }); 
+
     }
 
 

@@ -17,9 +17,9 @@ var btnSlcChkIn = "<button type='button' id='ckin' class='btn btn-primary btn-bl
 var btnSlcAll = "<button type='button' id='slcall' class='btn btn-primary btn-block'>Select All</button>"
 var btnClrAll = "<button type='button' id='clrall' class='btn btn-primary btn-block'>Clear All</button>"
 //var btnNewTem = "<button type='button' id='newtem' class='btn btn-primary btn-block'>New Template</button>"
-var btnDelTem = "<button type='button' id='deltem' class='btn btn-primary btn-block'>Delete Template</button>"
-var btnSaveAs = "<button type='button' id='saveas' class='btn btn-primary btn-block' data-toggle='modal' data-target='#save-as'>Save As a New Template</button>"
-var btnSaveTem = "<button type='button' id='savetem' class='btn btn-primary btn-block'>Save Template</button>"
+var btnDelTem = "<button type='button' id='deltem' class='btn btn-primary btn-block'>Delete</button>"
+var btnSaveAs = "<button type='button' id='saveas' class='btn btn-primary btn-block' data-toggle='modal' data-target='#save-as'>Save As</button>"
+var btnSaveTem = "<button type='button' id='savetem' class='btn btn-primary btn-block'>Save</button>"
 
 
 
@@ -27,6 +27,7 @@ var btnNext = "<button id='next' type='button' class='btn btn-success'>Next ❯<
 var btnCancel = "<button id='cancle' type='button' class='btn btn-default'>Cancel ❯</button>";
 var btnDwld = "<button id='dwld' type='button' class='btn btn-success'>Download ❯</button>";
 var btnEmPrShp = "<button id='emprshp' type='button' class='btn btn-success'>Email Print Shop ❯</button>";
+var btnEmStd = "<button id='emprshp' type='button' class='btn btn-success'>Email Students ❯</button>";
 var btnBck = "<button id='bck' type='button' class='btn btn-default'>❮ Back</button>";
 
 
@@ -78,7 +79,7 @@ $( document ).ready(function() {
                     if(this.checked) {
                         ck = true;
                     }
-                })
+                });
                 if(ck) {
                     $("#next").removeClass("disabled");
                 } else {
@@ -91,7 +92,7 @@ $( document ).ready(function() {
     $(".side-form-content").on('click', 'input', function() {
         checkBox();
 
-        //Don't move this if statement out of this on() function
+        //Don't move this "if statement" out of this on() function
         if($(this).attr("type")==="radio") {
             var svg_name = $(this).attr("id");
             loadSvg(svg_name);
@@ -102,11 +103,11 @@ $( document ).ready(function() {
     $(".footer-buttons-right").on('click', 'button', function() {
         console.log($(this).attr("id"));
         switch($(this).attr("id")) {
-            case "saveas":
-                addNewTem();
+            case "emprshp":
+                
                 break;
-            case "savetem":
-                modifyTem();
+            case "dwld":
+                
                 break;
         }
     });
@@ -115,6 +116,17 @@ $( document ).ready(function() {
     //Add the new template after click "save as"
     $(".modal-footer").on("click", "button", function() {
         addNewTem($("#svg-name").val());
+    });
+
+    //click save button in sidebar
+    $(".sidebar-buttons").on("click", "#savetem", function() {
+        //console.log("click save button");
+        $(".side-form-content input").each(function(index, inputEle) {
+            if(inputEle.checked) {
+                modifyTem(index);
+            }
+        });
+        //modifyTem();
     });
 
     function emptyAll() {
@@ -135,7 +147,7 @@ $( document ).ready(function() {
         showTemFir();
         addActionBar();
         //load the first svg in editor
-        loadSvg(json_obj[0].name);
+        loadSvg(tem_list[0].name);
         addFooterBtn();
     }
 
@@ -157,13 +169,13 @@ $( document ).ready(function() {
         $(".footer-buttons-left").append(btnBck);
     }
 
-
-
     function createEmail() {
         //Reusable: Empty all elements in sub navigation bar, middle part and footer
         emptyAll();
         slcRecipients();
         newEmail();
     }
+
+
 
 });
