@@ -49,9 +49,17 @@ $( document ).ready(function() {
             case "certi":
                 slcTemp();
                 break;
-            case "manage-tem":
-                manageTem();
+            case "manage-ep":
+                manageEp();
                 break;
+        }
+        
+        console.log($(this).attr("id"));
+        console.log($(this));
+    });
+
+    $(".dropdown-menu").find("li").click(function() {
+        switch($(this).attr("id")) {
             case "create-email":
                 createEmail();
                 break;
@@ -61,12 +69,8 @@ $( document ).ready(function() {
             case "del-email":
                 checkDel();
                 break;
-            case "manage-ep":
-                manageEp();
-                break;
         }
-
-        console.log($(this).attr("id"));
+        console.log($(this));
     });
 
     function checkBox() {
@@ -131,8 +135,9 @@ $( document ).ready(function() {
     function emptyAll() {
         //Middle part
         $(".side-form-content").empty();
-        $(".sidebar-action").hide();
-        $("#svgEditor").hide();        
+        $(".sidebar-buttons").empty();
+        $("#svgEditor").hide();
+        $("#email").empty();        
         //Footer
         $(".footer-buttons-right").empty();
         $(".footer-buttons-left").empty();
@@ -146,6 +151,8 @@ $( document ).ready(function() {
         emptyAll();
         showTemFir();
         addActionBar();
+        //show the hided svg editor
+        $("#svgEditor").show();
         //load the first svg in editor
         loadSvg(tem_list[0].name);
         addFooterBtn();
