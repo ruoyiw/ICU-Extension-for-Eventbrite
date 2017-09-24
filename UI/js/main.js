@@ -8,9 +8,12 @@ document.body.appendChild(new_element);
 
 //Web elements
 
-var stdName1 ="<div class='checkbox'><label><input type='checkbox' name='' value=''>Sankar Narayanan</label></div>"
-var stdName2 ="<div class='checkbox'><label><input type='checkbox' name='' value=''>Ruoyi Wang</label></div>"
 
+
+var stdName1 ="<div class='checkbox'><label><input id='name1' type='checkbox' name='' value=''>Sankar Narayanan</label></div>"
+var emailAddr1 = "1073653692@qq.com"
+var stdName2 ="<div class='checkbox'><label><input id='name2' type='checkbox' name='' value=''>Ruoyi Wang</label></div>"
+var emailAddr2 = "ruoyiw@student.unimelb.edu.au"
 
 var sdbraction = "<div class='sidebar-action'><div class='sidebar-buttons'></div></div>"
 var btnSlcChkIn = "<button type='button' id='ckin' class='btn btn-primary btn-block'>Select Checked-in</button>"
@@ -27,7 +30,10 @@ var btnDwld = "<button id='dwld' type='button' class='btn btn-success'>Download 
 var btnEmPrShp = "<button id='emprshp' type='button' class='btn btn-success'>Email Print Shop ❯</button>";
 var btnEmStd = "<button id='emprshp' type='button' class='btn btn-success'>Email Students ❯</button>";
 var btnBck = "<button id='bck' type='button' class='btn btn-default'>❮ Back</button>";
+var smImg = "<div class='checkbox'><label class='sid-ck'><input type='checkbox' name='' value=''><img src='images/certi1.png' width='80%' class='img-responsive'></label></div>";
 
+// The root URL for the RESTful services
+var rootURL = "http://frank.mzalive.org/service/icu-service/webapi/mail";
 
 
 $( document ).ready(function() {
@@ -133,6 +139,7 @@ $( document ).ready(function() {
 
     }
 
+
     function slcTemp() {
         //Reusable: Empty all elements in sub navigation bar, middle part and footer
         console.log("slcTemp")
@@ -162,6 +169,7 @@ $( document ).ready(function() {
         $(".footer-buttons-left").append(btnBck);
     }
 
+
     function createEmail() {
         //Reusable: Empty all elements in sub navigation bar, middle part and footer
         emptyAll();
@@ -170,5 +178,107 @@ $( document ).ready(function() {
     }
 
 
+    // Variable to store your files
+    var files;
+    var attachments;
+    var fileNum = 0;
+
+    // Add events
+    $('#file').on('change', prepareUpload);
+
+    // Grab the files and set them to our variable
+    function prepareUpload(event)
+    {
+        files = event.target.files;
+    }
+
+    $("#upload").click(function(event) {
+
+        event.stopPropagation(); // Stop stuff happening
+        event.preventDefault(); // Totally stop stuff happening
+
+        var formData = new FormData();
+
+        $.each(files, function(key, value)
+        {
+            formData.append("file", value);
+
+        });
+
+        $.ajax({
+            type: "POST",
+            url: rootURL+"/uploadFile",
+            data: formData,
+            dataType: "json", // data type of response
+            //Tell jQuery not to process data or worry about content-type
+            //You must include these options
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function(data, textStatus, jqXHR)
+            {
+                success_jsonpCallback(data);
+                // Success so call function to process the form
+                //submitForm(event, data);
+                if (fileNum == 0) {
+                    attachments = data.filename;
+                    fileNum++;
+                } else {
+                    attachments = attachments + ";" + data.filename;
+                    fileNum++;
+                }
+                console.log(attachments);
+                alert(fileNum + " attachments: " + attachments)
+
+            },
+            error: function(jqXHR, textStatus, errorThrown)
+            {
+                // Handle errors here
+                error_jsonpCallback(event);
+                // STOP LOADING SPINNER
+            }
+        });
+    });
+
+
+
+    $("#sendEmail").click(function(event) {
+
+        // stop the regular form submission
+        event.preventDefault();
+
+        $.post( "http://frank.mzalive.org/service/icu-service/webapi/mail/sendMail",
+        { FROM: $('#emailFrom').val(),
+          TO_LIST: $('#emailTo').val(),
+          CC_LIST: $('#ccTo').val(),
+          BCC_LIST: $('#bccTo').val(),
+          SUBJECT: $('#subject').val(),
+          CONTENT: $('#editor').html(),
+          ATTACHMENT_LIST: attachments
+        }) .done(function(data, textStatus, jqXHR) {
+            success_jsonpCallback(data);
+            console.log($('#emailTo').val());
+            console.log($('#ccTo').val());
+            $("#emailForm").trigger("reset");
+            $("#editor").empty();
+            alert("Send successfully");
+        })
+            .fail(function(jqXHR, textStatus, errorThrown) {
+            error_jsonpCallback(event);
+        })
+    });
+
+    function success_jsonpCallback(d) {
+        console.log("success");
+        console.log(d);
+    }
+
+    function error_jsonpCallback(e) {
+        console.log("error");
+        console.log(e);
+    }
+
+
 
 });
+
