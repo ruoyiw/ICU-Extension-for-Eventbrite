@@ -7,15 +7,13 @@ var emailArray = new Array();
 
 function slcRecipients() {
     $(".side-form-content").append(stdName1,stdName2);
-    $(".sidebar-action").show();
     $(".sidebar-buttons").append(btnSlcChkIn, btnSlcAll, btnClrAll);
     $(".footer-buttons-right").append(btnSave,btnSend);
     $(".footer-buttons-left").append(btnBck);
 }
 
 function newEmail() {
-    $(".main-content").load("embedEmail.html");
-    $(".main-content").append(subHome, subNewEmail);
+    $("#email").load("embedEmail.html");
 }
 
 $("#name1").click( function() {
