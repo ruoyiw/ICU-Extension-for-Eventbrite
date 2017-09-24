@@ -15,7 +15,6 @@ var emailAddr1 = "1073653692@qq.com"
 var stdName2 ="<div class='checkbox'><label><input id='name2' type='checkbox' name='' value=''>Ruoyi Wang</label></div>"
 var emailAddr2 = "ruoyiw@student.unimelb.edu.au"
 
-var sdbraction = "<div class='sidebar-action'><div class='sidebar-buttons'></div></div>"
 var btnSlcChkIn = "<button type='button' id='ckin' class='btn btn-primary btn-block'>Select Checked-in</button>"
 var btnSlcAll = "<button type='button' id='slcall' class='btn btn-primary btn-block'>Select All</button>"
 var btnClrAll = "<button type='button' id='clrall' class='btn btn-primary btn-block'>Clear All</button>"
@@ -179,6 +178,7 @@ $( document ).ready(function() {
         emptyAll();
         slcRecipients();
         newEmail();
+
     }
 
 
