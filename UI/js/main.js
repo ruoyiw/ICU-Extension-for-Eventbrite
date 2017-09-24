@@ -23,9 +23,6 @@ var btnDelTem = "<button type='button' id='deltem' class='btn btn-primary btn-bl
 var btnSaveAs = "<button type='button' id='saveas' class='btn btn-primary btn-block' data-toggle='modal' data-target='#save-as'>Save As</button>"
 var btnSaveTem = "<button type='button' id='savetem' class='btn btn-primary btn-block'>Save</button>"
 
-
-
-
 var btnNext = "<button id='next' type='button' class='btn btn-success'>Next ❯</button>";
 var btnCancel = "<button id='cancle' type='button' class='btn btn-default'>Cancel ❯</button>";
 var btnDwld = "<button id='dwld' type='button' class='btn btn-success'>Download ❯</button>";
@@ -36,7 +33,6 @@ var smImg = "<div class='checkbox'><label class='sid-ck'><input type='checkbox' 
 
 // The root URL for the RESTful services
 var rootURL = "http://frank.mzalive.org/service/icu-service/webapi/mail";
-
 
 
 $( document ).ready(function() {
@@ -52,9 +48,17 @@ $( document ).ready(function() {
             case "certi":
                 slcTemp();
                 break;
-            case "manage-tem":
-                manageTem();
+            case "manage-ep":
+                manageEp();
                 break;
+        }
+        
+        console.log($(this).attr("id"));
+        console.log($(this));
+    });
+
+    $(".dropdown-menu").find("li").click(function() {
+        switch($(this).attr("id")) {
             case "create-email":
                 createEmail();
                 break;
@@ -64,12 +68,8 @@ $( document ).ready(function() {
             case "del-email":
                 checkDel();
                 break;
-            case "manage-ep":
-                manageEp();
-                break;
         }
-
-        console.log($(this).attr("id"));
+        console.log($(this));
     });
 
     function checkBox() {
@@ -134,8 +134,9 @@ $( document ).ready(function() {
     function emptyAll() {
         //Middle part
         $(".side-form-content").empty();
-        $(".sidebar-action").hide();
-        $("#svgEditor").hide();        
+        $(".sidebar-buttons").empty();
+        $("#svgEditor").hide();
+        $("#email").empty();        
         //Footer
         $(".footer-buttons-right").empty();
         $(".footer-buttons-left").empty();
@@ -149,6 +150,8 @@ $( document ).ready(function() {
         emptyAll();
         showTemFir();
         addActionBar();
+        //show the hided svg editor
+        $("#svgEditor").show();
         //load the first svg in editor
         loadSvg(tem_list[0].name);
         addFooterBtn();

@@ -109,8 +109,7 @@ function init_embed() {
         $(".side-form-content").find("input").first().attr(
             "checked","checked"
         );
-        //show the hided svg editor
-        $("#svgEditor").show();
+
     }
 
     function addFooterBtn() {
@@ -119,7 +118,6 @@ function init_embed() {
 
     function addActionBar() {
         //console.log("add bar btns");
-        $(".sidebar-action").show();
         $(".sidebar-buttons").append(btnSaveTem, btnSaveAs, btnDelTem);
     }
 
