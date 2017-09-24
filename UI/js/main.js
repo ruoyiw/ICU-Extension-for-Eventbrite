@@ -21,15 +21,12 @@ var btnDelTem = "<button type='button' id='deltem' class='btn btn-primary btn-bl
 var btnSaveAs = "<button type='button' id='saveas' class='btn btn-primary btn-block' data-toggle='modal' data-target='#save-as'>Save As</button>"
 var btnSaveTem = "<button type='button' id='savetem' class='btn btn-primary btn-block'>Save</button>"
 
-
-
 var btnNext = "<button id='next' type='button' class='btn btn-success'>Next ❯</button>";
 var btnCancel = "<button id='cancle' type='button' class='btn btn-default'>Cancel ❯</button>";
 var btnDwld = "<button id='dwld' type='button' class='btn btn-success'>Download ❯</button>";
 var btnEmPrShp = "<button id='emprshp' type='button' class='btn btn-success'>Email Print Shop ❯</button>";
 var btnEmStd = "<button id='emprshp' type='button' class='btn btn-success'>Email Students ❯</button>";
 var btnBck = "<button id='bck' type='button' class='btn btn-default'>❮ Back</button>";
-
 
 
 
