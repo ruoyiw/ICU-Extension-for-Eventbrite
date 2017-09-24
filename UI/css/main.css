@@ -3,11 +3,15 @@ body {
 	font-size: 16px;
 }
 
+.svg-entity {
+	padding-bottom: 20px;
+}
+
 .non-margin-nav {
 	margin-bottom: 0!important;
 }
 
-.sub-nav {
+/*.sub-nav {
 	position: fixed;
 	margin-top: 45px;
 	padding-top: 20px;
@@ -18,7 +22,7 @@ body {
 
 .sub-nav-left {
 	margin-left: 20px;
-}
+}*/
 
 .active-blue {
 	color: #428bca;
@@ -28,12 +32,12 @@ body {
 	color: #5bc0de;
 }
 
-.sub-nav-right {
+/*.sub-nav-right {
 	margin-top: -33px;
 	margin-right: 20px;
 	float: right;
 	list-style: none;
-}
+}*/
 
 .hori-divider {
 	margin: 0px;
@@ -42,7 +46,7 @@ body {
 .sidebar {
 	width: 25%;
 	position: fixed;
-	top: 99px;
+	top: 50px;
 	bottom: 70px;
 	left: 0;
 	z-index: 1000;

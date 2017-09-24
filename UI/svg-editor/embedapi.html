@@ -4,7 +4,7 @@
     <title></title>
 </head>
 <body>
-
+<script type="text/javascript" src="../js/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="src/embedapi.js"></script>
 <script type="text/javascript">
     var SAMPLE_SVG_STRING = '<svg width="580" height="400" xmlns="http://www.w3.org/2000/svg">\n' +
@@ -22,7 +22,11 @@
         ' </g>\n' +
         '</svg>'
 
+    var SAMPLE_SVG_STRING2 = "<svg width="580" height="400" xmlns="http://www.w3…"1.5" stroke="#000" fill="#d65c5c"/>↵ </g>↵</svg>"
+
     var svgCanvas = null;
+
+    var json_obj = [{"name": "item_1", "content": SAMPLE_SVG_STRING}, {"name": "item_2", "content": SAMPLE_SVG_STRING2}];
 
     function init_embed() {
           svgCanvas = new SvgEditorEmbedded(window.frames['svgEditor']);
@@ -31,25 +35,43 @@
 
 
     function loadSvg() {
-        svgCanvas.setSvgString(SAMPLE_SVG_STRING)(function (d, e) {
+        var svg_name = $("#name").val();
+        var svg_content = null;
+        for(i in json_obj) {
+            if(json_obj[i].name === svg_name) {
+                svg_content = json_obj[i].content;
+                break;
+            }
+        }
+        svgCanvas.setSvgString(svg_content)(function (d, e) {
             alert(d, e)
         });
     }
 
+
     function saveSvg() {
         svgCanvas.getSvgString()(function handleSvgData(d, e) {
-            if (e)
+            if (e) {
                 alert('error ' + e);
-            else
-                alert('The exported SVG string:\n\n' + d);
+            }
+            else {
+                //json_obj.push({"name": $("#name").val(), "content": d});
+                //console.log(json_obj);
+                console.log('The exported SVG string:\n\n' + d);                
+            }
+
         });
     }
-</script>
 
+
+</script>
+<div class="svg-list"></div>
 <iframe src="index.html" width="900px" height="600px" id="svgEditor" onload="init_embed()"></iframe>
 <br/>
+<input id="name" name="name" type="text" placeholder="name">
 <button onclick="loadSvg();">Load example</button>
 <button onclick="saveSvg();">Save data</button>
+<button onclick="checkSvg();">Check SVGS</button>
 <br/>
 </body>
 </html>

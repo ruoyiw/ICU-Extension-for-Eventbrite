@@ -1,33 +1,41 @@
 //The root URL for the RESTful services
 var rootURL = "Please type down root url here";
 
+new_element=document.createElement("script");
+new_element.setAttribute("type","text/javascript");
+new_element.setAttribute("src","js/email.js");
+document.body.appendChild(new_element);
+
 //Web elements
-var subHome = "<li>Home »</li>";
-var subSlcTem = "<li>Select Template »</li>"; 
-var subSlcStds = "<li>Select Students »</li>";
-var subDwnld = "<li>Download  </li>";
-var subMngTem = "<li>Manage Templates  </li>";
-var subPrev = "<li><a href='#''><span class='glyphicon glyphicon-eye-open' title='Preview'></span></a></li>"
 
 var stdName1 ="<div class='checkbox'><label><input type='checkbox' name='' value=''>Sankar Narayanan</label></div>"
-var stdName2 ="<div class='checkbox'><label><input checked type='checkbox' name='' value=''>Ruoyi Wang</label></div>"
-var sideActTop = "<div class='sidebar-action'><div class='sidebar-buttons' id='sideActTop'></div></div>"
-var sideActBottom = "<div class='sidebar-action'><div class='sidebar-buttons' id='sideActBottom'></div></div>"
+var stdName2 ="<div class='checkbox'><label><input type='checkbox' name='' value=''>Ruoyi Wang</label></div>"
+
+
+var sdbraction = "<div class='sidebar-action'><div class='sidebar-buttons'></div></div>"
 var btnSlcChkIn = "<button type='button' id='ckin' class='btn btn-primary btn-block'>Select Checked-in</button>"
-var btnSlcAll = "<button type='button' id='slcall' class='btn btn-primary btn-block'>Select Checked-in</button>"
-var btnClrAll = "<button type='button' id='clrall' class='btn btn-primary btn-block'>Select Checked-in</button>"
-var btnNewTem = "<button type='button' id='clrall' class='btn btn-primary btn-block'>New Template</button>"
+var btnSlcAll = "<button type='button' id='slcall' class='btn btn-primary btn-block'>Select All</button>"
+var btnClrAll = "<button type='button' id='clrall' class='btn btn-primary btn-block'>Clear All</button>"
+//var btnNewTem = "<button type='button' id='newtem' class='btn btn-primary btn-block'>New Template</button>"
+var btnDelTem = "<button type='button' id='deltem' class='btn btn-primary btn-block'>Delete</button>"
+var btnSaveAs = "<button type='button' id='saveas' class='btn btn-primary btn-block' data-toggle='modal' data-target='#save-as'>Save As</button>"
+var btnSaveTem = "<button type='button' id='savetem' class='btn btn-primary btn-block'>Save</button>"
+
+
 
 var btnNext = "<button id='next' type='button' class='btn btn-success'>Next ❯</button>";
-var btnCancle = "<button id='cancle' type='button' class='btn btn-default'>Cancle ❯</button>";
+var btnCancel = "<button id='cancle' type='button' class='btn btn-default'>Cancel ❯</button>";
 var btnDwld = "<button id='dwld' type='button' class='btn btn-success'>Download ❯</button>";
 var btnEmPrShp = "<button id='emprshp' type='button' class='btn btn-success'>Email Print Shop ❯</button>";
+var btnEmStd = "<button id='emprshp' type='button' class='btn btn-success'>Email Students ❯</button>";
 var btnBck = "<button id='bck' type='button' class='btn btn-default'>❮ Back</button>";
 
-var smImg="<div class='radio'><label><input type='radio' name='optradio'><img src='images/certi1.png' width='80%' class='img-responsive'></label></div>"
+
 
 
 $( document ).ready(function() {
+    //Hide svg Canvas
+    $("#svgEditor").hide();
 
     //click sub-nav
     $(".nav li").click(function() {
@@ -35,7 +43,7 @@ $( document ).ready(function() {
         $(this).addClass("active");
 
         switch($(this).attr("id")) {
-            case "print-certi":
+            case "certi":
                 slcTemp();
                 break;
             case "manage-tem":
@@ -58,108 +66,87 @@ $( document ).ready(function() {
         console.log($(this).attr("id"));
     });
 
-    //check if there is a checked checkbox
-    $(".side-form-content").on('click', 'input', function() {
+    function checkBox() {
+            console.log("click");
             if(this.checked) {
-                $("#next").removeClass("disabled");
+                $(".footer-buttons-right").find("button").removeClass("disabled");
+
             } else {
                 var ck = false;
                 $(".side-form-content input").each(function() {
                     if(this.checked) {
                         ck = true;
                     }
-                })
+                });
                 if(ck) {
-                    $("#next").removeClass("disabled");
+                    $(".footer-buttons-right").find("button").removeClass("disabled");
                 } else {
-                    $("#next").addClass("disabled");
+                    $(".footer-buttons-right").find("button").addClass("disabled");
                 }                
             }
-    });
+    }
 
-
-    //click "next" button
-    /*
-    TODO: SAVE PREVIOUS DATA IN JQUERY
-    */
-    $(".footer-buttons-right").on('click', '#next', function() {
-        var isDisabled = $("#next").hasClass("disabled");
-        //console.log(isDisabled);
-        if(!isDisabled) {
-        	$(".sub-nav-left li").each(function() {
-
-        		if($(this).hasClass("active-blue")) {
-
-		            var subnav = $(this).text().slice(0, -2);
-		            switch(subnav) {
-		                case 'Select Template':
-		                    slcStds();
-		                    break;
-		            }      			
-        		}
-        	})         
+    //when click the small template on the list, the detailed template will be loaded in the canvas 
+    $(".side-form-content").on('click', 'input', function() {
+        checkBox();
+        //Don't move this "if statement" out of this on() function
+        if($(this).attr("type")==="radio") {
+            var svg_name = $(this).attr("id");
+            loadSvg(svg_name);
         }
-
     });
 
-    //click "back" button
-    /*
-    TODO: GET PREVIOUS DATA IN JQUERY
-    */
-    $(".footer-buttons-left").on('click', '#bck', function() {
-        var subnav = $(".sub-nav-left li").last().prev().text();
-        subnav = subnav.slice(0, -2);
-        //alert(subnav);
-        switch(subnav) {
-            case 'Select Template':
-                slcTemp();
+    //clcik the right footer buttons
+    $(".footer-buttons-right").on('click', 'button', function() {
+        console.log($(this).attr("id"));
+        switch($(this).attr("id")) {
+            case "emprshp":
+                
+                break;
+            case "dwld":
+                
                 break;
         }
     });
 
+    //Add the new template after click "save as"
+    $(".modal-footer").on("click", "button", function() {
+        addNewTem($("#svg-name").val());
+    });
 
-    function slcTemp() {
-        //Reusable: Empty all elements in sub navigation bar, middle part and footer
-        emptyAll();
-        ptCerTemp();
-    }
+    //click save button in sidebar
+    $(".sidebar-buttons").on("click", "#savetem", function() {
+        //console.log("click save button");
+        $(".side-form-content input").each(function(index, inputEle) {
+            if(inputEle.checked) {
+                modifyTem(index);
+            }
+        });
+        //modifyTem();
+    });
 
     function emptyAll() {
-        //Sub-nav
-        $(".sub-nav-left").empty();
-        $(".sub-nav-right").empty();
         //Middle part
         $(".side-form-content").empty();
-        $(".sidebar-action").remove();    
+        $(".sidebar-action").hide();
+        $("#svgEditor").hide();        
         //Footer
         $(".footer-buttons-right").empty();
         $(".footer-buttons-left").empty();
-    }
-
-    /*
-    TO DO: GET TEMPLATES FROM SERVER
-    */
-    function ptCerTemp() {
-        $(".sub-nav-left").append(subHome, subSlcTem, subSlcStds, subDwnld);     
-        $(".sub-nav-left").find("li").eq(1).addClass("active-blue");
-        $(".sub-nav-right").append(subPrev);  
-        $(".side-form-content").append(smImg, smImg);
-        //TODO: show pdf on left side of middle part
-        $(".footer-buttons-right").append(btnNext);
-        $("#next").addClass("disabled");
-    }
-
-    function manageTem() {
-    	emptyAll();
-    	$(".sub-nav-left").append(subHome, subMngTem);
-    	$(".sub-nav-left").find("li").eq(1).addClass("active-blue");
-    	$(".sub-nav-right").append(subPrev);  
-        $(".side-form-content").append(smImg, smImg);
-        //TODO: show pdf on left side of middle part
-        $(".side-form-content").after(sideActTop);
-        $("#sideActTop").append(btnNewTem);
 
     }
+
+    function slcTemp() {
+        //Reusable: Empty all elements in sub navigation bar, middle part and footer
+        console.log("slcTemp")
+        emptyAll();
+        showTemFir();
+        addActionBar();
+        //load the first svg in editor
+        loadSvg(tem_list[0].name);
+        addFooterBtn();
+    }
+
 
     /*
     TO DO: GET STUDENTS NAMES FROM SERVER
@@ -177,5 +164,14 @@ $( document ).ready(function() {
         $(".footer-buttons-right").append( btnDwld, btnEmPrShp);
         $(".footer-buttons-left").append(btnBck);
     }
+
+    function createEmail() {
+        //Reusable: Empty all elements in sub navigation bar, middle part and footer
+        emptyAll();
+        slcRecipients();
+        newEmail();
+    }
+
+
 
 });
