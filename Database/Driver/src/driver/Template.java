@@ -20,18 +20,19 @@ public class Template {
 
     public Template() {
     }
-    public void addTemplate(String id,String tid,String ldir) throws ClassNotFoundException, SQLException
+ public void addTemplate(String id,String tid,String ldir,String name) throws ClassNotFoundException, SQLException
     {
         String url = "jdbc:mysql://frank.mzalive.org:3306/projectICU";
          Class.forName("com.mysql.jdbc.Driver");
         Connection conn = null;
         conn = (Connection) DriverManager.getConnection(url, "project-icu", ">X)H#XtKy8");
         PreparedStatement ps = null;
-        String insertStatement = "insert into CustomisedTemplate values (?,?,?)";
+        String insertStatement = "insert into CustomisedTemplate values (?,?,?,?)";
         ps =  (PreparedStatement) conn.prepareStatement(insertStatement);
         ps.setString(1, id);
         ps.setString(2, tid);
         ps.setString(3, ldir);
+        ps.setString(4, name);
         ps.execute();
         
     }
