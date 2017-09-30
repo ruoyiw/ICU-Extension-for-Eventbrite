@@ -144,7 +144,7 @@ function init_embed() {
 	            tem_list.push({"name": svg_name, "content": d});    
 
 	            //render new template on left bar
-	            addTemToBar(tem_list.length-1);       
+	            addTemToBar(tem_list.length-1, ".side-form-content");
 	        }
 	    }); 
     }
@@ -161,7 +161,7 @@ function init_embed() {
                 tem_list[index].content = d;  
                 $(".side-form-content").find(".svg-entity").eq(index).empty();
                 $(".side-form-content").find(".svg-entity").eq(index).append("<label><p class='svg-name'>"+ tem_list[index].name +"</p><input type='radio' name='optradio'>"+tem_list[index].content+"</label>");
-                renderATem(index);
+                renderATem(index, ".side-form-content");
             }
         }); 
 g
@@ -172,7 +172,7 @@ g
 $(function() {
     
     //Add the new template after click "save as"
-    $(".modal-footer").on("click", "button", function() {
+    $("#certi-list-footer").on("click", "button", function() {
         addNewTem($("#svg-name").val());
         console.log("save as");
     });

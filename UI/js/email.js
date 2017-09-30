@@ -202,10 +202,21 @@ $("#ckin").click( function() {
         console.log(e);
     }
 
-    $('#addTemplate').on('show.bs.modal', function () {
-        showTemFir("#email-template-list");
+    $('#attachTemplateModal').on('show.bs.modal', function () {
+        $('#email-template-list').empty();
+        renderTemList("#email-template-list");
     })
 
+    $("#confirm-template").click(function(){
+        $("#attachTemplateModal").modal("hide");
+        $("#email-template-list input").each(function(index, inputEle) {
+            if(inputEle.checked) {
+                $("#template-id").text(tem_list[index].name);
+                console.log("template select");
+            }
+        });
+
+    });
 });
 
 
