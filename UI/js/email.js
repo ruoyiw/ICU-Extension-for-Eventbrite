@@ -1,81 +1,102 @@
 var subNewEmail = "<li><a href='#'>New Email »</a></li>";
 var btnSave = "<button id='sendSave' type='submit' class='btn btn-success' name='submit'>Save </button>";
 var btnSend = "<button id='sendEmail' type='submit' class='btn btn-success' name='submit'>Send </button>";
-var emailNum = 0;
-var emailArray = new Array();
+var emailArray = [
+    {'name': 'Sankar', 'emailAddr': '1073653692@qq.com', 'checkedin': true},
+    {'name': 'Ruoyi Wang', 'emailAddr': 'ruoyiw@student.unimelb.edu.au', 'checkedin': false}];
 
+
+var selectedEmail = [];
+
+function displayStdName() {
+    selectedEmail = [];
+    emailArray.forEach(function(email) {
+        var formattedName =  stdName.replace("%data%", email.name);
+        var formattedFinal = formattedName.replace("%value%", email.emailAddr);
+        $(".side-form-content").append(formattedFinal);
+    });
+}
 
 function slcRecipients() {
-    $(".side-form-content").append(stdName1,stdName2);
+    displayStdName();
     $(".sidebar-buttons").append(btnSlcChkIn, btnSlcAll, btnClrAll);
     $(".footer-buttons-right").append(btnSave,btnSend);
     $(".footer-buttons-left").append(btnBck);
+    $("#slcall").click( function() {
+        $('.stdName').prop('checked',true);
+        selectedEmail = [];
+        $('#emailTo').val("");
+        emailArray.forEach(function(email) {
+            selectedEmail.push(email.emailAddr);
+        });
+        $.each(selectedEmail, function( i, email ){
+            if (i < selectedEmail.length - 1 ) {
+                $('#emailTo').val(email + ";");
+            } else {
+                $('#emailTo').val($('#emailTo').val() + email);
+            }
+        });
+    });
+    $("#clrall").click( function() {
+        $('.stdName').prop('checked',false);
+        selectedEmail = [];
+        $('#emailTo').val(selectedEmail);
+    });
+
+    $("#ckin").click( function() {
+        selectedEmail = [];
+        $('#emailTo').val("");
+        $('.stdName').prop('checked',false);
+
+        emailArray.forEach(function(email) {
+            if (email.checkedin) {
+                $.each($('.stdName'), function(i){
+                    if(emailArray.indexOf(email) == i) {
+                        $(this).prop('checked',true);
+                    }
+                });
+                selectedEmail.push(email.emailAddr);
+            }
+        });
+        $.each(selectedEmail, function( i, email ){
+            if (i < selectedEmail.length - 1 ) {
+                $('#emailTo').val(email + ";");
+            } else {
+                $('#emailTo').val($('#emailTo').val() + email);
+            }
+        });
+    });
+
 }
 
 function newEmail() {
     $("#email").load("embedEmail.html");
 }
 
-$("#name1").click( function() {
-    if($('#name1').is(':checked') && emailArray.length == 0) {
-        emailArray.push(emailAddr1);
-        $('#emailTo').val(emailArray);
-    } else if ($('#name1').is(':checked') && emailArray.length > 0) {
-        emailArray.push(emailAddr1);
-        $.each(emailArray, function( i, email ){
-            if (i < emailArray.length - 1 ) {
+$(".stdName").click(function() {
+    if(this.checked && selectedEmail.length == 0) {
+        selectedEmail.push($(this).val());
+        $('#emailTo').val(selectedEmail);
+    } else if (this.checked && selectedEmail.length > 0) {
+        selectedEmail.push($(this).val());
+        $.each(selectedEmail, function( i, email ){
+            if (i < selectedEmail.length - 1 ) {
                 $('#emailTo').val(email + ";");
             } else {
                 $('#emailTo').val($('#emailTo').val() + email);
             }
         });
     } else {
-        emailArray.splice($.inArray(emailAddr1, emailArray), 1);
-        $('#emailTo').val(emailArray);
+        selectedEmail.splice($.inArray($(this).val(), selectedEmail), 1);
+        $('#emailTo').val(selectedEmail);
     }
-});
+    console.log(selectedEmail);
 
-$("#name2").click( function() {
-    if($('#name2').is(':checked') && emailArray.length == 0) {
-        emailArray.push(emailAddr2);
-        $('#emailTo').val(emailArray);
-    } else if ($('#name2').is(':checked') && emailArray.length > 0) {
-        emailArray.push(emailAddr2);
-        $.each(emailArray, function( i, email ){
-            if (i < emailArray.length - 1 ) {
-                $('#emailTo').val(email + ";");
-            } else {
-                $('#emailTo').val($('#emailTo').val() + email);
-            }
-        });
-    } else {
-        emailArray.splice($.inArray(emailAddr2, emailArray), 1);
-        $('#emailTo').val(emailArray);
-    }
 });
 
 
 
 
-
-//check if there is a checked checkbox
-// $(".side-form-content").on('click', 'input', function() {
-//     if(this.checked) {
-//         $("#next").removeClass("disabled");
-//     } else {
-//         var ck = false;
-//         $(".side-form-content input").each(function() {
-//             if(this.checked) {
-//                 ck = true;
-//             }
-//         })
-//         if(ck) {
-//             $("#next").removeClass("disabled");
-//         } else {
-//             $("#next").addClass("disabled");
-//         }
-//     }
-// });
 
 
 

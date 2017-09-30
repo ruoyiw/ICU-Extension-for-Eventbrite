@@ -2,71 +2,75 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3961253f-a149-40fd-b2bb-d3ffada4fe85" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/statistics.actions.xml" />
-      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/statistics.shortcuts.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/filetypes.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/laf.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/runner.layout.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/databaseSettings.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/AndroidStudio2.3/options/ide.general.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/customization.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/keymap.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/AndroidStudioProjects/DemoApp/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Desktop/jquery/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Desktop/jquery/test.html" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Desktop/python/reinforcement/.idea/vcs.xml" />
       <change type="NEW" beforePath="" afterPath="$USER_HOME$/Desktop/python/search/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="NEW" beforePath="" afterPath="$USER_HOME$/Desktop/python/search/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/extensionsRootType.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/statistics.application.usages.xml" />
       <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/AndroidStudio2.3/options/git.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/editor.codeinsight.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/feature.usage.statistics.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/stubIndex.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/images.support.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/debugger.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/dimensions.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/ide.general.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/dimensions.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/other.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/recentProjectDirectories.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/updates.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/runner.layout.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/editor.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/options.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/editor.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/packages.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/editor.codeinsight.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/recentProjectDirectories.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/feature.usage.statistics.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/other.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/ui.lnf.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/AndroidStudio2.3/options/ide.general.xml" />
       <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/codestyles/Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/ui.lnf.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Desktop/jquery/test.html" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/databaseSettings.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/debugger.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/dimensions.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/editor.codeinsight.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/editor.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/extensionsRootType.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/feature.usage.statistics.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/filetypes.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/ide.general.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/images.support.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/jdk.table.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/keymap.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/laf.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/options.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/other.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/packages.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/recentProjectDirectories.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/runner.layout.xml" />
       <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/statistics.application.usages.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/extensionsRootType.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/statistics.shortcuts.xml" />
       <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/statistics.toolbar.clicks.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/codestyles/Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/runner.layout.xml" />
       <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/stubIndex.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/ui.lnf.xml" />
       <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/updates.xml" />
       <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/usage.statistics.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Desktop/jquery/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/usage.statistics.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/window.manager.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/laf.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/statistics.shortcuts.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/packages.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/filetypes.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/ide.general.xml" />
-      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/find.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/jdk.table.xml" />
       <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/window.manager.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/jdk.table.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/images.support.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/AndroidStudioProjects/DemoApp/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/options.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Desktop/python/reinforcement/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/codestyles/Default.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/customization.xml" />
       <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/debugger.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/dimensions.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/editor.codeinsight.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/editor.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/extensionsRootType.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/feature.usage.statistics.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/filetypes.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/ide.general.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/images.support.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/jdk.table.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/laf.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/options.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/other.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/packages.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/recentProjectDirectories.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/runner.layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/statistics.application.usages.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/stubIndex.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/ui.lnf.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/updates.xml" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharmEdu4.0/options/window.manager.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/find.xml" />
       <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/git.xml" />
-      <change type="NEW" beforePath="" afterPath="$USER_HOME$/Library/Preferences/PyCharm2017.2/options/ui.lnf.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/runner.layout.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/statistics.actions.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/statistics.shortcuts.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/ui.lnf.xml" />
+      <change type="NEW" beforePath="" afterPath="$APPLICATION_CONFIG_DIR$/options/usage.statistics.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/embedEmail.html" afterPath="$PROJECT_DIR$/embedEmail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/email.js" afterPath="$PROJECT_DIR$/js/email.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -83,28 +87,18 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="76" column="54" lean-forward="false" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="54" />
+            <state relative-caret-position="567">
+              <caret line="111" column="19" lean-forward="true" selection-start-line="92" selection-start-column="18" selection-end-line="111" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/main.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="74" column="9" lean-forward="false" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="36" column="20" lean-forward="true" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+            <state relative-caret-position="269">
+              <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="144" />
               <folding />
             </state>
           </provider>
@@ -113,19 +107,51 @@
       <file leaf-file-name="email.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/email.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-14">
-              <caret line="26" column="37" lean-forward="true" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+            <state relative-caret-position="360">
+              <caret line="24" column="12" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="embedEmail.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="choose-template.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/choose-template.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="28" column="29" lean-forward="false" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="template.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/template.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2100">
+              <caret line="140" column="0" lean-forward="false" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="upload-from-local.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/upload-from-local.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-96">
+              <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="embedEmail.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/embedEmail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="35" column="127" lean-forward="false" selection-start-line="35" selection-start-column="127" selection-end-line="35" selection-end-column="127" />
-              <folding />
+            <state relative-caret-position="1158">
+              <caret line="104" column="43" lean-forward="true" selection-start-line="104" selection-start-column="43" selection-end-line="104" selection-end-column="43" />
+              <folding>
+                <element signature="e#4652#4659#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -154,6 +180,7 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="IdeDocumentHistory">
@@ -167,8 +194,8 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/embedapi.html" />
         <option value="$PROJECT_DIR$/svg-editor/embedapi.html" />
-        <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/js/email.js" />
+        <option value="$PROJECT_DIR$/js/main.js" />
         <option value="$PROJECT_DIR$/embedEmail.html" />
       </list>
     </option>
@@ -180,9 +207,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="480" />
+    <option name="x" value="151" />
     <option name="y" value="23" />
-    <option name="width" value="960" />
+    <option name="width" value="1289" />
     <option name="height" value="802" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -203,7 +230,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -214,36 +240,21 @@
             <path>
               <item name="UI" type="b2602c69:ProjectViewProjectNode" />
               <item name="UI" type="462c0819:PsiDirectoryNode" />
-              <item name="email-editor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
-              <item name="email-editor" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="UI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
-              <item name="svg-editor" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
@@ -305,17 +316,19 @@
       <workItem from="1505709302749" duration="3708000" />
       <workItem from="1505714684627" duration="26329000" />
       <workItem from="1505788628200" duration="5064000" />
+      <workItem from="1506595877072" duration="1059000" />
+      <workItem from="1506689743968" duration="5706000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111451000" />
+    <option name="totallyTimeSpent" value="141680000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="480" y="23" width="960" height="802" extended-state="0" />
+    <frame x="151" y="23" width="1289" height="802" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22896698" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19794953" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956153" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -325,22 +338,13 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956153" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="CSS Styles" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956153" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20340909" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956153" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24939272" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -353,7 +357,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="CSS Styles" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956153" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20340909" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20340909" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956153" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24939272" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -375,26 +379,13 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2925">
-          <caret line="195" column="0" lean-forward="false" selection-start-line="195" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/svg-editor/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6765">
-          <caret line="451" column="14" lean-forward="false" selection-start-line="451" selection-start-column="14" selection-end-line="451" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/embedEmail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-          <folding />
+          <folding>
+            <element signature="e#4652#4659#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -448,7 +439,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-          <folding />
+          <folding>
+            <element signature="e#4652#4659#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -682,7 +675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/embedapi.html" />
     <entry file="file://$PROJECT_DIR$/svg-editor/embedapi.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
@@ -697,51 +689,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/main.css">
+    <entry file="file://$PROJECT_DIR$/embedapi.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="74" column="9" lean-forward="false" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+        <state relative-caret-position="264">
+          <caret line="59" column="18" lean-forward="true" selection-start-line="59" selection-start-column="18" selection-end-line="59" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/upload-from-local.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-96">
+          <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/choose-template.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="420">
+          <caret line="28" column="29" lean-forward="false" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/js/template.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="76" column="54" lean-forward="false" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/embedEmail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="35" column="127" lean-forward="false" selection-start-line="35" selection-start-column="127" selection-end-line="35" selection-end-column="127" />
+        <state relative-caret-position="2100">
+          <caret line="140" column="0" lean-forward="false" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/email.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14">
-          <caret line="26" column="37" lean-forward="true" selection-start-line="26" selection-start-column="37" selection-end-line="26" selection-end-column="37" />
+        <state relative-caret-position="360">
+          <caret line="24" column="12" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="74" column="9" lean-forward="false" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="36" column="20" lean-forward="true" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
+        <state relative-caret-position="269">
+          <caret line="19" column="17" lean-forward="false" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="144" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="111" column="19" lean-forward="true" selection-start-line="92" selection-start-column="18" selection-end-line="111" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/embedEmail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1158">
+          <caret line="104" column="43" lean-forward="true" selection-start-line="104" selection-start-column="43" selection-end-line="104" selection-end-column="43" />
+          <folding>
+            <element signature="e#4652#4659#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -10,10 +10,7 @@ document.body.appendChild(new_element);
 
 
 
-var stdName1 ="<div class='checkbox'><label><input id='name1' type='checkbox' name='' value=''>Sankar Narayanan</label></div>"
-var emailAddr1 = "1073653692@qq.com"
-var stdName2 ="<div class='checkbox'><label><input id='name2' type='checkbox' name='' value=''>Ruoyi Wang</label></div>"
-var emailAddr2 = "ruoyiw@student.unimelb.edu.au"
+var stdName ="<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>"
 
 var btnSlcChkIn = "<button type='button' id='ckin' class='btn btn-primary btn-block'>Select Checked-in</button>"
 var btnSlcAll = "<button type='button' id='slcall' class='btn btn-primary btn-block'>Select All</button>"
@@ -268,6 +265,8 @@ $( document ).ready(function() {
             console.log($('#ccTo').val());
             $("#emailForm").trigger("reset");
             $("#editor").empty();
+            $('.stdName').prop('checked',false);
+            selectedEmail = [];
             alert("Send successfully");
         })
             .fail(function(jqXHR, textStatus, errorThrown) {
