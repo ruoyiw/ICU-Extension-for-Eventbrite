@@ -52,7 +52,7 @@ var SAMPLE_SVG_STRING1 = '<svg width="580" height="400" xmlns="http://www.w3.org
  '</g>\n'+
 '</svg>'
 //TO DO: In the future, obj will be the json Object fetched through ajax-*9+9
-var tem_list = [{"name": "item_1", "content": SAMPLE_SVG_STRING}, 
+var tem_list = [{"name": "item_1", "content": SAMPLE_SVG_STRING, /*"id": 12*/}, 
                 {"name": "item_2", "content": SAMPLE_SVG_STRING1},];
 
 function init_embed() {

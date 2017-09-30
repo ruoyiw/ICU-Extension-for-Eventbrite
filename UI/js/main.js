@@ -1,10 +1,10 @@
 //The root URL for the RESTful services
 var rootURL = "Please type down root url here";
 
-new_element=document.createElement("script");
-new_element.setAttribute("type","text/javascript");
-new_element.setAttribute("src","js/email.js");
-document.body.appendChild(new_element);
+// new_element=document.createElement("script");
+// new_element.setAttribute("type","text/javascript");
+// new_element.setAttribute("src","js/email.js");
+// document.body.appendChild(new_element);
 
 //Web elements
 
@@ -179,8 +179,11 @@ $( document ).ready(function() {
     function createEmail() {
         //Reusable: Empty all elements in sub navigation bar, middle part and footer
         emptyAll();
-        slcRecipients();
-        newEmail();
+        $("#email").load("embedEmail.html", function() {
+            slcRecipients();
+        });
+        
+        //newEmail();
 
     }
 
