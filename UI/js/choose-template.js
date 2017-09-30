@@ -41,9 +41,9 @@ $( document ).ready(function() {
     			}
     			console.log("Upload Finish");
     			return myXhr;
-    		},
+    		};
 
-    	})
+    	});
     	//Code to run if the request succeesd (is done)
     	.done (function(data) {
     		alert("generate PDFs succesfully");
