@@ -90,6 +90,8 @@ $( document ).ready(function() {
                 slcRecipients();
             }
         });
+        
+        //newEmail();
 
     }
 
