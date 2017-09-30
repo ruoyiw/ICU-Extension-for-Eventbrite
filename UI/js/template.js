@@ -172,6 +172,7 @@ function init_embed() {
 
 
 $(function() {
+    
     //Add the new template after click "save as"
     $(".modal-footer").on("click", "button", function() {
         addNewTem($("#svg-name").val());
