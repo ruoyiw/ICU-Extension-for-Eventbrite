@@ -7,7 +7,6 @@ var btnSaveTem = "<button type='button' id='savetem' class='btn btn-primary btn-
 var btnDwld = "<button id='dwld' type='button' class='btn btn-success'>Download ❯</button>";
 var btnEmPrShp = "<button id='emprshp' type='button' class='btn btn-success'>Email Print Shop ❯</button>";
 var btnEmStd = "<button id='emprshp' type='button' class='btn btn-success'>Email Students ❯</button>";
-var btnBck = "<button id='bck' type='button' class='btn btn-default'>❮ Back</button>";
 var smImg = "<div class='checkbox'><label class='sid-ck'><input type='checkbox' name='' value=''><img src='images/certi1.png' width='80%' class='img-responsive'></label></div>";
 
 //Singleton Pattern

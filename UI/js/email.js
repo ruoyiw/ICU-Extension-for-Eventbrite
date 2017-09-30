@@ -1,8 +1,5 @@
 //DOM
-var stdName1 ="<div class='checkbox'><label><input id='name1' type='checkbox' name='' value=''>Sankar Narayanan</label></div>"
-var emailAddr1 = "1073653692@qq.com"
-var stdName2 ="<div class='checkbox'><label><input id='name2' type='checkbox' name='' value=''>Ruoyi Wang</label></div>"
-var emailAddr2 = "zhijinl@student.unimelb.edu.au"
+var stdName ="<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>";
 
 var btnSlcChkIn = "<button type='button' id='ckin' class='btn btn-primary btn-block'>Select Checked-in</button>"
 var btnSlcAll = "<button type='button' id='slcall' class='btn btn-primary btn-block'>Select All</button>"
@@ -14,59 +11,96 @@ var btnCancel = "<button id='cancle' type='button' class='btn btn-default'>Cance
 var subNewEmail = "<li><a href='#'>New Email »</a></li>";
 var btnSave = "<button id='sendSave' type='submit' class='btn btn-success' name='submit'>Save </button>";
 var btnSend = "<button id='sendEmail' type='submit' class='btn btn-success' name='submit'>Send </button>";
-var emailNum = 0;
-var emailArray = new Array(); 
+var btnBck = "<button id='bck' type='button' class='btn btn-default'>❮ Back</button>";
+
+var selectedEmail = [];
+
+var emailArray = [
+    {'name': 'Sankar', 'emailAddr': '1073653692@qq.com', 'checkedin': true},
+    {'name': 'Ruoyi Wang', 'emailAddr': 'ruoyiw@student.unimelb.edu.au', 'checkedin': false}];
+
+function displayStdName() {
+    selectedEmail = [];
+    emailArray.forEach(function(email) {
+        var formattedName =  stdName.replace("%data%", email.name);
+        var formattedFinal = formattedName.replace("%value%", email.emailAddr);
+        $(".side-form-content").append(formattedFinal);
+    });
+}
 
 function slcRecipients() {
-    $(".side-form-content").append(stdName1,stdName2);
+    displayStdName();
     $(".sidebar-buttons").append(btnSlcChkIn, btnSlcAll, btnClrAll);
     $(".footer-buttons-right").append(btnSave,btnSend);
     $(".footer-buttons-left").append(btnBck);
-    console.log("render students names")
 }
 
 $(function() {  
-    // function newEmail() {
-    //     $("#email").load("embedEmail.html");
-    // }
+$(".stdName").click(function() {
+    if(this.checked && selectedEmail.length == 0) {
+        selectedEmail.push($(this).val());
+        $('#emailTo').val(selectedEmail);
+    } else if (this.checked && selectedEmail.length > 0) {
+        selectedEmail.push($(this).val());
+        $.each(selectedEmail, function( i, email ){
+            if (i < selectedEmail.length - 1 ) {
+                $('#emailTo').val(email + ";");
+            } else {
+                $('#emailTo').val($('#emailTo').val() + email);
+            }
+        });
+    } else {
+        selectedEmail.splice($.inArray($(this).val(), selectedEmail), 1);
+        $('#emailTo').val(selectedEmail);
+    }
+    console.log(selectedEmail);
 
-    $("#name1").click( function() {
-        if($('#name1').is(':checked') && emailArray.length == 0) {
-            emailArray.push(emailAddr1);
-            $('#emailTo').val(emailArray);
-        } else if ($('#name1').is(':checked') && emailArray.length > 0) {
-            emailArray.push(emailAddr1);
-            $.each(emailArray, function( i, email ){
-                if (i < emailArray.length - 1 ) {
-                    $('#emailTo').val(email + ";");
-                } else {
-                    $('#emailTo').val($('#emailTo').val() + email);
-                }
-            });
+});
+
+$("#slcall").click( function() {
+    $('.stdName').prop('checked',true);
+    selectedEmail = [];
+    $('#emailTo').val("");
+    emailArray.forEach(function(email) {
+        selectedEmail.push(email.emailAddr);
+    });
+    $.each(selectedEmail, function( i, email ){
+        if (i < selectedEmail.length - 1 ) {
+            $('#emailTo').val(email + ";");
         } else {
-            emailArray.splice($.inArray(emailAddr1, emailArray), 1);
-            $('#emailTo').val(emailArray);
+            $('#emailTo').val($('#emailTo').val() + email);
         }
     });
+});
+$("#clrall").click( function() {
+    $('.stdName').prop('checked',false);
+    selectedEmail = [];
+    $('#emailTo').val(selectedEmail);
+});
 
-    $("#name2").click( function() {
-        if($('#name2').is(':checked') && emailArray.length == 0) {
-            emailArray.push(emailAddr2);
-            $('#emailTo').val(emailArray);
-        } else if ($('#name2').is(':checked') && emailArray.length > 0) {
-            emailArray.push(emailAddr2);
-            $.each(emailArray, function( i, email ){
-                if (i < emailArray.length - 1 ) {
-                    $('#emailTo').val(email + ";");
-                } else {
-                    $('#emailTo').val($('#emailTo').val() + email);
+$("#ckin").click( function() {
+    selectedEmail = [];
+    $('#emailTo').val("");
+    $('.stdName').prop('checked',false);
+
+    emailArray.forEach(function(email) {
+        if (email.checkedin) {
+            $.each($('.stdName'), function(i){
+                if(emailArray.indexOf(email) == i) {
+                    $(this).prop('checked',true);
                 }
             });
-        } else {
-            emailArray.splice($.inArray(emailAddr2, emailArray), 1);
-            $('#emailTo').val(emailArray);
+            selectedEmail.push(email.emailAddr);
         }
-    }); 
+    });
+    $.each(selectedEmail, function( i, email ){
+        if (i < selectedEmail.length - 1 ) {
+            $('#emailTo').val(email + ";");
+        } else {
+            $('#emailTo').val($('#emailTo').val() + email);
+        }
+    });
+}); 
 
     // Variable to store your files
     var files;
