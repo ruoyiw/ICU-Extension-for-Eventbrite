@@ -69,7 +69,7 @@ $( document ).ready(function() {
         //Reusable: Empty all elements in sub navigation bar, middle part and footer
         console.log("slcTemp")
         emptyAll();
-        showTemFir();
+        showTemFir(".side-form-content");
         addActionBar();
         //show the hided svg editor
         $("#svgEditor").show();

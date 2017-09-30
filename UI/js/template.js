@@ -85,28 +85,28 @@ function init_embed() {
 
 	}
 
-    function renderATem(i) {
-        $(".side-form-content").find("input").eq(i).attr("id", tem_list[i].name);
+    function renderATem(i, loc) {
+        $(loc).find("input").eq(i).attr("id", tem_list[i].name);
 
-        $(".side-form-content").find("svg").eq(i).attr({
+        $(loc).find("svg").eq(i).attr({
             "viewBox": "0 0 580 400",
             "preserveAspectRatio": "xMidYMid meet",
             "width": "80%",
             "height": "80%"});       
     }
 
-	function addTemToBar(i) {
-        $(".side-form-content").
+	function addTemToBar(i, loc) {
+        $(loc).
             append("<div class='radio svg-entity'><label><p class='svg-name'>"+ tem_list[i].name +"</p><input type='radio' name='optradio'>"+tem_list[i].content+"</label></div>");
-        renderATem(i);
+        renderATem(i, loc);
 	}
 
 
-	function renderTemList() {
+	function renderTemList(loc) {
 		console.log(tem_list);
         //render svg lists in left bar
         for(i in tem_list) {
-        	addTemToBar(i);
+        	addTemToBar(i, loc);
         };
 	}
 
@@ -114,10 +114,10 @@ function init_embed() {
     TO DO: GET TEMPLATES FROM SERVER
     */
     //show template list on the left side of the bar
-    function showTemFir() {
-        renderTemList();
+    function showTemFir(loc) {
+        renderTemList(loc);
         //check the first svg
-        $(".side-form-content").find("input").first().attr(
+        $(loc).find("input").first().attr(
             "checked","checked"
         );
 
@@ -151,7 +151,6 @@ function init_embed() {
 
 
 
-
     function modifyTem(index) {
         svgCanvas_singleton.getInstance().getSvgString()(function handleSvgData(d, e) {
             if (e) {
@@ -165,7 +164,7 @@ function init_embed() {
                 renderATem(index);
             }
         }); 
-
+g
     }
 
 

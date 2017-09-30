@@ -202,32 +202,11 @@ $("#ckin").click( function() {
         console.log(e);
     }
 
+    $('#addTemplate').on('show.bs.modal', function () {
+        showTemFir("#email-template-list");
+    })
+
 });
-
-
-
-
-
-
-
-//check if there is a checked checkbox
-// $(".side-form-content").on('click', 'input', function() {
-//     if(this.checked) {
-//         $("#next").removeClass("disabled");
-//     } else {
-//         var ck = false;
-//         $(".side-form-content input").each(function() {
-//             if(this.checked) {
-//                 ck = true;
-//             }
-//         })
-//         if(ck) {
-//             $("#next").removeClass("disabled");
-//         } else {
-//             $("#next").addClass("disabled");
-//         }
-//     }
-// });
 
 
 
