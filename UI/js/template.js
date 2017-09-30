@@ -1,3 +1,15 @@
+
+//var btnNewTem = "<button type='button' id='newtem' class='btn btn-primary btn-block'>New Template</button>"
+var btnDelTem = "<button type='button' id='deltem' class='btn btn-primary btn-block'>Delete</button>"
+var btnSaveAs = "<button type='button' id='saveas' class='btn btn-primary btn-block' data-toggle='modal' data-target='#save-as'>Save As</button>"
+var btnSaveTem = "<button type='button' id='savetem' class='btn btn-primary btn-block'>Save</button>"
+
+var btnDwld = "<button id='dwld' type='button' class='btn btn-success'>Download ❯</button>";
+var btnEmPrShp = "<button id='emprshp' type='button' class='btn btn-success'>Email Print Shop ❯</button>";
+var btnEmStd = "<button id='emprshp' type='button' class='btn btn-success'>Email Students ❯</button>";
+var btnBck = "<button id='bck' type='button' class='btn btn-default'>❮ Back</button>";
+var smImg = "<div class='checkbox'><label class='sid-ck'><input type='checkbox' name='' value=''><img src='images/certi1.png' width='80%' class='img-responsive'></label></div>";
+
 //Singleton Pattern
 var svgCanvas_singleton = (function () {
     var instance;
@@ -158,4 +170,23 @@ function init_embed() {
     }
 
 
-//var svgEditor = "<iframe src='svg-editor/index.html' width='900px' height='600px' id='svgEditor' onload='init_embed();'></iframe>";
+
+$(function() {
+    //Add the new template after click "save as"
+    $(".modal-footer").on("click", "button", function() {
+        addNewTem($("#svg-name").val());
+        console.log("save as");
+    });
+
+    //click save button in sidebar
+    $(".sidebar-buttons").on("click", "#savetem", function() {
+        //console.log("click save button");
+        $(".side-form-content input").each(function(index, inputEle) {
+            if(inputEle.checked) {
+                modifyTem(index);
+                console.log("save");
+            }
+        });
+        //modifyTem();
+    });       
+});
