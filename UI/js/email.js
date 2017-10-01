@@ -12,7 +12,6 @@ var subNewEmail = "<li><a href='#'>New Email »</a></li>";
 var btnSave = "<button id='sendSave' type='submit' class='btn btn-success' name='submit'>Save </button>";
 var btnSend = "<button id='sendEmail' type='submit' class='btn btn-success' name='submit'>Send </button>";
 var btnBck = "<button id='bck' type='button' class='btn btn-default'>❮ Back</button>";
-
 var selectedEmail = [];
 
 var emailArray = [
@@ -191,28 +190,80 @@ $("#ckin").click( function() {
         // stop the regular form submission
         event.preventDefault();
 
-        $.post( "http://frank.mzalive.org/service/icu-service/webapi/mail/sendMail",
-        { FROM: $('#emailFrom').val(),
-          TO_LIST: $('#emailTo').val(),
-          CC_LIST: $('#ccTo').val(),
-          BCC_LIST: $('#bccTo').val(),
-          SUBJECT: $('#subject').val(),
-          CONTENT: $('#editor').html(),
-          ATTACHMENT_LIST: attachments
-        }) .done(function(data, textStatus, jqXHR) {
-            success_jsonpCallback(data);
+       // if (isValidEmailAddress($('#ccTo').val()) && isValidEmailAddress($('#bccTo').val())) {
+            $.post( "http://frank.mzalive.org/service/icu-service/webapi/mail/sendMail",
+                {   FROM: $('#emailFrom').val(),
+                    TO_LIST: $('#emailTo').val(),
+                    CC_LIST: $('#ccTo').val(),
+                    BCC_LIST: $('#bccTo').val(),
+                    SUBJECT: $('#subject').val(),
+                    CONTENT: $('#editor').html(),
+                    ATTACHMENT_LIST: attachments
+                }) .done(function(data, textStatus, jqXHR) {
+                success_jsonpCallback(data);
+                var obj = jQuery.parseJSON(data);
+                if(obj.response == "success") {
+                    emptyForm();
+                    alert("Send successfully");
+                } else {
+                    alert("Error: " + obj.errorMessage);
+                }
 
-            if(data.response == "error") {
-                $("#emailForm").trigger("reset");
-                $("#editor").empty();
-                alert("Send successfully");
-            }
+            })
+                .fail(function(jqXHR, textStatus, errorThrown) {
+                    error_jsonpCallback(event);
+                })
+       // }
 
-        })
-            .fail(function(jqXHR, textStatus, errorThrown) {
-            error_jsonpCallback(event);
-        })
     });
+
+    function emptyForm() {
+        // $("#emailForm").trigger("reset");
+        // $("#editor").empty();
+        // selectedEmail = [];
+        // $('.stdName').prop('checked',false);
+        // $("#upload").attr("disabled",true);
+
+        emptyAll();
+        $("#email").load("embedEmail.html", function (response, status, xhr) {
+
+            if (status == "error") {
+                var msg = "Sorry but there was an error: ";
+                console.log(msg + xhr.status + " " + xhr.statusText);
+            } else {
+                slcRecipients();
+            }
+        });
+
+    }
+
+    $("input[type=email]").blur(function(){
+        var _this=$(this);
+        var emailAddress = _this.val().split(";");
+        var pattern = /^[a-z_0-9.-]{1,64}@([a-z0-9-]{1,200}.){1,5}[a-z]{1,6}$/i;
+        $.each(emailAddress,function(i){
+            if(!pattern.test(emailAddress[i])){
+                _this.val("");
+            }
+        });
+    });
+
+    // function isValidEmailAddress(inputValue) {
+    //     if (inputValue == "") {
+    //         return true;
+    //     } else {
+    //         var email = inputValue.split(";");
+    //         console.log(email.length);
+    //         var pattern = /^[a-z_0-9.-]{1,64}@([a-z0-9-]{1,200}.){1,5}[a-z]{1,6}$/i;
+    //         $.each(email, function(i){
+    //             if (pattern.test(email[i])) {
+    //                 return true;
+    //             } else {
+    //                 return false;
+    //             }
+    //         });
+    //     }
+    // }
 
     function success_jsonpCallback(d) {
         console.log("success");
@@ -224,10 +275,12 @@ $("#ckin").click( function() {
         console.log(e);
     }
 
+
+
     $('#attachTemplateModal').on('show.bs.modal', function () {
         $('#email-template-list').empty();
         renderTemList("#email-template-list");
-    })
+    });
 
     $("#confirm-template").click(function(){
         $("#attachTemplateModal").modal("hide");

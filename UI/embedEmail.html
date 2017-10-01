@@ -18,6 +18,7 @@
     <script type="text/javascript" src="js/email.js"></script>
     <script src="laydate/laydate.js"></script>
 
+
     <style>
         .modal-header, h4, .close {
             background-color: #5cb85c;
@@ -83,8 +84,7 @@
 
     <div>
         <!-- button trigger modal -->
-        <button type="button" id = "ch-tem" class="btn btn-primary btn-sm" data-toggle="modal"
-                data-target="#attachTemplateModal">
+        <button type="button" id = "ch-tem" class="btn btn-primary btn-sm">
             Choose Template
         </button>
         <div id="template-id" style="display:inline-block;"></div>
@@ -156,6 +156,11 @@
         ,format: 'HH:mm'
 
     });
+
+    $("#ch-tem").click(function(){
+        $("#attachTemplateModal").modal({keyboard: false, backdrop: "static"});
+    });
+
 
 </script>
 

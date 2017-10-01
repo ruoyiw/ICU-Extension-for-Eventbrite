@@ -81,23 +81,20 @@ $( document ).ready(function() {
     function createEmail() {
         //Reusable: Empty all elements in sub navigation bar, middle part and footer
         emptyAll();
-        $("#email").load("embedEmail.html", function(response, status, xhr) {
-            
-            if ( status == "error" ) {
+        $("#email").load("embedEmail.html", function (response, status, xhr) {
+
+            if (status == "error") {
                 var msg = "Sorry but there was an error: ";
-                console.log( msg + xhr.status + " " + xhr.statusText );
+                console.log(msg + xhr.status + " " + xhr.statusText);
             } else {
                 slcRecipients();
             }
         });
-        
-        //newEmail();
-
     }
 
-
-
-
-
 });
+
+
+
+
 
