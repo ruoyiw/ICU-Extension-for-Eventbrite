@@ -43,6 +43,7 @@ body {
 	margin: 0px;
 }
 
+
 .sidebar {
 	width: 25%;
 	position: fixed;
@@ -55,11 +56,16 @@ body {
     overflow-y: auto;
 }
 
+ .modal-stds {
+   height: calc(100vh - 500px);
+   overflow-y:scroll;
+ }
+
 .bg-light {
 	background-color: #f8f9fa!important;
 }
 
-.sidebar-form {
+.sidebar-form  {
 	height: 70%;
 	overflow:auto;
 }
