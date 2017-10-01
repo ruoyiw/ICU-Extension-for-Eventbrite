@@ -34,7 +34,8 @@ function slcRecipients() {
     $(".footer-buttons-left").append(btnBck);
     $("#spinner").hide();
     $("#upload").attr("disabled",true);
-
+    $("#errorCC").hide();
+    $("#errorBCC").hide();
 }
 
 $(function() {  
@@ -190,7 +191,8 @@ $("#ckin").click( function() {
         // stop the regular form submission
         event.preventDefault();
 
-       // if (isValidEmailAddress($('#ccTo').val()) && isValidEmailAddress($('#bccTo').val())) {
+        if (isValidEmailAddress($('#ccTo').val()) && isValidEmailAddress($('#bccTo').val())) {
+
             $.post( "http://frank.mzalive.org/service/icu-service/webapi/mail/sendMail",
                 {   FROM: $('#emailFrom').val(),
                     TO_LIST: $('#emailTo').val(),
@@ -213,17 +215,11 @@ $("#ckin").click( function() {
                 .fail(function(jqXHR, textStatus, errorThrown) {
                     error_jsonpCallback(event);
                 })
-       // }
+        }
 
     });
 
     function emptyForm() {
-        // $("#emailForm").trigger("reset");
-        // $("#editor").empty();
-        // selectedEmail = [];
-        // $('.stdName').prop('checked',false);
-        // $("#upload").attr("disabled",true);
-
         emptyAll();
         $("#email").load("embedEmail.html", function (response, status, xhr) {
 
@@ -237,33 +233,36 @@ $("#ckin").click( function() {
 
     }
 
-    $("input[type=email]").blur(function(){
-        var _this=$(this);
-        var emailAddress = _this.val().split(";");
-        var pattern = /^[a-z_0-9.-]{1,64}@([a-z0-9-]{1,200}.){1,5}[a-z]{1,6}$/i;
-        $.each(emailAddress,function(i){
-            if(!pattern.test(emailAddress[i])){
-                _this.val("");
-            }
-        });
+    $("#ccTo").blur(function(){
+        if(!isValidEmailAddress($(this).val())) {
+            $("#errorCC").show();
+        } else {
+            $("#errorCC").hide();
+        }
+    });
+    $("#bccTo").blur(function(){
+        if(!isValidEmailAddress($(this).val())) {
+            $("#errorBCC").show();
+        } else {
+            $("#errorBCC").hide();
+        }
     });
 
-    // function isValidEmailAddress(inputValue) {
-    //     if (inputValue == "") {
-    //         return true;
-    //     } else {
-    //         var email = inputValue.split(";");
-    //         console.log(email.length);
-    //         var pattern = /^[a-z_0-9.-]{1,64}@([a-z0-9-]{1,200}.){1,5}[a-z]{1,6}$/i;
-    //         $.each(email, function(i){
-    //             if (pattern.test(email[i])) {
-    //                 return true;
-    //             } else {
-    //                 return false;
-    //             }
-    //         });
-    //     }
-    // }
+    function isValidEmailAddress(inputValue) {
+        var isValid = true;
+        if (inputValue == "") {
+            return isValid;
+        }
+        var email = inputValue.split(";");
+
+        var pattern = /^[a-z_0-9.-]{1,64}@([a-z0-9-]{1,200}.){1,5}[a-z]{1,6}$/i;
+        $.each(email, function(i){
+            if (!pattern.test(email[i])) {
+                isValid = false;
+            }
+        });
+        return isValid;
+    }
 
     function success_jsonpCallback(d) {
         console.log("success");
