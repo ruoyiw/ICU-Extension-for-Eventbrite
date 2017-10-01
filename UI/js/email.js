@@ -33,6 +33,9 @@ function slcRecipients() {
     $(".sidebar-buttons").append(btnSlcChkIn, btnSlcAll, btnClrAll);
     $(".footer-buttons-right").append(btnSave,btnSend);
     $(".footer-buttons-left").append(btnBck);
+    $("#spinner").hide();
+    $("#upload").attr("disabled",true);
+
 }
 
 $(function() {  
@@ -113,55 +116,72 @@ $("#ckin").click( function() {
     // Grab the files and set them to our variable
     function prepareUpload(event)
     {
-        files = event.target.files;
+        if($("#file").val() != ""){
+            files = event.target.files;
+            $("#upload").removeAttr("disabled");
+        } else {
+            $("#upload").attr("disabled",true);
+        }
     }
 
     $("#upload").click(function(event) {
+
+        $("#spinner").show();
+        $("#upload").attr("disabled",true);
 
         event.stopPropagation(); // Stop stuff happening
         event.preventDefault(); // Totally stop stuff happening
 
         var formData = new FormData();
 
+
         $.each(files, function(key, value)
         {
             formData.append("file", value);
+            console.log(value.name);
 
-        });
+            $.ajax({
+                type: "POST",
+                url: rootURL+"/uploadFile",
+                data: formData,
+                dataType: "json", // data type of response
+                //Tell jQuery not to process data or worry about content-type
+                //You must include these options
+                cache: false,
+                contentType: false,
+                processData: false,
 
-        $.ajax({
-            type: "POST",
-            url: rootURL+"/uploadFile",
-            data: formData,
-            dataType: "json", // data type of response
-            //Tell jQuery not to process data or worry about content-type
-            //You must include these options
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function(data, textStatus, jqXHR)
-            {
-                success_jsonpCallback(data);
-                // Success so call function to process the form
-                //submitForm(event, data);
-                if (fileNum == 0) {
-                    attachments = data.filename;
-                    fileNum++;
-                } else {
-                    attachments = attachments + ";" + data.filename;
-                    fileNum++;
+                success: function(data, textStatus, jqXHR)
+                {
+                    success_jsonpCallback(data);
+                    // Success so call function to process the form
+                    //submitForm(event, data);
+                    if (fileNum == 0) {
+                        attachments = data.filename;
+                        fileNum++;
+                    } else {
+                        attachments = attachments + ";" + data.filename;
+                        fileNum++;
+                    }
+                    console.log(fileNum + " attachments: " + attachments);
+                    $("#list-files").append("<tr><td>"+value.name+"</td></tr>");
+                    // STOP LOADING SPINNER
+                    $("#spinner").hide();
+                    $("#upload").removeAttr("disabled");
+
+                },
+                error: function(jqXHR, textStatus, errorThrown)
+                {
+                    // Handle errors here
+                    error_jsonpCallback(event);
+                    // STOP LOADING SPINNER
+                    $("#spinner").hide();
+                    $("#upload").removeAttr("disabled");
                 }
-                console.log(attachments);
-                alert(fileNum + " attachments: " + attachments)
+            });
 
-            },
-            error: function(jqXHR, textStatus, errorThrown)
-            {
-                // Handle errors here
-                error_jsonpCallback(event);
-                // STOP LOADING SPINNER
-            }
         });
+
     });
 
 
@@ -181,11 +201,13 @@ $("#ckin").click( function() {
           ATTACHMENT_LIST: attachments
         }) .done(function(data, textStatus, jqXHR) {
             success_jsonpCallback(data);
-            console.log($('#emailTo').val());
-            console.log($('#ccTo').val());
-            $("#emailForm").trigger("reset");
-            $("#editor").empty();
-            alert("Send successfully");
+
+            if(data.response == "error") {
+                $("#emailForm").trigger("reset");
+                $("#editor").empty();
+                alert("Send successfully");
+            }
+
         })
             .fail(function(jqXHR, textStatus, errorThrown) {
             error_jsonpCallback(event);
