@@ -1,10 +1,24 @@
 //The root URL for the RESTful services
 var rootURL = "http://frank.mzalive.org/service/icu-service/webapi/mail";
 
+var eBrootURL = "https://www.eventbriteapi.com/v3";
+
+var clientKey = "2W2AGMHUMCBQTNXAU25TKHR3CXOISJ7WSPSW4NDPK5LIJZF4UI";
+
+var authURL = "https://www.eventbrite.com/oauth/authorize?response_type=token&client_id=" + clientKey;
+
+var appKey = "7R5NTZ4MIZEGS6KVT4";
 
 $( document ).ready(function() {
     //Hide svg Canvas
     $("#svgEditor").hide();
+
+    $.get(eBrootURL+"/users/me/?token=LIUPZKLIB7TPRNAGZHV6", function(d) {
+        console.log(d);
+    });
+
+    //authenticate a user, first redirect to a auth url
+    // window.location.replace(authURL);
 
     //click sub-nav
     $(".nav li").click(function() {
