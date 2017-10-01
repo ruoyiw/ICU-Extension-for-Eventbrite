@@ -13,10 +13,6 @@ $( document ).ready(function() {
     //Hide svg Canvas
     $("#svgEditor").hide();
 
-    $.get(eBrootURL+"/users/me/?token=LIUPZKLIB7TPRNAGZHV6", function(d) {
-        console.log(d);
-    });
-
     //authenticate a user, first redirect to a auth url
     // window.location.replace(authURL);
 
