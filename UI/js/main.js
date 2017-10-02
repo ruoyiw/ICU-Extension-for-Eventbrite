@@ -1,10 +1,11 @@
-//The root URL for the RESTful services
-var rootURL = "http://frank.mzalive.org/service/icu-service/webapi/mail";
 
 
 $( document ).ready(function() {
     //Hide svg Canvas
-    $("#svgEditor").hide();
+    $(".svg-editor-container").hide();
+
+    //authenticate a user, first redirect to a auth url
+    // window.location.replace(authURL);
 
     //click sub-nav
     $(".nav li").click(function() {
@@ -55,11 +56,13 @@ $( document ).ready(function() {
     $(".footer-buttons-right").on('click', 'button', function() {
         console.log($(this).attr("id"));
         switch($(this).attr("id")) {
-            case "emprshp":
-                
+            case "emPrShp":
+                $("#modalPrintShop").modal("show");
+                showCourses();
                 break;
             case "dwld":
-                
+                $("#modalPrintShop").modal("show");
+                showCourses();
                 break;
         }
     });
@@ -72,7 +75,7 @@ $( document ).ready(function() {
         showTemFir();
         addActionBar();
         //show the hided svg editor
-        $("#svgEditor").show();
+        $(".svg-editor-container").show();
         //load the first svg in editor
         loadSvg(tem_list[0].name);
         addFooterBtn();

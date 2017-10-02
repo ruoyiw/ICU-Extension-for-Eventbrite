@@ -26,7 +26,7 @@
         //Middle part
         $(".side-form-content").empty();
         $(".sidebar-buttons").empty();
-        $("#svgEditor").hide();
+        $(".svg-editor-container").hide();
         $("#email").empty();        
         //Footer
         $(".footer-buttons-right").empty();

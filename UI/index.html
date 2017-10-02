@@ -15,7 +15,61 @@
 	<title></title>
 </head>
 <body>
+	<!--Save as Modal Start-->
+	<div class="modal fade" id="save-as" role="dialog">
+	<div class="modal-dialog modal-sm">
+	  <div class="modal-content">
+	    <div class="modal-header">
+	      <button type="button" class="close" data-dismiss="modal">&times;</button>
+	      <h4 class="modal-title">Template Name</h4>
+	    </div>
+	    <div class="modal-body">
+	      <div class="form-group">
+			  <input type="text" class="form-control input-sm" id="svg-name" placeholder="please input your template name">
+		  </div>
+	    </div>
+	    <div class="modal-footer">
+	      <button type="button" id="save-complete" class="btn btn-default" data-dismiss="modal">Save as a new Template</button>
+	    </div>
+	  </div>
+	</div>
+	</div>
+	<!--Save as Modal End-->
+	<!--Email PrintShop Modal Start-->
+	<div class="modal fade" id="modalPrintShop" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">Email Print Shop</h4>
+	        </div>
+	        <div class="modal-body text-center">
+	        	<div class="form-group">
+	        		<div class="col-xs-2"></div>
+	        		<div class="col-xs-8">
+						<select class="form-control course-select" id="course">
+							<option selected id="select-course-instruction">Select Course</option>
+						</select>
+						<div class="modal-stds"></div>
+	        		</div>
 
+	        	</div>
+
+
+	          	<hr style="width: 60%">
+	          	<div class="modal-stds-btns">
+	          		<button type='button' id='ckin' class='btn btn-primary'>Select Checked-in</button>
+	          		<button type='button' id='slcall' class='btn btn-primary'>Select All</button>
+	          		<button type='button' id='clrall' class='btn btn-primary'>Clear All</button>
+	          	</div>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" id="email-pri-course" class="btn btn-default" data-dismiss="modal">Next</button>
+	        </div>
+	      </div>
+	  </div>
+	</div>
+	<!--Email PrintShop Modal Start-->
 	<!--navigation bar start-->
 	<!--main navigation bar start-->
 	<nav class="navbar navbar-default navbar-fixed-top non-margin-nav">
@@ -79,28 +133,11 @@
 			<!--main content start-->
 			<main class="col-sm-9 col-md-9 d-none ml-sm-auto main-content">
 				<!--Main content such as template/email content is here-->
-				<iframe src='svg-editor/index.html' width='900px' height='600px' id='svgEditor' onload='init_embed();'></iframe>
+				<div class="svg-editor-container">
+					<iframe src='svg-editor/index.html' id='svgEditor' onload='init_embed();'></iframe>
+				</div>
 				<div id='email'></div>
 
-				  <!-- Modal -->
-				  <div class="modal fade" id="save-as" role="dialog">
-				    <div class="modal-dialog modal-sm">
-				      <div class="modal-content">
-				        <div class="modal-header">
-				          <button type="button" class="close" data-dismiss="modal">&times;</button>
-				          <h4 class="modal-title">Template Name</h4>
-				        </div>
-				        <div class="modal-body">
-				          <div class="form-group">
-							  <input type="text" class="form-control input-sm" id="svg-name" placeholder="please input your template name">
-						  </div>
-				        </div>
-				        <div class="modal-footer">
-				          <button type="button" id="save-complete" class="btn btn-default" data-dismiss="modal">Save as a new Template</button>
-				        </div>
-				      </div>
-				    </div>
-				  </div>
 			</main>
 
 			<!--main content end-->
@@ -127,9 +164,11 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<!-- <script src="js/bootstrap.js"></script> -->
 	<script src="svg-editor/src/embedapi.js"></script>
+	<script src="js/doms-and-urls.js"></script>>
+	<script src="js/data-service.js"></script>
 	<script src="js/common.js"></script>
 	<script src="js/template.js"></script>
-
+	<script src="js/certificate.js"></script>>
 	<script src="js/main.js"></script>
 </body>
 </html>
