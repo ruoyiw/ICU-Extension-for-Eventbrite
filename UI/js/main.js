@@ -58,6 +58,7 @@ $( document ).ready(function() {
         switch($(this).attr("id")) {
             case "emPrShp":
                 $("#modalPrintShop").modal("show");
+                showCourses();
                 break;
             case "dwld":
                 

@@ -1,7 +1,21 @@
 $(function() {
+
+
+});
+
 	/*
-	jQuery.get(url [,data] [,success] [,dataType])
+	$.get(url [,data] [,success] [,dataType])
 	*/
+	/*
+	$.ajax({
+    	url: eBrootURL+eventURL,
+    	data: {"token": personalToken},
+    	success: function(data) {
+    		console.log(data);
+    	}
+    });
+    */
+
 
 	function Event(id, name, startTime, endTime, attendees) {
 		this.id = id;
@@ -16,9 +30,13 @@ $(function() {
 		this.email = email;
 		this.isCheckIn = isCheckIn;
 	}
+    	var events_array = [];
+
+
+
 
     
-    function getAllEvents() {
+    function getAllEvents(callBackFunc) {
     	var events_array = [];
 		var jqxhr =	$.get(eBrootURL+eventURL, {"token": personalToken}, function(d) {
 	        //console.log(d.events[1]);
@@ -34,10 +52,7 @@ $(function() {
 	        	});
 	        	events_array.push(new Event(event.id, event.name.text, event.end.local, event.start.local, attendees_array));
 	        });
-	    })
-	    .done(function() {
-	    	console.log(events_array);
+
+	        callBackFunc(events_array);
 	    });
     }
-
-});
