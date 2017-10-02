@@ -56,8 +56,8 @@ $( document ).ready(function() {
     $(".footer-buttons-right").on('click', 'button', function() {
         console.log($(this).attr("id"));
         switch($(this).attr("id")) {
-            case "emprshp":
-                
+            case "emPrShp":
+                $("#modalPrintShop").modal("show");
                 break;
             case "dwld":
                 

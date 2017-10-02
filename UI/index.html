@@ -15,60 +15,66 @@
 	<title></title>
 </head>
 <body>
-				  <!--Email PrintShop Modal Start-->
-					<div class="modal fade" id="modalPrintShop" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-					  <div class="modal-dialog modal-lg">
-					      <div class="modal-content">
-					        <div class="modal-header">
-					          <button type="button" class="close" data-dismiss="modal">&times;</button>
-					          <h4 class="modal-title">Email Print Shop</h4>
-					        </div>
-					        <div class="modal-body text-center">
-				        		<select class="selectpicker">
-								  <option selected>Open this select menu</option>
-								  <option value="1">One</option>
-								  <option value="2">Two</option>
-								  <option value="3">Three</option>
-								</select>
-					          	<div class="modal-stds">
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
-					          	</div>
-					          	<div class="modal-stds-btns">
-					          		<button type='button' id='ckin' class='btn btn-primary'>Select Checked-in</button>
-					          		<button type='button' id='slcall' class='btn btn-primary'>Select All</button>
-					          		<button type='button' id='clrall' class='btn btn-primary'>Clear All</button>
-					          	</div>
-					        </div>
-					        <div class="modal-footer">
-					          <button type="button" id="email-pri-course" class="btn btn-default" data-dismiss="modal">Next</button>
-					        </div>
-					      </div>
-					  </div>
-					</div>
-				  <!--Email PrintShop Modal Start-->
+	<!--Email PrintShop Modal Start-->
+	<div class="modal fade" id="modalPrintShop" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">Email Print Shop</h4>
+	        </div>
+	        <div class="modal-body text-center">
+	        	<div class="form-group">
+	        		<div class="col-xs-2"></div>
+	        		<div class="col-xs-8">
+						<select class="form-control course-select" id="course">
+							<option selected>Open this select menu</option>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+						</select>
+							          	<div class="modal-stds">
+	          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
+	          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
+	          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
+	          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
+	          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
+	          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
+	          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
+	          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
+	          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
+	          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
+	          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
+	          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
+	          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
+	          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
+	          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
+	          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
+	          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
+	          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
+	          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
+	          		<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>
+	          	</div>
+	        		</div>
+
+	        	</div>
+
+
+	          	<hr style="width: 60%">
+	          	<div class="modal-stds-btns">
+	          		<button type='button' id='ckin' class='btn btn-primary'>Select Checked-in</button>
+	          		<button type='button' id='slcall' class='btn btn-primary'>Select All</button>
+	          		<button type='button' id='clrall' class='btn btn-primary'>Clear All</button>
+	          	</div>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" id="email-pri-course" class="btn btn-default" data-dismiss="modal">Next</button>
+	        </div>
+	      </div>
+	  </div>
+	</div>
+	<!--Email PrintShop Modal Start-->
 	<!--navigation bar start-->
 	<!--main navigation bar start-->
 	<nav class="navbar navbar-default navbar-fixed-top non-margin-nav">

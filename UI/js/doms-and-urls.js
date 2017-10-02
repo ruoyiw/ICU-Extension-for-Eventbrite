@@ -15,7 +15,7 @@ var btnSaveTem = "<button type='button' id='savetem' class='btn btn-primary btn-
 DOMS for Certificates
 */
 var btnDwld = "<button id='dwld' type='button' class='btn btn-success'>Download ❯</button>";
-var btnEmPrShp = "<button id='emPrShp' data-toggle='modal' data-target='#modalPrintShop' type='button' class='btn btn-success'>Email Print Shop ❯</button>";
+var btnEmPrShp = "<button id='emPrShp' type='button' class='btn btn-success'>Email Print Shop ❯</button>";
 var btnEmStd = "<button id='emrStd' type='button' class='btn btn-success'>Email Students ❯</button>";
 
 /*
@@ -25,6 +25,11 @@ var stdName ="<div class='checkbox'><label><input class = 'stdName' type='checkb
 var btnSlcChkIn = "<button type='button' id='ckin' class='btn btn-primary btn-block'>Select Checked-in</button>"
 var btnSlcAll = "<button type='button' id='slcall' class='btn btn-primary btn-block'>Select All</button>"
 var btnClrAll = "<button type='button' id='clrall' class='btn btn-primary btn-block'>Clear All</button>"
+
+/*
+DOMS for Courses
+*/
+var selectCourse = "<option value='%value%'>%data%</option>";
 
 /*
 DOMS for Email
@@ -43,7 +48,7 @@ var rootURL = "http://frank.mzalive.org/service/icu-service/webapi/mail";
 var eBrootURL = "https://www.eventbriteapi.com/v3";
 var eventURL = "/users/me/owned_events/";
 var personalToken = "LIUPZKLIB7TPRNAGZHV6";
-//The URLS for authentication (use them carefully for securty issues)
+//The URLS for authentication (may be deleted for the security issues)
 var clientKey = "2W2AGMHUMCBQTNXAU25TKHR3CXOISJ7WSPSW4NDPK5LIJZF4UI";
 var authURL = "https://www.eventbrite.com/oauth/authorize?response_type=token&client_id=" + clientKey;
 var appKey = "7R5NTZ4MIZEGS6KVT4";
