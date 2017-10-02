@@ -2,7 +2,7 @@
 
 $( document ).ready(function() {
     //Hide svg Canvas
-    $("#svgEditor").hide();
+    $(".svg-editor-container").hide();
 
     //authenticate a user, first redirect to a auth url
     // window.location.replace(authURL);
@@ -75,7 +75,7 @@ $( document ).ready(function() {
         showTemFir();
         addActionBar();
         //show the hided svg editor
-        $("#svgEditor").show();
+        $(".svg-editor-container").show();
         //load the first svg in editor
         loadSvg(tem_list[0].name);
         addFooterBtn();
