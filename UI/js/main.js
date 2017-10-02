@@ -61,7 +61,8 @@ $( document ).ready(function() {
                 showCourses();
                 break;
             case "dwld":
-                
+                $("#modalPrintShop").modal("show");
+                showCourses();
                 break;
         }
     });

@@ -29,7 +29,7 @@ var btnClrAll = "<button type='button' id='clrall' class='btn btn-primary btn-bl
 /*
 DOMS for Courses
 */
-var selectCourse = "<option value='%value%'>%data%</option>";
+var selectCourse = "<option value='%value%'>%data%&emsp;&emsp;%time%</option>";
 
 /*
 DOMS for Email

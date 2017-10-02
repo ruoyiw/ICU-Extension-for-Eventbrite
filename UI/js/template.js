@@ -1,6 +1,5 @@
 
 
-
 //Singleton Pattern
 var svgCanvas_singleton = (function () {
     var instance;
@@ -165,7 +164,7 @@ function init_embed() {
 $(function() {
     
     //Add the new template after click "save as"
-    $(".modal-footer").on("click", "button", function() {
+    $(".modal-footer").on("click", "#save-complete", function() {
         addNewTem($("#svg-name").val());
         console.log("save as");
     });
