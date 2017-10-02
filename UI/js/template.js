@@ -1,13 +1,5 @@
 
-//var btnNewTem = "<button type='button' id='newtem' class='btn btn-primary btn-block'>New Template</button>"
-var btnDelTem = "<button type='button' id='deltem' class='btn btn-primary btn-block'>Delete</button>"
-var btnSaveAs = "<button type='button' id='saveas' class='btn btn-primary btn-block' data-toggle='modal' data-target='#save-as'>Save As</button>"
-var btnSaveTem = "<button type='button' id='savetem' class='btn btn-primary btn-block'>Save</button>"
 
-var btnDwld = "<button id='dwld' type='button' class='btn btn-success'>Download ❯</button>";
-var btnEmPrShp = "<button id='emPrShp' data-toggle='modal' data-target='#modalPrintShop' type='button' class='btn btn-success'>Email Print Shop ❯</button>";
-var btnEmStd = "<button id='emrStd' type='button' class='btn btn-success'>Email Students ❯</button>";
-var smImg = "<div class='checkbox'><label class='sid-ck'><input type='checkbox' name='' value=''><img src='images/certi1.png' width='80%' class='img-responsive'></label></div>";
 
 //Singleton Pattern
 var svgCanvas_singleton = (function () {
