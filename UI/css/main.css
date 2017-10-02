@@ -4,7 +4,7 @@ body {
 }
 .svg-editor-container {
     position: relative;
-    padding-bottom: 56.25%;
+    padding-bottom: 78vh;
     padding-top: 35px;
     height: 0;
     overflow: hidden;
@@ -103,7 +103,16 @@ body {
 	
 }
 .main-content {
-	padding: 120px 30px 90px 30px;
+	position: fixed;
+	width: 75%;
+	top: 50px;
+	bottom: 70px;
+	left: 25%;
+	z-index: 1000;
+	border-right: 1px solid #eee;
+	overflow-x: hidden;
+    overflow-y: auto;
+}
 }
 
 .footer {
