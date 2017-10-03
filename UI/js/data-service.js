@@ -15,7 +15,7 @@ $(function() {
     	}
     });
     */
-
+    var events_array = [];
 
 	function Event(id, name, startTime, endTime, attendees) {
 		this.id = id;
@@ -31,23 +31,25 @@ $(function() {
 		this.isCheckIn = isCheckIn;
 	}
 
-    function getAllEvents(callBackFunc) {
-    	var events_array = [];
+    function getAllEvents(callBackFunc, modalId, callBackFun2) {
+    	
 		var jqxhr =	$.get(eBrootURL+eventURL, {"token": personalToken}, function(d) {
 	        //console.log(d.events[1]);
+	        events_array = [];
 	        d.events.forEach(function(event) {
 	        	var attendees_array = [];
-	        	$.get(eBrootURL+"/events/"+event.id + "/attendees/", {"token": personalToken}, function(stds) {  
-	        		
+	        	$.get(eBrootURL+"/events/"+event.id + "/attendees/", {"token": personalToken}, function(stds) {  	        		
 	        		stds.attendees.forEach(function(atte) {
 	        			attendees_array.push(new Attendee(atte.profile.name, atte.profile.email, atte.checked_in));
 	        		});   		
-	        		
-
 	        	});
 	        	events_array.push(new Event(event.id, event.name.text, event.start.local, event.end.local, attendees_array));
 	        });
 
 	        callBackFunc(events_array);
+	        
+	    })
+	    .done(function() {
+	    	callBackFun2(modalId);
 	    });
     }

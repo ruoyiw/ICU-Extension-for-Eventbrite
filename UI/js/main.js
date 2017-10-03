@@ -57,12 +57,10 @@ $( document ).ready(function() {
         console.log($(this).attr("id"));
         switch($(this).attr("id")) {
             case "emPrShp":
-                $("#modalPrintShop").modal("show");
-                showCourses();
+                showCourses("#modalPrintShop");
                 break;
             case "dwld":
-                $("#modalPrintShop").modal("show");
-                showCourses();
+                showCourses("#modalPrintShop");
                 break;
         }
     });
