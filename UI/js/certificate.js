@@ -24,11 +24,6 @@ $(function() {
 show course name in select menu
 */
 function showCourses() {
-	$("#modalPrintShop").on("shown.bs.modal", function() {
 		getAllEvents(displayEventsName);
 		//console.log(courses);
-		
-	});
-
-
 }

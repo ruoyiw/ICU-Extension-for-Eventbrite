@@ -37,13 +37,10 @@ $(function() {
 	        //console.log(d.events[1]);
 	        d.events.forEach(function(event) {
 	        	var attendees_array = [];
-	        	$.get(eBrootURL+"/events/"+event.id + "/attendees/", {"token": personalToken}, function(stds) {  
-	        		
+	        	$.get(eBrootURL+"/events/"+event.id + "/attendees/", {"token": personalToken}, function(stds) {  	        		
 	        		stds.attendees.forEach(function(atte) {
 	        			attendees_array.push(new Attendee(atte.profile.name, atte.profile.email, atte.checked_in));
 	        		});   		
-	        		
-
 	        	});
 	        	events_array.push(new Event(event.id, event.name.text, event.start.local, event.end.local, attendees_array));
 	        });
