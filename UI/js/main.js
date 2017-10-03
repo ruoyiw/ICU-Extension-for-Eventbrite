@@ -21,8 +21,8 @@ $( document ).ready(function() {
                 break;
         }
         
-        console.log($(this).attr("id"));
-        console.log($(this));
+        //console.log($(this).attr("id"));
+        //console.log($(this));
     });
 
     //click drop-menu in sub-nav
@@ -38,7 +38,7 @@ $( document ).ready(function() {
                 checkDel();
                 break;
         }
-        console.log($(this));
+        //console.log($(this));
     });
 
 

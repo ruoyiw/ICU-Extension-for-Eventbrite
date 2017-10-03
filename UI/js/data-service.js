@@ -25,8 +25,8 @@ $(function() {
 		this.attendees = attendees;
 	}
 
-	function Attendee(name, email, isCheckIn) {
-		this.name = name;
+	function Attendee(fullName, email, isCheckIn) {
+		this.fullName = fullName;
 		this.email = email;
 		this.isCheckIn = isCheckIn;
 	}
@@ -45,7 +45,7 @@ $(function() {
 	        	});
 	        	events_array.push(new Event(event.id, event.name.text, event.start.local, event.end.local, attendees_array));
 	        });
-
+	        console.log(events_array);
 	        callBackFunc(events_array);
 	        
 	    })

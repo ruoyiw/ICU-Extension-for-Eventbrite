@@ -150,6 +150,15 @@ body {
 	margin-left: 20px;
 }
 
+.modal-checkin p:first-of-type {
+	padding-top: 10px;
+	margin-bottom: 5px;
+
+}
+.modal-checkin p {
+	margin-bottom: 5px;
+}
+
 
 @media screen and (min-width: 576px) {
 	.ml-sm-auto {
