@@ -71,7 +71,7 @@ $( document ).ready(function() {
         console.log("slcTemp")
         emptyAll();
         showTemFir();
-        addActionBar();
+        addActionBar();      
         //show the hided svg editor
         $(".svg-editor-container").show();
         //load the first svg in editor
@@ -95,10 +95,6 @@ $( document ).ready(function() {
         //newEmail();
 
     }
-
-
-
-
 
 });
 
