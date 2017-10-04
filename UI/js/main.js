@@ -21,8 +21,8 @@ $( document ).ready(function() {
                 break;
         }
         
-        console.log($(this).attr("id"));
-        console.log($(this));
+        //console.log($(this).attr("id"));
+        //console.log($(this));
     });
 
     //click drop-menu in sub-nav
@@ -38,7 +38,7 @@ $( document ).ready(function() {
                 checkDel();
                 break;
         }
-        console.log($(this));
+        //console.log($(this));
     });
 
 
@@ -57,12 +57,10 @@ $( document ).ready(function() {
         console.log($(this).attr("id"));
         switch($(this).attr("id")) {
             case "emPrShp":
-                $("#modalPrintShop").modal("show");
-                showCourses();
+                showCourses("#modalPrintShop");
                 break;
             case "dwld":
-                $("#modalPrintShop").modal("show");
-                showCourses();
+                showCourses("#modalPrintShop");
                 break;
         }
     });
@@ -73,7 +71,7 @@ $( document ).ready(function() {
         console.log("slcTemp")
         emptyAll();
         showTemFir();
-        addActionBar();
+        addActionBar();      
         //show the hided svg editor
         $(".svg-editor-container").show();
         //load the first svg in editor
@@ -97,10 +95,6 @@ $( document ).ready(function() {
         //newEmail();
 
     }
-
-
-
-
 
 });
 
