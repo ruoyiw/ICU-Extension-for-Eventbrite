@@ -1,0 +1,178 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	font-size: 16px;
+}
+.svg-editor-container {
+    position: relative;
+    padding-bottom: 78vh;
+    padding-top: 35px;
+    height: 0;
+    overflow: hidden;
+}
+
+#emailForm {
+	padding-top: 20px;
+	padding-bottom: 50px;
+}
+
+.svg-editor-container iframe {
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.svg-entity {
+	padding-bottom: 20px;
+}
+
+.non-margin-nav {
+	margin-bottom: 0!important;
+}
+
+/*.sub-nav {
+	position: fixed;
+	margin-top: 45px;
+	padding-top: 20px;
+	width: 100%;
+	background-color: white;
+	z-index: 1000;
+}
+
+.sub-nav-left {
+	margin-left: 20px;
+}*/
+
+.active-blue {
+	color: #428bca;
+}
+
+.non-active-blue {
+	color: #5bc0de;
+}
+
+/*.sub-nav-right {
+	margin-top: -33px;
+	margin-right: 20px;
+	float: right;
+	list-style: none;
+}*/
+
+.hori-divider {
+	margin: 0px;
+}
+
+
+.sidebar {
+	width: 25%;
+	position: fixed;
+	top: 50px;
+	bottom: 70px;
+	left: 0;
+	z-index: 1000;
+	border-right: 1px solid #eee;
+	overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.modal-stds {
+	height: calc(100vh - 350px);
+	overflow-y:auto;
+	margin-top: 20px;
+}
+
+.bg-light {
+	background-color: #f8f9fa!important;
+}
+
+.sidebar-form  {
+	height: 70%;
+	overflow:auto;
+}
+
+.side-form-content {
+	padding-left: 30px;
+}
+.sidebar-action {
+	position: fixed;
+    padding: 30px 20px 20px 20px;
+    height: 25%;
+    bottom: 50px;
+    margin-bottom: 0;
+    z-index: 1030;
+    width: 25%;
+}
+
+.sidebar-buttons {
+	
+}
+.main-content {
+	position: fixed;
+	width: 75%;
+	top: 50px;
+	bottom: 70px;
+	left: 25%;
+	z-index: 1000;
+	border-right: 1px solid #eee;
+	overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+.footer {
+	border-top: 1px solid #eee;
+	min-height: 70px;
+    background-color: white;
+}
+
+.footer-fixed {
+	position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    border-width: 1px 0 0;
+	bottom: 15px;
+    margin-bottom: 0;
+    padding-top: 16px;
+}
+
+.footer-buttons-left {
+	float: left;
+	padding-left: 20px;
+}
+
+.footer-buttons-right {
+	float: right;
+	padding-right: 20px;
+}
+
+.footer-buttons-right button {
+	margin-left: 20px;
+}
+
+.modal-checkin p:first-of-type {
+	padding-top: 10px;
+	margin-bottom: 5px;
+
+}
+.modal-checkin p {
+	margin-bottom: 5px;
+}
+
+
+@media screen and (min-width: 576px) {
+	.ml-sm-auto {
+	    margin-left: auto!important;
+	}
+
+}
+
+@media screen and (max-width: 575px) {
+	.d-none {
+		display: none!important;
+	}
+		.d-sm-block {
+	    display: block!important;
+	}
+}
