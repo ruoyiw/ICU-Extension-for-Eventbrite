@@ -8,14 +8,99 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 	<!-- Bootstrap -->
 	<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.css"> -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<!-- Customised CSS -->
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-
-	<title></title>
 </head>
 <body>
+    <!-- Email Part: Select template Modal -->
+    <div class="modal fade" id="attachTemplateModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+      				<button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="templateLabel">Certificate Templates</h4>
+                </div>
+                <div id="email-template-list" class="modal-body" style="padding:40px 50px;">
 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="confirm-template">Select</button>
+                </div>
+            </div>
+        </div>
+    </div>
+	<!--Save as Modal Start-->
+	<div class="modal fade" id="save-as" role="dialog">
+	<div class="modal-dialog modal-sm">
+	  <div class="modal-content">
+	    <div class="modal-header">
+	      <button type="button" class="close" data-dismiss="modal">&times;</button>
+	      <h4 class="modal-title">Template Name</h4>
+	    </div>
+	    <div class="modal-body">
+	      <div class="form-group">
+			  <input type="text" class="form-control input-sm" id="svg-name" placeholder="please input your template name">
+		  </div>
+	    </div>
+	    <div class="modal-footer">
+	      <button type="button" id="save-complete" class="btn btn-default" data-dismiss="modal">Save as a new Template</button>
+	    </div>
+	  </div>
+	</div>
+	</div>
+	<!--Save as Modal End-->
+	<!--Email PrintShop Modal Start-->
+	<div class="modal fade" id="modalPrintShop" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-lg">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	          <h4 class="modal-title">Email Print Shop 	        			
+	  			<i class="fa fa-spinner fa-spin"></i>
+	  			<span class="sr-only">Loading...</span>
+			  </h4>
+	        </div>
+	        <div class="modal-body text-center">
+	        	<div class="container-fluid">
+		        	<div class="row">
+			        	<div class="form-group">
+			        		<div class="col-xs-2"></div>
+			        		<div class="col-xs-8">
+								<select class="form-control course-select" id="course">
+									<option selected id="select-course-instruction">Please Select Course</option>
+								</select>
+			        		</div>
+			        	</div>
+		        	</div>
+		        	<div class="row">
+		        		<div class="col-xs-4"></div>
+		        		<div class="col-xs-7 text-left">
+		        			<div class="modal-stds">
+		        				<strong class="text-center">No students to show</strong>
+		        				<div class="modal-names"></div>
+		        			</div>
+		        		</div>	        		
+		        	</div>
+				</div>
+
+
+	          	<hr style="width: 60%">
+	          	<div class="modal-stds-btns">
+	          		<button type='button' id='ckin' class='btn btn-primary'>Select Checked-in</button>
+	          		<button type='button' id='slcall' class='btn btn-primary'>Select All</button>
+	          		<button type='button' id='clrall' class='btn btn-primary'>Clear All</button>
+	          	</div>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" id="email-pri-course" class="btn btn-default" data-dismiss="modal">Next</button>
+	        </div>
+	      </div>
+	  </div>
+	</div>
+	<!--Email PrintShop Modal Start-->
 	<!--navigation bar start-->
 	<!--main navigation bar start-->
 	<nav class="navbar navbar-default navbar-fixed-top non-margin-nav">
@@ -24,7 +109,7 @@
 				<a class="navbar-brand" href="#">Home</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li id="certi"><a href="#">Certificates</a></li>
+				<li id="certi"><a href="#">Print Certificates</a></li>
 				<!-- <li id="manage-tem"><a href="#">Manage Templates</a></li> -->
 				<li class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown" href="#">Email to Students<span class="caret"></span></a>
@@ -79,28 +164,10 @@
 			<!--main content start-->
 			<main class="col-sm-9 col-md-9 d-none ml-sm-auto main-content">
 				<!--Main content such as template/email content is here-->
-				<iframe src='svg-editor/index.html' width='900px' height='600px' id='svgEditor' onload='init_embed();'></iframe>
+				<div class="svg-editor-container">
+					<iframe src='svg-editor/index.html' id='svgEditor' onload='init_embed();'></iframe>
+				</div>
 				<div id='email'></div>
-
-				  <!-- Modal -->
-				  <div class="modal fade" id="save-as" role="dialog">
-				    <div class="modal-dialog modal-sm">
-				      <div class="modal-content">
-				        <div class="modal-header">
-				          <button type="button" class="close" data-dismiss="modal">&times;</button>
-				          <h4 class="modal-title">Template Name</h4>
-				        </div>
-				        <div class="modal-body">
-				          <div class="form-group">
-							  <input type="text" class="form-control input-sm" id="svg-name" placeholder="please input your template name">
-						  </div>
-				        </div>
-				        <div id = "certi-list-footer" class="modal-footer">
-				          <button type="button" id="save-complete" class="btn btn-default" data-dismiss="modal">Save as a new Template</button>
-				        </div>
-				      </div>
-				    </div>
-				  </div>
 			</main>
 
 			<!--main content end-->
@@ -127,9 +194,11 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<!-- <script src="js/bootstrap.js"></script> -->
 	<script src="svg-editor/src/embedapi.js"></script>
+	<script src="js/doms-and-urls.js"></script>>
+	<script src="js/data-service.js"></script>
 	<script src="js/common.js"></script>
 	<script src="js/template.js"></script>
-
+	<script src="js/certificate.js"></script>>
 	<script src="js/main.js"></script>
 </body>
 </html>
