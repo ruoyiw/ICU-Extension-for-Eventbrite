@@ -5,8 +5,8 @@ $(function() {
 
 	//show students name for different courses according to index of course array
 	function showStdNames() {		
-		$(".modal-names").empty();
-		$(".modal-stds").find("strong").text("No students to show");
+		removeStdList();
+
 		var index = $(this).find("option:selected").index();
 		var students = getStdsByIndex(index-1);
 		if(students.length>0) {
@@ -17,10 +17,7 @@ $(function() {
 				$(".modal-names").append(formattedStd);
 			});	
 		}
-
-	
-	}
-
+	} 
 	 
 	function getStdsByIndex(i) {
 		if(i>=0) {
@@ -55,6 +52,12 @@ function hideThenShowModal(modalId){
 function showModal(modalId){
 	$(modalId).find(".modal-title").children().hide();
 	$(modalId).find(".modal-body").show();
+	removeStdList();
+}
+
+function removeStdList() {
+	$(".modal-names").empty();
+	$(".modal-stds").find("strong").text("No students to show");		
 }
 
 /*
