@@ -77,7 +77,7 @@ $(".sidebar-buttons").on('click', '#ckin', function() {
         if (email.checkedin) {
             $.each($('.stdName'), function(i){
                 if(emailArray.indexOf(email) == i) {
-                    $(this).prop('checked',true);
+                    $('.stdName').eq(i).prop('checked',true);
                 }
             });
             selectedEmail.push(email.emailAddr);
