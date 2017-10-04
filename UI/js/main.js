@@ -1,10 +1,10 @@
-//The root URL for the RESTful services
-var rootURL = "http://frank.mzalive.org/service/icu-service/webapi/mail";
-
 
 $( document ).ready(function() {
     //Hide svg Canvas
-    $("#svgEditor").hide();
+    $(".svg-editor-container").hide();
+
+    //authenticate a user, first redirect to a auth url
+    // window.location.replace(authURL);
 
     //click sub-nav
     $(".nav li").click(function() {
@@ -20,8 +20,8 @@ $( document ).ready(function() {
                 break;
         }
         
-        console.log($(this).attr("id"));
-        console.log($(this));
+        //console.log($(this).attr("id"));
+        //console.log($(this));
     });
 
     //click drop-menu in sub-nav
@@ -37,7 +37,7 @@ $( document ).ready(function() {
                 checkDel();
                 break;
         }
-        console.log($(this));
+        //console.log($(this));
     });
 
 
@@ -55,15 +55,14 @@ $( document ).ready(function() {
     $(".footer-buttons-right").on('click', 'button', function() {
         console.log($(this).attr("id"));
         switch($(this).attr("id")) {
-            case "emprshp":
-                
+            case "emPrShp":
+                showCourses("#modalPrintShop");
                 break;
             case "dwld":
-                
+                showCourses("#modalPrintShop");
                 break;
         }
     });
-
 
     function slcTemp() {
         //Reusable: Empty all elements in sub navigation bar, middle part and footer
@@ -72,29 +71,30 @@ $( document ).ready(function() {
         showTemFir(".side-form-content");
         addActionBar();
         //show the hided svg editor
-        $("#svgEditor").show();
+        $(".svg-editor-container").show();
         //load the first svg in editor
         loadSvg(tem_list[0].name);
         addFooterBtn();
     }
 
+
     function createEmail() {
         //Reusable: Empty all elements in sub navigation bar, middle part and footer
         emptyAll();
-        $("#email").load("embedEmail.html", function (response, status, xhr) {
-
-            if (status == "error") {
+        $("#email").load("embedEmail.html", function(response, status, xhr) {
+            
+            if ( status == "error" ) {
                 var msg = "Sorry but there was an error: ";
-                console.log(msg + xhr.status + " " + xhr.statusText);
+                console.log( msg + xhr.status + " " + xhr.statusText );
             } else {
                 slcRecipients();
             }
         });
+        
+        //newEmail();
+
     }
 
 });
-
-
-
 
 

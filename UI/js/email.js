@@ -1,17 +1,4 @@
-//DOM
-var stdName ="<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>";
 
-var btnSlcChkIn = "<button type='button' id='ckin' class='btn btn-primary btn-block'>Select Checked-in</button>"
-var btnSlcAll = "<button type='button' id='slcall' class='btn btn-primary btn-block'>Select All</button>"
-var btnClrAll = "<button type='button' id='clrall' class='btn btn-primary btn-block'>Clear All</button>"
-
-var btnNext = "<button id='next' type='button' class='btn btn-success'>Next ❯</button>";
-var btnCancel = "<button id='cancle' type='button' class='btn btn-default'>Cancel ❯</button>";
-
-var subNewEmail = "<li><a href='#'>New Email »</a></li>";
-var btnSave = "<button id='sendSave' type='submit' class='btn btn-success' name='submit'>Save </button>";
-var btnSend = "<button id='sendEmail' type='submit' class='btn btn-success' name='submit'>Send </button>";
-var btnBck = "<button id='bck' type='button' class='btn btn-default'>❮ Back</button>";
 var selectedEmail = [];
 
 var emailArray = [
@@ -60,7 +47,7 @@ $(".stdName").click(function() {
 
 });
 
-$("#slcall").click( function() {
+$(".sidebar-buttons").on("click", "#slcall", function() {
     $('.stdName').prop('checked',true);
     selectedEmail = [];
     $('#emailTo').val("");
@@ -75,13 +62,13 @@ $("#slcall").click( function() {
         }
     });
 });
-$("#clrall").click( function() {
+$(".sidebar-buttons").on('click',"#clrall", function() {
     $('.stdName').prop('checked',false);
     selectedEmail = [];
     $('#emailTo').val(selectedEmail);
 });
 
-$("#ckin").click( function() {
+$(".sidebar-buttons").on('click', '#ckin', function() {
     selectedEmail = [];
     $('#emailTo').val("");
     $('.stdName').prop('checked',false);
@@ -292,16 +279,5 @@ $("#ckin").click( function() {
 
     });
 });
-
-
-
-
-
-
-
-
-
-
-
 
 
