@@ -1,6 +1,0 @@
-TO DO LIST for UI
-
-	search bar for students list
-	delete save button
-	canvas html5 jquery javascript library D3
-	
