@@ -8,11 +8,12 @@ $(function() {
 		removeStdList();
 
 		var index = $(this).find("option:selected").index();
-		var students = getStdsByIndex(index-1);
+		let i = (events_array.length)-index;
+		var students = getStdsByIndex(i);
 		if(students.length>0) {
 			$(".modal-stds").find("strong").text("Please select students");
 			students.forEach(function(std) {
-				var formattedStd1 = stdName.replace("%value%",std.email);
+				var formattedStd1 = stdName.replace("%value%", std.email);
 				var formattedStd = formattedStd1.replace("%data%", std.fullName );
 				$(".modal-names").append(formattedStd);
 			});	
@@ -20,8 +21,9 @@ $(function() {
 	} 
 	 
 	function getStdsByIndex(i) {
-		if(i>=0) {
-			var students = events_array[i].attendees;
+		let students = [];
+		if(i>=0 && i<events_array.length) {
+			students = events_array[i].attendees;
 		}
 		return students;
 	}
