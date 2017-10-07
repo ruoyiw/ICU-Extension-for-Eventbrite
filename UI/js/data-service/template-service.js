@@ -42,11 +42,13 @@ $(function() {
 		}
 	}
 
-	function getAllTemplatesByUid(uid, loc, callBack, callBack2, ...callBacks) {
+	function getAllTemplatesByUid(uid, loc, callBack, callBack2, callBack3, callBack4, i, ...callBacks) {
 		$.getJSON(`${baseTemURL}get`, {"uid": uid})
 		.done(function(data) {
 			callBack(data);
 			callBack2(loc);
+			callBack3();
+			callBack4(i);
 			if(callBacks.length>0) {
 				for(callBack of callBacks) {
 					callBack();
@@ -57,6 +59,29 @@ $(function() {
 			//TODO: display error msg in page
 			alert("error");
 		});
+	}
+
+	function addATemplate(uid, name, content) {
+		$.post(
+			`${baseTemURL}add`, 
+			{
+				"tid": -1,
+				"uid": uid,
+				"name": name, 
+				"content": content
+			 },
+			 function(data) {
+			 	if(data.response==="success") {
+			 		tem_list.push({"uid": uid, "name": name, "tid": data.tid, "content": content});
+
+		            addTemToBar(tem_list.length-1, ".side-form-content");
+
+		            loadSvg(tem_list[tem_list.length-1].name);
+
+		            selCheckBox(tem_list.length-1);
+			 	}
+			 },
+			 "json");
 	}
 
 	// function getAllTemplatesByUid(uid) {

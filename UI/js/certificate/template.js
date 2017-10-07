@@ -62,14 +62,16 @@ function init_embed() {
 }
 
 //Load Svg according its name
-function loadSvg(name) {
+function loadSvg(tid) {
     var svg_content = null;
     for(i in tem_list) {
-        if(tem_list[i].name === name) {
+        //alert(typeof tid);
+        if(tem_list[i].tid === parseInt(tid)) {
             svg_content = tem_list[i].content;
             break;
         }
     }
+    //alert(svg_content);
     svgCanvas_singleton.getInstance().setSvgString(svg_content)(function (d, e) {
         console.log("load successfully: "+d, e);
     });
@@ -79,7 +81,7 @@ function loadSvg(name) {
 //render one template in template list according to its index
 
     function renderATem(i, loc) {
-        $(loc).find("input").eq(i).attr("id", tem_list[i].name);
+        $(loc).find("input").eq(i).attr("id", tem_list[i].tid);
         var svg = $(loc).find("svg").eq(i);
         //console.log(svg);
         $(loc).find("svg").eq(i).attr({
@@ -106,25 +108,22 @@ function showSvgEditor() {
     //show the hided svg editor
     $(".svg-editor-container").show();
     //load the first svg in editor
-    loadSvg(tem_list[0].name);
+    loadSvg(tem_list[0].tid);
 }
 
-function renderTemList(loc) {
+function renderTemList(uid, loc) {
     //console.log(tem_list);
-    getAllTemplatesByUid(1, loc, encapTem, addTemsToBar, showSvgEditor);
-
+    getAllTemplatesByUid(uid, loc, encapTem, addTemsToBar, showSvgEditor, selCheckBox, 0);
+    //check the first svg
+    //$(loc).find("input").first().prop("checked", true);
 }
 
 
-/*
-TO DO: GET TEMPLATES FROM SERVER
-*/
 //show template list on the left side of the bar
 
-function displayTems(loc) {
-    renderTemList(loc);
-    //check the first svg
-    $(loc).find("input").first().prop("checked", true);
+function displayTems(uid, loc) {
+    renderTemList(uid, loc);
+
 }
 
 function addFooterBtn() {
@@ -136,29 +135,21 @@ function addActionBar() {
     $(".sidebar-buttons").append(btnSaveTem, btnSaveAs, btnDelTem);
 }
 
-function addNewTem(svg_name) {
+function addNewTem(uid,svg_name) {
     //get new templat object 
-    svgCanvas_singleton.getInstance().getSvgString()(function handleSvgData(d, e) {
+    svgCanvas_singleton.getInstance().getSvgString()(function handleSvgData(content, e) {
         if (e) {
             console.log('error ' + e);
         }
         else {
             //console.log("get svg content successfully"+d);
-            console.log('The exported SVG string:\n\n' + d);    
-            tem_list.push({"name": svg_name, "content": d});    
+            console.log('The exported SVG string:\n\n' + content);    
 
-            //render new template on left bar
-            addTemToBar(tem_list.length-1, ".side-form-content");
-
-            loadSvg(tem_list[tem_list.length-1].name);
-
-            selCheckBox(tem_list.length-1);
-            
+            addATemplate(uid, svg_name, content);           
 
         }
     }); 
 }
-
 
 
 
@@ -176,7 +167,7 @@ function modifyTem(i) {
             renderATem(i, ".side-form-content");
 
             selCheckBox(i);
-            loadSvg(tem_list[i].name);
+            loadSvg(tem_list[i].tid);
         }
     }); 
 
@@ -186,7 +177,7 @@ function deleteTemFromBar(i) {
     if(tem_list.length>=1) {
         $(".side-form-content").find(".svg-entity").eq(i).remove();
         selCheckBox(0);
-        loadSvg(tem_list[0].name);
+        loadSvg(tem_list[0].tid);
 
 
     }else{
@@ -212,7 +203,7 @@ $(function() {
     
     //Add the new template after click "save as"
     $(".modal-footer").on("click", "#save-complete", function() {
-        addNewTem($("#svg-name").val());
+        addNewTem(1, $("#svg-name").val());
         console.log("save as");
     });
 
