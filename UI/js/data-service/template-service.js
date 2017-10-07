@@ -84,6 +84,31 @@ $(function() {
 			 "json");
 	}
 
+	function modifyTemplate(uid, tid, name, content) {
+		$.post(
+			`${baseTemURL}add`, 
+			{
+				"tid": tid,
+				"uid": uid,
+				"name": name, 
+				"content": content
+			 },
+			 function(data) {
+			 	if(data.response==="success") {
+			 		alert(data.tid);
+
+	            $(".side-form-content").find(".svg-entity").eq(i).empty();
+	            $(".side-form-content").find(".svg-entity").eq(i).append("<label><p class='svg-name'>"+ tem_list[i].name +"</p><input type='radio' name='optradio'>"+tem_list[i].content+"</label>");
+	            
+	            renderATem(i, ".side-form-content");
+
+	            selCheckBox(i);
+	            loadSvg(tem_list[i].tid);
+			 	}
+			 },
+			 "json");		
+	}
+
 	// function getAllTemplatesByUid(uid) {
 	// 	$.getJSON(`${baseTemURL}get`, {"uid": uid, "callback": "encapTem"}, encapTem);
 	// }

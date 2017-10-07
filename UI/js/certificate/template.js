@@ -153,7 +153,7 @@ function addNewTem(uid,svg_name) {
 
 
 
-function modifyTem(i) {
+function modifyTem(uid, i) {
     svgCanvas_singleton.getInstance().getSvgString()(function handleSvgData(d, e) {
         if (e) {
             console.log('error ' + e);
@@ -161,13 +161,8 @@ function modifyTem(i) {
         else {
             //console.log('The exported SVG string:\n\n' + d);    
             tem_list[i].content = d;  
-            $(".side-form-content").find(".svg-entity").eq(i).empty();
-            $(".side-form-content").find(".svg-entity").eq(i).append("<label><p class='svg-name'>"+ tem_list[i].name +"</p><input type='radio' name='optradio'>"+tem_list[i].content+"</label>");
-            
-            renderATem(i, ".side-form-content");
 
-            selCheckBox(i);
-            loadSvg(tem_list[i].tid);
+            modifyTemplate(uid, tem_list[i].tid, tem_list[i].name, d);
         }
     }); 
 
@@ -212,7 +207,7 @@ $(function() {
         //console.log("click save button");
         $(".side-form-content input").each(function(index, inputEle) {
             if(inputEle.checked) {
-                modifyTem(index);
+                modifyTem(1, index);
                 console.log("save");
             }
         });
