@@ -34,7 +34,7 @@ $(function() {
 					//console.log(temp);
 				}
 			}
-			
+			console.log(tem_list);
 		}else{
 			//TODO: display error msg in page
 			console.log("something wrong");
@@ -42,18 +42,36 @@ $(function() {
 		}
 	}
 
-	function getAllTemplatesByUid(uid, loc, callBack, callBack2, callBack3, callBack4, i, ...callBacks) {
+	function getAllTemplatesCerti(uid, loc, callBack, callBack2, callBack3, i, ...callBacks) {
 		$.getJSON(`${baseTemURL}get`, {"uid": uid})
 		.done(function(data) {
 			callBack(data);
 			callBack2(loc);
-			callBack3();
-			callBack4(i);
+			callBack3(i);
 			if(callBacks.length>0) {
 				for(callBack of callBacks) {
 					callBack();
 				}
 			}
+		})
+		.fail(function() {
+			//TODO: display error msg in page
+			alert("error");
+		});
+	}
+
+	function getAllTemplatesEmail(uid, loc, callBack1, callBack2, callBack3, i, ...callBacks) {
+		$.getJSON(`${baseTemURL}get`, {"uid": uid})
+		.done(function(data) {
+			if(callBacks.length>0) {
+				for(callBack of callBacks) {
+					callBack();
+				}
+			}
+			callBack1(data);
+			callBack2(loc);
+			callBack3(i);
+
 		})
 		.fail(function() {
 			//TODO: display error msg in page

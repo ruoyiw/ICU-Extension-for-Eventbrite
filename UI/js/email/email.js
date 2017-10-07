@@ -261,11 +261,17 @@ $(".sidebar-buttons").on('click', '#ckin', function() {
         console.log(e);
     }
 
-
-
-    $('#attachTemplateModal').on('show.bs.modal', function () {
+    function emptyTemListEmail () {
         $('#email-template-list').empty();
-        renderTemList("#email-template-list");
+    }
+
+    function renderTemListEmail(uid, loc) {
+        getAllTemplatesEmail(uid, loc, encapTem, addTemsToBar, selCheckBox, 0, emptyTemListEmail);
+    }
+    
+    $('#attachTemplateModal').on('show.bs.modal', function () {
+        
+        renderTemListEmail(1, "#email-template-list");
     });
 
     $("#confirm-template").click(function(){

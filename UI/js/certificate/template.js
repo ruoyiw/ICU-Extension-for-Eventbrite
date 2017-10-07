@@ -83,7 +83,7 @@ function loadSvg(tid) {
     function renderATem(i, loc) {
         $(loc).find("input").eq(i).attr("id", tem_list[i].tid);
         var svg = $(loc).find("svg").eq(i);
-        //console.log(svg);
+        console.log(svg.attr("width"));
         $(loc).find("svg").eq(i).attr({
             "viewBox": "0 0 "+ svg.attr("width") +" "+ svg.attr("height"),
             "preserveAspectRatio": "xMidYMid meet",
@@ -113,7 +113,7 @@ function showSvgEditor() {
 
 function renderTemList(uid, loc) {
     //console.log(tem_list);
-    getAllTemplatesByUid(uid, loc, encapTem, addTemsToBar, showSvgEditor, selCheckBox, 0);
+    getAllTemplatesCerti(uid, loc, encapTem, addTemsToBar, selCheckBox, 0, showSvgEditor);
     //check the first svg
     //$(loc).find("input").first().prop("checked", true);
 }
