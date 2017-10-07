@@ -99,19 +99,6 @@ function addTemToBar(i, loc) {
 }
 
 
-function deleteTemFromBar(i) {       
-    if(tem_list.length>=1) {
-        $(".side-form-content").find(".svg-entity").eq(i).remove();
-        loadSvg(tem_list[0].name);
-        $(".side-form-content").find("input").first().attr(
-            "checked","checked"
-        );
-
-    }else{
-        alert("There should be at least one template.");
-    }
-}
-
 function renderTemList(loc) {
     console.log(tem_list);
     //render svg lists in left bar
@@ -129,9 +116,7 @@ TO DO: GET TEMPLATES FROM SERVER
 function showTemFir(loc) {
     renderTemList(loc);
     //check the first svg
-    $(loc).find("input").first().attr(
-        "checked","checked"
-    );
+    $(loc).find("input").first().prop("checked", true);
 }
 
 function addFooterBtn() {
@@ -159,9 +144,7 @@ function addNewTem(svg_name) {
 
             loadSvg(tem_list[tem_list.length-1].name);
 
-            $(".side-form-content").find("input").eq(tem_list.length-1).attr(
-                "checked","checked"
-            );
+            selCheckBox(tem_list.length-1);
             
 
         }
@@ -184,19 +167,35 @@ function modifyTem(i) {
             
             renderATem(i, ".side-form-content");
 
-            $(".side-form-content").find("input").eq(i).attr(
-                "checked","checked"
-            );
+            selCheckBox(i);
             loadSvg(tem_list[i].name);
         }
     }); 
 
 }
 
+function deleteTemFromBar(i) {       
+    if(tem_list.length>=1) {
+        $(".side-form-content").find(".svg-entity").eq(i).remove();
+        selCheckBox(0);
+        loadSvg(tem_list[0].name);
+
+
+    }else{
+        alert("There should be at least one template.");
+    }
+}
 
 function deleteTem(i) {
     tem_list.splice(i,1);
     deleteTemFromBar(i);
+
+}
+
+function selCheckBox(index) {
+    $(".side-form-content").find("input").eq(index).prop(
+        "checked",true
+    );  
 }
 
 
