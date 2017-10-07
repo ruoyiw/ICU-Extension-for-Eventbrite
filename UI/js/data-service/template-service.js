@@ -76,7 +76,7 @@ $(function() {
 
 		            addTemToBar(tem_list.length-1, ".side-form-content");
 
-		            loadSvg(tem_list[tem_list.length-1].name);
+		            loadSvg(tem_list[tem_list.length-1].tid);
 
 		            selCheckBox(tem_list.length-1);
 			 	}
@@ -95,18 +95,32 @@ $(function() {
 			 },
 			 function(data) {
 			 	if(data.response==="success") {
-			 		alert(data.tid);
+			 		//alert(data.tid);
+		            $(".side-form-content").find(".svg-entity").eq(i).empty();
+		            $(".side-form-content").find(".svg-entity").eq(i).append("<label><p class='svg-name'>"+ tem_list[i].name +"</p><input type='radio' name='optradio'>"+tem_list[i].content+"</label>");
+		            
+		            renderATem(i, ".side-form-content");
 
-	            $(".side-form-content").find(".svg-entity").eq(i).empty();
-	            $(".side-form-content").find(".svg-entity").eq(i).append("<label><p class='svg-name'>"+ tem_list[i].name +"</p><input type='radio' name='optradio'>"+tem_list[i].content+"</label>");
-	            
-	            renderATem(i, ".side-form-content");
-
-	            selCheckBox(i);
-	            loadSvg(tem_list[i].tid);
+		            selCheckBox(i);
+		            loadSvg(tem_list[i].tid);
 			 	}
 			 },
 			 "json");		
+	}
+
+	function deleteTemByTid(uid, tid) {
+		$.getJSON(`${baseTemURL}remove`, {"uid": uid, "tid": tid})
+		.done(function(data) {
+			if(data.response === "success") {
+				//alert("delete success");
+				tem_list.splice(i,1);
+    			deleteTemFromBar(i);
+			}
+		})
+		.fail(function() {
+			//TODO: display error msg in page
+			alert("error");
+		});
 	}
 
 	// function getAllTemplatesByUid(uid) {

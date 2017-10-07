@@ -180,9 +180,9 @@ function deleteTemFromBar(i) {
     }
 }
 
-function deleteTem(i) {
-    tem_list.splice(i,1);
-    deleteTemFromBar(i);
+function deleteTem(uid, i) {
+    
+    deleteTemByTid(uid, tem_list[i].tid);
 
 }
 
@@ -217,7 +217,7 @@ $(function() {
     $(".sidebar-buttons").on("click", "#deltem", function() {
         $(".side-form-content input").each(function(index, inputEle) {
             if(inputEle.checked) {
-                deleteTem(index);
+                deleteTem(1, index);
                 console.log("delete");
             }
         });
