@@ -54,8 +54,7 @@ var SAMPLE_SVG_STRING1 = '<svg width="580" height="400" xmlns="http://www.w3.org
  '</g>\n'+
 '</svg>'
 //TO DO: In the future, obj will be the json Object fetched through ajax-*9+9
-var tem_list = [{"name": "item_1", "content": SAMPLE_SVG_STRING, /*"id": 12*/}, 
-                {"name": "item_2", "content": SAMPLE_SVG_STRING1},];
+
 
 //Init svg editor
 function init_embed() {
@@ -78,12 +77,11 @@ function loadSvg(name) {
 
 
 //render one template in template list according to its index
-//TO DO: Adjust Height and Width
 
     function renderATem(i, loc) {
         $(loc).find("input").eq(i).attr("id", tem_list[i].name);
         var svg = $(loc).find("svg").eq(i);
-
+        //console.log(svg);
         $(loc).find("svg").eq(i).attr({
             "viewBox": "0 0 "+ svg.attr("width") +" "+ svg.attr("height"),
             "preserveAspectRatio": "xMidYMid meet",
@@ -98,13 +96,23 @@ function addTemToBar(i, loc) {
     renderATem(i, loc);
 }
 
-
-function renderTemList(loc) {
-    console.log(tem_list);
-    //render svg lists in left bar
+function addTemsToBar(loc) {
     for(i in tem_list) {
         addTemToBar(i, loc);
     };
+}
+
+function showSvgEditor() {
+    //show the hided svg editor
+    $(".svg-editor-container").show();
+    //load the first svg in editor
+    loadSvg(tem_list[0].name);
+}
+
+function renderTemList(loc) {
+    //console.log(tem_list);
+    getAllTemplatesByUid(1, loc, encapTem, addTemsToBar, showSvgEditor);
+
 }
 
 
@@ -113,7 +121,7 @@ TO DO: GET TEMPLATES FROM SERVER
 */
 //show template list on the left side of the bar
 
-function showTemFir(loc) {
+function displayTems(loc) {
     renderTemList(loc);
     //check the first svg
     $(loc).find("input").first().prop("checked", true);

@@ -68,12 +68,9 @@ $( document ).ready(function() {
         //Reusable: Empty all elements in sub navigation bar, middle part and footer
         console.log("slcTemp")
         emptyAll();
-        showTemFir(".side-form-content");
+        displayTems(".side-form-content");
         addActionBar();
-        //show the hided svg editor
-        $(".svg-editor-container").show();
-        //load the first svg in editor
-        loadSvg(tem_list[0].name);
+
         addFooterBtn();
     }
 
