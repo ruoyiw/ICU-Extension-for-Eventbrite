@@ -43,7 +43,9 @@ var btnBck = "<button id='bck' type='button' class='btn btn-default'>❮ Back</b
 URLS
 */
 //The root URL for the RESTful services
+//TO DO: CHANGE THE VARIABLE NAME
 var rootURL = "http://frank.mzalive.org/service/icu-service/webapi/mail";
+var baseTemURL = "http://frank.mzalive.org/service/icu-service/webapi/template/";
 //The root URL and its appendix for Eventbrite API
 var eBrootURL = "https://www.eventbriteapi.com/v3";
 var eventURL = "/users/me/owned_events/";

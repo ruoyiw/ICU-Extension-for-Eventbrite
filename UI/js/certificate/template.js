@@ -54,8 +54,7 @@ var SAMPLE_SVG_STRING1 = '<svg width="580" height="400" xmlns="http://www.w3.org
  '</g>\n'+
 '</svg>'
 //TO DO: In the future, obj will be the json Object fetched through ajax-*9+9
-var tem_list = [{"name": "item_1", "content": SAMPLE_SVG_STRING, /*"id": 12*/}, 
-                {"name": "item_2", "content": SAMPLE_SVG_STRING1},];
+
 
 //Init svg editor
 function init_embed() {
@@ -63,14 +62,16 @@ function init_embed() {
 }
 
 //Load Svg according its name
-function loadSvg(name) {
+function loadSvg(tid) {
     var svg_content = null;
     for(i in tem_list) {
-        if(tem_list[i].name === name) {
+        //alert(typeof tid);
+        if(tem_list[i].tid === parseInt(tid)) {
             svg_content = tem_list[i].content;
             break;
         }
     }
+    //alert(svg_content);
     svgCanvas_singleton.getInstance().setSvgString(svg_content)(function (d, e) {
         console.log("load successfully: "+d, e);
     });
@@ -78,12 +79,11 @@ function loadSvg(name) {
 
 
 //render one template in template list according to its index
-//TO DO: Adjust Height and Width
 
     function renderATem(i, loc) {
-        $(loc).find("input").eq(i).attr("id", tem_list[i].name);
+        $(loc).find("input").eq(i).attr("id", tem_list[i].tid);
         var svg = $(loc).find("svg").eq(i);
-
+        console.log(svg.attr("width"));
         $(loc).find("svg").eq(i).attr({
             "viewBox": "0 0 "+ svg.attr("width") +" "+ svg.attr("height"),
             "preserveAspectRatio": "xMidYMid meet",
@@ -98,40 +98,32 @@ function addTemToBar(i, loc) {
     renderATem(i, loc);
 }
 
-
-function deleteTemFromBar(i) {       
-    if(tem_list.length>=1) {
-        $(".side-form-content").find(".svg-entity").eq(i).remove();
-        loadSvg(tem_list[0].name);
-        $(".side-form-content").find("input").first().attr(
-            "checked","checked"
-        );
-
-    }else{
-        alert("There should be at least one template.");
-    }
-}
-
-function renderTemList(loc) {
-    console.log(tem_list);
-    //render svg lists in left bar
+function addTemsToBar(loc) {
     for(i in tem_list) {
         addTemToBar(i, loc);
     };
 }
 
+function showSvgEditor() {
+    //show the hided svg editor
+    $(".svg-editor-container").show();
+    //load the first svg in editor
+    loadSvg(tem_list[0].tid);
+}
 
-/*
-TO DO: GET TEMPLATES FROM SERVER
-*/
+function renderTemList(uid, loc) {
+    //console.log(tem_list);
+    getAllTemplatesCerti(uid, loc, encapTem, addTemsToBar, selCheckBox, 0, showSvgEditor);
+    //check the first svg
+    //$(loc).find("input").first().prop("checked", true);
+}
+
+
 //show template list on the left side of the bar
 
-function showTemFir(loc) {
-    renderTemList(loc);
-    //check the first svg
-    $(loc).find("input").first().attr(
-        "checked","checked"
-    );
+function displayTems(uid, loc) {
+    renderTemList(uid, loc);
+
 }
 
 function addFooterBtn() {
@@ -143,26 +135,17 @@ function addActionBar() {
     $(".sidebar-buttons").append(btnSaveTem, btnSaveAs, btnDelTem);
 }
 
-function addNewTem(svg_name) {
+function addNewTem(uid,svg_name) {
     //get new templat object 
-    svgCanvas_singleton.getInstance().getSvgString()(function handleSvgData(d, e) {
+    svgCanvas_singleton.getInstance().getSvgString()(function handleSvgData(content, e) {
         if (e) {
             console.log('error ' + e);
         }
         else {
             //console.log("get svg content successfully"+d);
-            console.log('The exported SVG string:\n\n' + d);    
-            tem_list.push({"name": svg_name, "content": d});    
+            console.log('The exported SVG string:\n\n' + content);    
 
-            //render new template on left bar
-            addTemToBar(tem_list.length-1, ".side-form-content");
-
-            loadSvg(tem_list[tem_list.length-1].name);
-
-            $(".side-form-content").find("input").eq(tem_list.length-1).attr(
-                "checked","checked"
-            );
-            
+            addATemplate(uid, svg_name, content);           
 
         }
     }); 
@@ -170,8 +153,7 @@ function addNewTem(svg_name) {
 
 
 
-
-function modifyTem(i) {
+function modifyTem(uid, i) {
     svgCanvas_singleton.getInstance().getSvgString()(function handleSvgData(d, e) {
         if (e) {
             console.log('error ' + e);
@@ -179,24 +161,35 @@ function modifyTem(i) {
         else {
             //console.log('The exported SVG string:\n\n' + d);    
             tem_list[i].content = d;  
-            $(".side-form-content").find(".svg-entity").eq(i).empty();
-            $(".side-form-content").find(".svg-entity").eq(i).append("<label><p class='svg-name'>"+ tem_list[i].name +"</p><input type='radio' name='optradio'>"+tem_list[i].content+"</label>");
-            
-            renderATem(i, ".side-form-content");
 
-            $(".side-form-content").find("input").eq(i).attr(
-                "checked","checked"
-            );
-            loadSvg(tem_list[i].name);
+            modifyTemplate(uid, tem_list[i].tid, tem_list[i].name, d);
         }
     }); 
 
 }
 
+function deleteTemFromBar(i) {       
+    if(tem_list.length>=1) {
+        $(".side-form-content").find(".svg-entity").eq(i).remove();
+        selCheckBox(0);
+        loadSvg(tem_list[0].tid);
 
-function deleteTem(i) {
-    tem_list.splice(i,1);
-    deleteTemFromBar(i);
+
+    }else{
+        alert("There should be at least one template.");
+    }
+}
+
+function deleteTem(uid, i) {
+    
+    deleteTemByTid(uid, tem_list[i].tid);
+
+}
+
+function selCheckBox(index) {
+    $(".side-form-content").find("input").eq(index).prop(
+        "checked",true
+    );  
 }
 
 
@@ -205,7 +198,7 @@ $(function() {
     
     //Add the new template after click "save as"
     $(".modal-footer").on("click", "#save-complete", function() {
-        addNewTem($("#svg-name").val());
+        addNewTem(1, $("#svg-name").val());
         console.log("save as");
     });
 
@@ -214,7 +207,7 @@ $(function() {
         //console.log("click save button");
         $(".side-form-content input").each(function(index, inputEle) {
             if(inputEle.checked) {
-                modifyTem(index);
+                modifyTem(1, index);
                 console.log("save");
             }
         });
@@ -224,7 +217,7 @@ $(function() {
     $(".sidebar-buttons").on("click", "#deltem", function() {
         $(".side-form-content input").each(function(index, inputEle) {
             if(inputEle.checked) {
-                deleteTem(index);
+                deleteTem(1, index);
                 console.log("delete");
             }
         });

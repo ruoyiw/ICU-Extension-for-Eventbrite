@@ -46,8 +46,9 @@ $( document ).ready(function() {
         checkBox();
         //Don't move this "if statement" out of this on() function
         if($(this).attr("type")==="radio") {
-            var svg_name = $(this).attr("id");
-            loadSvg(svg_name);
+            var tid = $(this).attr("id");
+            //alert(tid);
+            loadSvg(tid);
         }
     });
 
@@ -68,12 +69,10 @@ $( document ).ready(function() {
         //Reusable: Empty all elements in sub navigation bar, middle part and footer
         console.log("slcTemp")
         emptyAll();
-        showTemFir(".side-form-content");
+
+        displayTems(1, ".side-form-content");
+
         addActionBar();
-        //show the hided svg editor
-        $(".svg-editor-container").show();
-        //load the first svg in editor
-        loadSvg(tem_list[0].name);
         addFooterBtn();
     }
 
