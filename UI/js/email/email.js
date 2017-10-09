@@ -5,17 +5,22 @@ var emailArray = [
     {'name': 'Sankar', 'emailAddr': '1073653692@qq.com', 'checkedin': true},
     {'name': 'Ruoyi Wang', 'emailAddr': 'ruoyiw@student.unimelb.edu.au', 'checkedin': false}];
 
-function displayStdName() {
-    selectedEmail = [];
-    emailArray.forEach(function(email) {
-        var formattedName =  stdName.replace("%data%", email.name);
-        var formattedFinal = formattedName.replace("%value%", email.emailAddr);
-        $(".side-form-content").append(formattedFinal);
-    });
-}
+
+// function displayStdName() {
+//     selectedEmail = [];
+//     emailArray.forEach(function(email) {
+//         var formattedName =  stdName.replace("%data%", email.name);
+//         var formattedFinal = formattedName.replace("%value%", email.emailAddr);
+//         //append select menu
+//         $(".side-form-content").append(formattedFinal);
+//     });
+// }
 
 function slcRecipients() {
-    displayStdName();
+    //getallevents(displaystudents);
+    //displayStdName();
+
+    listCourses(".side-form-content");
     $(".sidebar-buttons").append(btnSlcChkIn, btnSlcAll, btnClrAll);
     $(".footer-buttons-right").append(btnSave,btnSend);
     $(".footer-buttons-left").append(btnBck);
@@ -24,6 +29,82 @@ function slcRecipients() {
     $("#errorCC").hide();
     $("#errorBCC").hide();
 }
+
+$(function() {
+
+    //After course name is selcted, show its students' names
+    $("#email-course").on("change", displayStdNames);
+
+    //show students name for different courses according to index of course array
+    function displayStdNames() {
+        clearStdList();
+
+        var index = $(this).find("option:selected").index();
+        let i = (events_array.length)-index;
+        var students = getStds(i);
+        if(students.length>0) {
+            $(".email-stds").find("strong").text("Please select students");
+            students.forEach(function(std) {
+                var formattedStd1 = stdName.replace("%value%", std.email);
+                var formattedStd = formattedStd1.replace("%data%", std.fullName );
+                $(".email-names").append(formattedStd);
+            });
+        }
+    }
+
+    function getStds(i) {
+        let students = [];
+        if(i>=0 && i<events_array.length) {
+            students = events_array[i].attendees;
+        }
+        return students;
+    }
+
+});
+
+function showEventsName(courses) {
+    if(courses.length>0) {
+        var selCourInstru = $("#email-select-course-instruction");
+        var course = $("#email-course");
+        course.find("option").not("#email-select-course-instruction").remove();
+        courses.forEach(function(course) {
+            var formattedCourse1 = selectCourse.replace("%value%", course.id);
+            var formattedCourse2 = formattedCourse1.replace("%data%", course.name);
+            course.startTime = course.startTime.replace(/T/g, " at ");
+            var formattedCourse = formattedCourse2.replace("%time%", course.startTime);
+            selCourInstru.after(formattedCourse);
+        });
+    }
+}
+
+function hideDiv(){
+
+    $(".side-email-content").hide();
+}
+
+function showDiv(){
+    $("#small-spinner").hide();
+    $(".side-email-content").show();
+    clearStdList();
+}
+
+function clearStdList() {
+    $(".email-names").empty();
+    $(".email-stds").find("strong").text("No students to show");
+}
+
+/*
+show course name in select menu
+*/
+function listCourses(divId) {
+    //May become common methods
+    hideDiv();
+    getAllEvents(showEventsName, divId, showDiv);
+
+}
+
+
+
 
 $(function() {  
 $(".stdName").click(function() {

@@ -24,6 +24,7 @@
     //empty all rendered doms, usually invoked after clicking another navigation button
     function emptyAll() {
         //Middle part
+        $(".sidebar-title").empty();
         $(".side-form-content").empty();
         $(".sidebar-buttons").empty();
         $(".svg-editor-container").hide();

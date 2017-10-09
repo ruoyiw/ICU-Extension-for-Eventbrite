@@ -3,6 +3,12 @@ $( document ).ready(function() {
     //Hide svg Canvas
     $(".svg-editor-container").hide();
 
+    //Hide side bar content
+    // $(".sidebar-title").hide();
+    // $("#email-course").hide();
+    // $(".email-stds").hide();
+
+
     //authenticate a user, first redirect to a auth url
     // window.location.replace(authURL);
 
@@ -79,9 +85,10 @@ $( document ).ready(function() {
 
     function createEmail() {
         //Reusable: Empty all elements in sub navigation bar, middle part and footer
+
         emptyAll();
         $("#email").load("embedEmail.html", function(response, status, xhr) {
-            
+
             if ( status == "error" ) {
                 var msg = "Sorry but there was an error: ";
                 console.log( msg + xhr.status + " " + xhr.statusText );
@@ -89,9 +96,8 @@ $( document ).ready(function() {
                 slcRecipients();
             }
         });
-        
-        //newEmail();
 
+        $(".side-form-content").load("embedStdList.html");
     }
 
 });

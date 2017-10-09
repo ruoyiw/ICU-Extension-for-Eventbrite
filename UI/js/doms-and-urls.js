@@ -29,7 +29,11 @@ var btnClrAll = "<button type='button' id='clrall' class='btn btn-primary btn-bl
 /*
 DOMS for Courses
 */
+//var sideTitle = "<h4>Student List<i class='fa fa-spinner fa-spin'></i><span class='sr-only'>Loading...</span></h4>"
+//var courceMenu = "<select class='form-control course-select' id='email-course'><option selected id='email-select-course-instruction'>Please Select Course</option></select>";
 var selectCourse = "<option value='%value%'>%data%&emsp;&emsp;%time%</option>";
+//var noStd = "<div class='email-stds'><strong class='text-center'>No students to show</strong><div class='email-names'></div></div>";
+
 
 /*
 DOMS for Email
