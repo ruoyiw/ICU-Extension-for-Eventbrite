@@ -1,20 +1,7 @@
 
 var selectedEmail = [];
 
-var emailArray = [
-    {'name': 'Sankar', 'emailAddr': '1073653692@qq.com', 'checkedin': true},
-    {'name': 'Ruoyi Wang', 'emailAddr': 'ruoyiw@student.unimelb.edu.au', 'checkedin': false}];
 
-
-// function displayStdName() {
-//     selectedEmail = [];
-//     emailArray.forEach(function(email) {
-//         var formattedName =  stdName.replace("%data%", email.name);
-//         var formattedFinal = formattedName.replace("%value%", email.emailAddr);
-//         //append select menu
-//         $(".side-form-content").append(formattedFinal);
-//     });
-// }
 
 function slcRecipients() {
     //getallevents(displaystudents);
@@ -35,12 +22,18 @@ $(function() {
     //After course name is selcted, show its students' names
     $("#email-course").on("change", displayStdNames);
 
+    function clearEmailAddr() {
+        selectedEmail = [];
+        $('#emailTo').val("");
+    }
+
     //show students name for different courses according to index of course array
     function displayStdNames() {
+        clearEmailAddr();
         clearStdList();
 
         var index = $(this).find("option:selected").index();
-        let i = (events_array.length)-index;
+        var i = (events_array.length)-index;
         var students = getStds(i);
         if(students.length>0) {
             $(".email-stds").find("strong").text("Please select students");
@@ -53,12 +46,57 @@ $(function() {
     }
 
     function getStds(i) {
-        let students = [];
+        var students = [];
         if(i>=0 && i<events_array.length) {
             students = events_array[i].attendees;
         }
         return students;
     }
+
+    $(".sidebar-buttons").on("click", "#slcall", function() {
+
+        $('.stdName').prop('checked',true);
+        clearEmailAddr();
+
+        $('.stdName').each(function() {
+            selectedEmail.push($(this).val());
+        });
+
+        var emailString = selectedEmail.join(";");
+        $('#emailTo').val(emailString);
+
+        console.log(selectedEmail);
+    });
+
+
+    $(".sidebar-buttons").on('click',"#clrall", function() {
+        $('.stdName').prop('checked',false);
+        clearEmailAddr();
+    });
+
+
+    $(".sidebar-buttons").on('click', '#ckin', function() {
+        clearEmailAddr();
+        $('.stdName').prop('checked',false);
+
+        var index = $("#email-course").find("option:selected").index();
+        var i = (events_array.length)-index;
+        var students = getStds(i);
+
+        students.forEach(function(std) {
+            if (std.isCheckIn) {
+                $.each($('.stdName'), function(i){
+                    if(students.indexOf(std) == i) {
+                        $('.stdName').eq(i).prop('checked',true);
+                    }
+                });
+                selectedEmail.push(std.email);
+            }
+        });
+
+        var emailString = selectedEmail.join(";");
+        $('#emailTo').val(emailString);
+    });
 
 });
 
@@ -105,73 +143,23 @@ function listCourses(divId) {
 
 
 
-
-$(function() {  
-$(".stdName").click(function() {
-    if(this.checked && selectedEmail.length == 0) {
-        selectedEmail.push($(this).val());
-        $('#emailTo').val(selectedEmail);
-    } else if (this.checked && selectedEmail.length > 0) {
-        selectedEmail.push($(this).val());
-        $.each(selectedEmail, function( i, email ){
-            if (i < selectedEmail.length - 1 ) {
-                $('#emailTo').val(email + ";");
-            } else {
-                $('#emailTo').val($('#emailTo').val() + email);
-            }
-        });
-    } else {
-        selectedEmail.splice($.inArray($(this).val(), selectedEmail), 1);
-        $('#emailTo').val(selectedEmail);
-    }
-    console.log(selectedEmail);
-
-});
-
-$(".sidebar-buttons").on("click", "#slcall", function() {
-    $('.stdName').prop('checked',true);
-    selectedEmail = [];
-    $('#emailTo').val("");
-    emailArray.forEach(function(email) {
-        selectedEmail.push(email.emailAddr);
-    });
-    $.each(selectedEmail, function( i, email ){
-        if (i < selectedEmail.length - 1 ) {
-            $('#emailTo').val(email + ";");
+$(function() {
+    $(".email-names").on("click", ".stdName", function() {
+        if(this.checked) {
+            selectedEmail.push($(this).val());
+            var emailString = selectedEmail.join(";");
+            $('#emailTo').val(emailString);
         } else {
-            $('#emailTo').val($('#emailTo').val() + email);
+            selectedEmail.splice($.inArray($(this).val(), selectedEmail), 1);
+            var emailString = selectedEmail.join(";");
+            $('#emailTo').val(emailString);
         }
-    });
-});
-$(".sidebar-buttons").on('click',"#clrall", function() {
-    $('.stdName').prop('checked',false);
-    selectedEmail = [];
-    $('#emailTo').val(selectedEmail);
-});
 
-$(".sidebar-buttons").on('click', '#ckin', function() {
-    selectedEmail = [];
-    $('#emailTo').val("");
-    $('.stdName').prop('checked',false);
+        console.log(selectedEmail);
 
-    emailArray.forEach(function(email) {
-        if (email.checkedin) {
-            $.each($('.stdName'), function(i){
-                if(emailArray.indexOf(email) == i) {
-                    $('.stdName').eq(i).prop('checked',true);
-                }
-            });
-            selectedEmail.push(email.emailAddr);
-        }
     });
-    $.each(selectedEmail, function( i, email ){
-        if (i < selectedEmail.length - 1 ) {
-            $('#emailTo').val(email + ";");
-        } else {
-            $('#emailTo').val($('#emailTo').val() + email);
-        }
-    });
-}); 
+
+
 
     // Variable to store your files
     var files;
