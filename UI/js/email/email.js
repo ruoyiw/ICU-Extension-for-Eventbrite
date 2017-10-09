@@ -347,8 +347,9 @@ $(function() {
         $("#attachTemplateModal").modal("hide");
         $("#email-template-list input").each(function(index, inputEle) {
             if(inputEle.checked) {
-                $("#template-id").text(tem_list[index].name);
-                console.log("template select");
+                $("#template-name").text(tem_list[index].name);
+                var templateId = tem_list[index].tid;
+                console.log(templateId);
             }
         });
 
