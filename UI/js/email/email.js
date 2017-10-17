@@ -38,7 +38,7 @@ $(function() {
         if(students.length>0) {
             $(".email-stds").find("strong").text("Please select students");
             students.forEach(function(std) {
-                var formattedStd1 = stdName.replace("%value%", std.email);
+                var formattedStd1 = stdNameEmail.replace("%value%", std.email);
                 var formattedStd = formattedStd1.replace("%data%", std.fullName );
                 $(".email-names").append(formattedStd);
             });
@@ -55,10 +55,10 @@ $(function() {
 
     $(".sidebar-buttons").on("click", "#slcall", function() {
 
-        $('.stdName').prop('checked',true);
+        $('.stdNameEmail').prop('checked',true);
         clearEmailAddr();
 
-        $('.stdName').each(function() {
+        $('.stdNameEmail').each(function() {
             selectedEmail.push($(this).val());
         });
 
@@ -70,14 +70,14 @@ $(function() {
 
 
     $(".sidebar-buttons").on('click',"#clrall", function() {
-        $('.stdName').prop('checked',false);
+        $('.stdNameEmail').prop('checked',false);
         clearEmailAddr();
     });
 
 
     $(".sidebar-buttons").on('click', '#ckin', function() {
         clearEmailAddr();
-        $('.stdName').prop('checked',false);
+        $('.stdNameEmail').prop('checked',false);
 
         var index = $("#email-course").find("option:selected").index();
         var i = (events_array.length)-index;
@@ -85,9 +85,9 @@ $(function() {
 
         students.forEach(function(std) {
             if (std.isCheckIn) {
-                $.each($('.stdName'), function(i){
+                $.each($('.stdNameEmail'), function(i){
                     if(students.indexOf(std) == i) {
-                        $('.stdName').eq(i).prop('checked',true);
+                        $('.stdNameEmail').eq(i).prop('checked',true);
                     }
                 });
                 selectedEmail.push(std.email);
@@ -144,7 +144,7 @@ function listCourses(divId) {
 
 
 $(function() {
-    $(".email-names").on("click", ".stdName", function() {
+    $(".email-names").on("click", ".stdNameEmail", function() {
         if(this.checked) {
             selectedEmail.push($(this).val());
             var emailString = selectedEmail.join(";");

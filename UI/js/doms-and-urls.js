@@ -22,6 +22,7 @@ var btnEmStd = "<button id='emrStd' type='button' class='btn btn-success'>Email 
 DOMS for students
 */
 var stdName ="<div class='checkbox'><label><input class = 'stdName' type='checkbox' name='' value='%value%'>%data%</label></div>";
+var stdNameEmail ="<div class='checkbox'><label><input class = 'stdNameEmail' type='checkbox' name='' value='%value%'>%data%</label></div>";
 var btnSlcChkIn = "<button type='button' id='ckin' class='btn btn-primary btn-block'>Select Checked-in</button>"
 var btnSlcAll = "<button type='button' id='slcall' class='btn btn-primary btn-block'>Select All</button>"
 var btnClrAll = "<button type='button' id='clrall' class='btn btn-primary btn-block'>Clear All</button>"
