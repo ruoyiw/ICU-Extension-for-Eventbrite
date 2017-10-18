@@ -287,6 +287,8 @@ $(function() {
             }
         });
 
+        $(".side-form-content").load("embedStdList.html");
+
     }
 
     $("#ccTo").blur(function(){
